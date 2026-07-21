@@ -13,9 +13,9 @@ const BlueprintToggle = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="w-10 h-px bg-gold"></div>
-              <h2 className="text-xs md:text-sm font-black tracking-[0.4em] text-gold uppercase">04 // Interactive Schematic</h2>
+              <h2 className="text-xs md:text-sm font-black tracking-[0.4em] text-gold uppercase">04 // Compliance Visualiser</h2>
             </div>
-            <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.85]">Concept To <span className="text-gold">Reality.</span></h3>
+            <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.85]">Manual To <span className="text-gold">Automated.</span></h3>
           </div>
 
           {/* Control Switch */}
@@ -28,7 +28,7 @@ const BlueprintToggle = () => {
                 : 'text-white/40 hover:text-white/70'
               }`}
             >
-              01 // Blueprint
+              01 // Manual Process
             </button>
             <button 
               onClick={() => setView('reality')}
@@ -38,7 +38,7 @@ const BlueprintToggle = () => {
                 : 'text-white/40 hover:text-white/70'
               }`}
             >
-              02 // Reality
+              02 // IronBond Platform
             </button>
           </div>
         </div>
@@ -50,7 +50,7 @@ const BlueprintToggle = () => {
           <div className="absolute inset-0 w-full h-full">
             <img 
               src="/images/blueprint-base.png" 
-              alt="Delivered Structure" 
+              alt="IronBond Automated Platform" 
               className="w-full h-full object-cover"
             />
           </div>
@@ -64,7 +64,7 @@ const BlueprintToggle = () => {
           >
             <img 
               src="/images/blueprint-drawing.png" 
-              alt="Architectural Schematic" 
+              alt="Manual NDIS Compliance Workflow" 
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -97,10 +97,10 @@ const BlueprintToggle = () => {
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse"></div>
             <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-white/50 uppercase text-center md:text-left">
-              // CURRENT VIEW: {view === 'blueprint' ? 'ARCHITECTURAL SCHEMATIC' : 'DELIVERED STRUCTURE'}
+              // CURRENT VIEW: {view === 'blueprint' ? 'MANUAL NDIS WORKFLOW' : 'IRONBOND AUTOMATED PLATFORM'}
             </span>
           </div>
-          <span className="text-[8px] font-mono text-white/20 tracking-widest uppercase">Apex Architecture // Structural Protocol v4.0</span>
+          <span className="text-[8px] font-mono text-white/20 tracking-widest uppercase">IronBond // NDIS Compliance Engine v4.0</span>
         </div>
 
       </div>

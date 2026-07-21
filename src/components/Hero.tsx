@@ -36,8 +36,8 @@ const Hero = () => {
           
           {/* The Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 leading-[1.02] animate-heading-breath">
-            Structural Integrity.<br />
-            <span className="text-gold">Residential Form.</span>
+            NDIS Compliance.<br />
+            <span className="text-gold">Engineered.</span>
           </h1>
 
           {/* The Central Accent Line */}
@@ -45,7 +45,7 @@ const Hero = () => {
 
           {/* The Subtext Paragraph */}
           <p className="text-xl lg:text-2xl font-medium text-white/85 max-w-2xl mx-auto leading-relaxed animate-subtext-breath">
-            Masterworks of modern living. Unparalleled craftsmanship. A seamless architectural journey.
+            Australia's NDIS digital platform specialists. WCAG 2.2 AA compliant. Registration-ready. Automated participant intake — built for allied health, support coordinators, plan managers, and core supports.
           </p>
 
         </div>

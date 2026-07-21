@@ -4,7 +4,7 @@ export interface ProjectMetric {
 }
 
 export interface GalleryItem {
-  type: 'Structural Details' | 'Interior Framing' | 'Final Finishes';
+  type: 'Platform Overview' | 'Dashboard View' | 'Participant Portal';
   image: string;
   description: string;
 }
@@ -24,115 +24,115 @@ export interface CaseStudyData {
 export const projectsData: CaseStudyData[] = [
   {
     id: 'industrial-loft',
-    title: 'Industrial Loft',
-    location: 'Hobart, TAS',
-    scope: '1,200 sqm / Urban Transformation',
+    title: 'Participant Intake Portal',
+    location: 'Allied Health & Support Coordinators',
+    scope: 'WCAG 2.2 AA / Automated Intake',
     heroImage: '/case-studies/industrial-loft/image1.png',
-    overview: 'A restoration of a historic warehouse into a contemporary loft residence. The design balances raw industrial character with refined luxury, featuring original brickwork, steel elements, custom dark cabinetry, and an open mezzanine.',
+    overview: 'A fully accessible, WCAG 2.2 AA compliant participant intake platform built for allied health providers and support coordinators. The portal replaces paper-based referral processes with a smart, consent-driven digital intake system that automatically routes participants to appropriate supports.',
     highlights: [
-      'Preserved original historic brickwork and steel truss systems',
-      'Custom-designed dark metal kitchen cabinetry with integrated lighting',
-      'Monumental steel staircase leading to an open-plan mezzanine'
+      'Fully WCAG 2.2 AA compliant — screen-reader ready, keyboard navigable, ARIA-labelled',
+      'Smart referral routing with automated eligibility screening and support need capture',
+      'Digital consent management integrated with participant privacy rights under the Privacy Act 1988'
     ],
     metrics: [
-      { label: 'Year Completed', value: '2026' },
-      { label: 'Structural System', value: 'Masonry & Steel Frame' },
-      { label: 'Primary Materials', value: 'Exposed Brick, Corrugated Steel, Concrete' },
-      { label: 'Energy Rating', value: 'LEED Gold Certified' },
-      { label: 'Architect in Charge', value: 'Cole' },
-      { label: 'Interior Scale', value: '1,200 sqm' }
+      { label: 'Year Deployed', value: '2026' },
+      { label: 'Compliance Standard', value: 'WCAG 2.2 AA' },
+      { label: 'Tech Stack', value: 'React, Node.js, PostgreSQL' },
+      { label: 'Data Security', value: 'ISO 27001 Aligned' },
+      { label: 'Platform Lead', value: 'IronBond' },
+      { label: 'Admin Time Saved', value: '70% Reduction' }
     ],
     gallery: [
       {
-        type: 'Interior Framing',
+        type: 'Dashboard View',
         image: '/case-studies/industrial-loft/image2.png',
-        description: 'Expansive open-plan living area featuring restored brick walls and a custom steel staircase.'
+        description: 'Provider dashboard showing real-time referral queue, participant status, and intake completion rates.'
       },
       {
-        type: 'Final Finishes',
+        type: 'Participant Portal',
         image: '/case-studies/industrial-loft/image3.png',
-        description: 'Dark-themed industrial kitchen with concrete finishes, black cabinetry, and warm accent lighting.'
+        description: 'Participant-facing intake form with accessibility features — high contrast, large text options, and guided step-by-step navigation.'
       },
       {
-        type: 'Structural Details',
+        type: 'Platform Overview',
         image: '/case-studies/industrial-loft/image1.png',
-        description: 'Exterior view highlighting the contrast between the dark corrugated metal cladding and warm interior glow at dusk.'
+        description: 'Full platform overview showing the compliant intake flow from referral receipt through to confirmed support allocation.'
       }
     ]
   },
   {
     id: 'minimalist-pavilion',
-    title: 'Minimalist Pavilion',
-    location: 'Launceston, TAS',
-    scope: '650 sqm / Residential Sanctuary',
+    title: 'Plan Management Dashboard',
+    location: 'Registered Plan Managers',
+    scope: 'PRODA-Ready / Real-Time Reporting',
     heroImage: '/case-studies/minimalist-pavilion/image1.png',
-    overview: 'A modernist pavilion nestled in a lush forest landscape. Designed as a residential sanctuary, the home utilizes floor-to-ceiling glass panel walls to dissolve the boundary between interior and exterior spaces, centered around a reflective pool.',
+    overview: 'A real-time plan management command centre for NDIS registered plan managers. The platform delivers full budget visibility, automated invoice processing, participant reporting, and direct NDIS portal integration — all from a single PRODA-ready, compliant interface.',
     highlights: [
-      'Floor-to-ceiling glass panel walls providing 360-degree forest views',
-      'Raw concrete structural core offset by a floating plaster roof line',
-      'Reflective swimming pool aligned with the structural geometry'
+      'Real-time NDIS plan budget tracking with category-level spend visibility',
+      'Automated invoice validation and submission to the NDIS portal via API integration',
+      'Participant-facing budget statements with accessible, plain-language reporting'
     ],
     metrics: [
-      { label: 'Year Completed', value: '2026' },
-      { label: 'Structural System', value: 'Concrete & Steel Frame' },
-      { label: 'Primary Materials', value: 'Polished Concrete, Limestone, Floor-to-Ceiling Glass' },
-      { label: 'Energy Rating', value: 'LEED Platinum Certified' },
-      { label: 'Architect in Charge', value: 'Vance & Associates' },
-      { label: 'Interior Scale', value: '650 sqm' }
+      { label: 'Year Deployed', value: '2026' },
+      { label: 'Compliance Standard', value: 'PRODA-Ready' },
+      { label: 'Tech Stack', value: 'Next.js, PostgreSQL, NDIS API' },
+      { label: 'Data Security', value: 'APPs Compliant' },
+      { label: 'Platform Lead', value: 'IronBond' },
+      { label: 'Invoice Processing', value: 'Fully Automated' }
     ],
     gallery: [
       {
-        type: 'Interior Framing',
+        type: 'Dashboard View',
         image: '/case-studies/minimalist-pavilion/image2.png',
-        description: 'Expansive open-plan living lounge with low-profile contemporary sofa looking out onto the garden.'
+        description: 'Plan manager dashboard showing participant portfolio, budget utilisation, and pending invoice queue.'
       },
       {
-        type: 'Final Finishes',
+        type: 'Participant Portal',
         image: '/case-studies/minimalist-pavilion/image3.png',
-        description: 'Minimalist modern kitchen showcasing warm integrated lighting, sleek beige cabinetry, and concrete countertops.'
+        description: 'Participant-accessible budget statement portal with category breakdowns and plain-language spending summaries.'
       },
       {
-        type: 'Structural Details',
+        type: 'Platform Overview',
         image: '/case-studies/minimalist-pavilion/image1.png',
-        description: 'Exterior view of the flat-roofed pavilion at twilight, reflecting beautifully in the integrated swimming pool.'
+        description: 'Full plan management platform overview with NDIS API integration, automated reporting, and real-time budget alerts.'
       }
     ]
   },
   {
     id: 'suburban-elegance',
-    title: 'Suburban Elegance',
-    location: 'Devonport, TAS',
-    scope: '550 sqm / Residential Estate',
+    title: 'Core Supports Scheduling Suite',
+    location: 'Core Support Providers',
+    scope: 'NDIS Registered / Mobile-First',
     heroImage: '/case-studies/suburban-elegance/image1.png',
-    overview: 'A masterfully crafted suburban home designed for modern family living. The residence features expansive open-plan spaces, a seamless transition to the outdoor entertaining deck, and an elegant two-story facade with warm timber accents.',
+    overview: 'A mobile-first scheduling and workforce management suite designed for registered NDIS core support providers. The platform covers rostering, shift management, incident reporting, and progress notes — purpose-built for support workers delivering funded core supports in the community.',
     highlights: [
-      'Expansive open-plan living and kitchen area with natural light',
-      'Covered outdoor entertaining deck with built-in BBQ',
-      'Elegant two-story facade with modern rendered finish'
+      'Mobile-first design for support workers — offline-capable shift notes and incident reports',
+      'Automated rostering with NDIS funding category alignment and availability matching',
+      'Integrated incident reporting mapped to NDIS Quality and Safeguards Commission requirements'
     ],
     metrics: [
-      { label: 'Year Completed', value: '2026' },
-      { label: 'Structural System', value: 'Timber Frame & Brick Veneer' },
-      { label: 'Primary Materials', value: 'Rendered Brick, Timber, Glass' },
-      { label: 'Energy Rating', value: '6-Star Energy Rating' },
-      { label: 'Architect in Charge', value: 'Cole' },
-      { label: 'Interior Scale', value: '550 sqm' }
+      { label: 'Year Deployed', value: '2026' },
+      { label: 'Compliance Standard', value: 'NDIS Practice Standards' },
+      { label: 'Tech Stack', value: 'React Native, REST API' },
+      { label: 'Data Security', value: 'Privacy Act 1988 (CTH)' },
+      { label: 'Platform Lead', value: 'IronBond' },
+      { label: 'Worker App', value: 'iOS & Android' }
     ],
     gallery: [
       {
-        type: 'Interior Framing',
+        type: 'Dashboard View',
         image: '/case-studies/suburban-elegance/image2.png',
-        description: 'Spacious open-plan living area and kitchen bathed in natural light, with a direct view to the pool.'
+        description: 'Operations dashboard showing live roster, shift confirmations, and incident flag alerts for supervisors.'
       },
       {
-        type: 'Final Finishes',
+        type: 'Participant Portal',
         image: '/case-studies/suburban-elegance/image3.png',
-        description: 'Expansive covered outdoor entertaining deck featuring a built-in BBQ and landscaped garden view.'
+        description: 'Support worker mobile app — shift notes, participant daily goals, and medication prompts in a clean, accessible interface.'
       },
       {
-        type: 'Structural Details',
+        type: 'Platform Overview',
         image: '/case-studies/suburban-elegance/image1.png',
-        description: 'Elegant two-story street-facing facade showcasing modern geometry and warm timber accents.'
+        description: 'Full scheduling suite overview — from automated roster generation through to compliant incident report submission.'
       }
     ]
   }

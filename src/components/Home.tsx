@@ -37,12 +37,12 @@ const Home = () => {
     <>
       <Header />
       <Hero />
+      <Stats />
       <Projects />
       <ProcessBreakdown />
       <BlueprintToggle />
-      <Stats />
-      <About />
       <DesignSignatures />
+      <About />
       <Contact />
       <Footer />
     </>

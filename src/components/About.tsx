@@ -16,7 +16,7 @@ const About = () => {
             <div className="relative z-10 rounded-[2px] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <img 
                 src="/images/director.png" 
-                alt="Director of Apex Architecture" 
+                alt="Director of IronBond" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-charcoal/10 mix-blend-multiply"></div>
@@ -34,36 +34,36 @@ const About = () => {
             className="w-full lg:w-1/2 space-y-8"
           >
             <div>
-              <h2 className="text-sm font-black tracking-[0.2em] text-gold uppercase mb-4">Visionary Leadership</h2>
+              <h2 className="text-sm font-black tracking-[0.2em] text-gold uppercase mb-4">Purpose-Built for the NDIS</h2>
               <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-white leading-tight">
-                Crafting Legacies through <span className="text-gold">Precision.</span>
+                Built by People Who <span className="text-gold">Know the Sector.</span>
               </h3>
             </div>
 
             <p className="text-lg text-white/70 leading-relaxed font-sans">
-              Founded by Cole, Apex Architecture was born from a singular obsession: the intersection of structural permanence and poetic residential form. With over two decades of experience in high-end builds, Cole leads a team dedicated to pushing the boundaries of what home can be.
+              IronBond was founded by practitioners who lived the operational pain of non-compliant, inaccessible, and participant-unfriendly digital systems. We exist to give NDIS providers — allied health, support coordinators, plan managers, and core support teams — the technology infrastructure they deserve.
             </p>
 
             <div className="space-y-6 pt-4 border-t border-white/10">
               <div className="flex gap-6 items-start">
                 <div className="text-gold text-2xl font-black italic">01.</div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">Uncompromising Standards</h4>
-                  <p className="text-white/50 text-sm">Every joint, every finish, and every structural element is scrutinized to meet elite specifications.</p>
+                  <h4 className="text-white font-bold mb-1">Regulatory Confidence</h4>
+                  <p className="text-white/50 text-sm">Every platform we build is mapped against the NDIS Practice Standards and Quality Indicators — so your next registration audit is a formality, not a risk.</p>
                 </div>
               </div>
               <div className="flex gap-6 items-start">
                 <div className="text-gold text-2xl font-black italic">02.</div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">Bespoke Methodology</h4>
-                  <p className="text-white/50 text-sm">We don't build houses; we curate environments tailored to the specific rhythms of your life.</p>
+                  <h4 className="text-white font-bold mb-1">Sector-First Approach</h4>
+                  <p className="text-white/50 text-sm">We're not a generic development shop. Every feature, form field, and data flow is mapped to a real NDIS workflow — whether you're managing plans, coordinating supports, or delivering therapy.</p>
                 </div>
               </div>
             </div>
 
             <div className="pt-8">
-              <div className="text-white font-black tracking-widest uppercase text-xs mb-1">Cole</div>
-              <div className="text-gold font-bold text-[10px] tracking-widest uppercase">Principal Director & Founder</div>
+              <div className="text-white font-black tracking-widest uppercase text-xs mb-1">IronBond</div>
+              <div className="text-gold font-bold text-[10px] tracking-widest uppercase">Australia's NDIS Digital Compliance Platform</div>
             </div>
           </motion.div>
         </div>

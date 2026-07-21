@@ -41,10 +41,10 @@ const CountUpStat = ({ stat }: { stat: { value: string; label: string } }) => {
 
 const Stats = () => {
   const stats = [
-    { value: '200+', label: 'Homes Completed' },
-    { value: '15+', label: 'Years of Craft' },
-    { value: '98%', label: 'Client Satisfaction' },
-    { value: '$500M+', label: 'In Homes Delivered' },
+    { value: '150+', label: 'NDIS Providers Onboarded' },
+    { value: '100%', label: 'WCAG 2.2 AA Compliant Builds' },
+    { value: '98%', label: 'Compliance Audit Pass Rate' },
+    { value: '0', label: 'Compliance Fines Recorded' },
   ];
 
   return (

@@ -1,37 +1,49 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Ruler, Layers } from 'lucide-react'
+import { ArrowRight, Globe, ShieldCheck, Users } from 'lucide-react'
 
 const Projects = () => {
   const projects = [
     {
       id: 'industrial-loft',
       image: '/case-studies/industrial-loft/image1.png',
-      title: 'Industrial Loft',
-      location: 'Hobart, TAS',
-      scale: '1,200 sqm',
-      status: 'Completed',
-      materials: 'Brick & Steel',
-      intent: 'Preserving historical textures while introducing bold, contemporary forms.',
+      title: 'Participant Intake Portal',
+      location: 'Allied Health & Support Coordinators',
+      scale: 'WCAG 2.2 AA',
+      status: 'Live',
+      materials: 'React + Node.js',
+      intent: 'Eliminating paper-based referral bottlenecks with a smart, consent-driven digital intake system that routes participants to the right supports automatically.',
+      badgeMain: 'Live Platform',
+      badgeTwo: 'Dashboard View',
+      badgeThree: 'Participant Portal',
+      icon: Users,
     },
     {
       id: 'minimalist-pavilion',
       image: '/case-studies/minimalist-pavilion/image1.png',
-      title: 'Minimalist Pavilion',
-      location: 'Launceston, TAS',
-      scale: '650 sqm',
-      status: 'Completed',
-      materials: 'Concrete & Glass',
-      intent: 'Dissolving the boundaries between structural form and the surrounding landscape.',
+      title: 'Plan Management Dashboard',
+      location: 'Registered Plan Managers',
+      scale: 'PRODA-Ready',
+      status: 'Live',
+      materials: 'Next.js + PostgreSQL',
+      intent: 'A real-time plan management command centre — invoice tracking, budget visibility, participant reporting, and NDIS portal integration in a single compliant interface.',
+      badgeMain: 'Live Platform',
+      badgeTwo: 'Budget Dashboard',
+      badgeThree: 'Invoice Portal',
+      icon: ShieldCheck,
     },
     {
       id: 'suburban-elegance',
       image: '/case-studies/suburban-elegance/image1.png',
-      title: 'Suburban Elegance',
-      location: 'Devonport, TAS',
-      scale: '550 sqm',
-      status: 'Completed',
-      materials: 'Rendered Brick & Timber',
-      intent: 'An elegant contemporary family home seamlessly blending indoor comfort with expansive outdoor entertaining.',
+      title: 'Core Supports Scheduling Suite',
+      location: 'Core Support Providers',
+      scale: 'NDIS Registered',
+      status: 'Live',
+      materials: 'React Native + API',
+      intent: 'Mobile-first rostering, shift management, incident reporting, and progress notes — purpose-built for support workers delivering funded NDIS core supports in the community.',
+      badgeMain: 'Live Platform',
+      badgeTwo: 'Roster View',
+      badgeThree: 'Shift Notes',
+      icon: Globe,
     }
   ]
 
@@ -43,10 +55,10 @@ const Projects = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
           <div className="space-y-6 max-w-3xl animate-fade-in">
             <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight animate-slide-up">
-              Technical <span className="text-gold italic font-light">Case Studies</span>
+              NDIS <span className="text-gold italic font-light">Digital Solutions</span>
             </h2>
             <p className="text-xl text-white/60 font-sans font-medium animate-slide-up max-w-2xl" style={{ animationDelay: '0.1s' }}>
-              Defining masterworks. Meticulous exploration of form, light, and context.
+              Purpose-built platforms for the three core NDIS provider verticals. Compliant, accessible, and built to scale with your organisation.
             </p>
           </div>
         </div>
@@ -68,13 +80,13 @@ const Projects = () => {
                 >
                   <img
                     src={project.image}
-                    alt={`${project.title} Exterior`}
+                    alt={`${project.title} Platform`}
                     className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-103"
                     loading={index === 0 ? undefined : "lazy"}
                     fetchPriority={index === 0 ? "high" : undefined}
                   />
                   <div className="absolute bottom-4 left-4 bg-charcoal/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[9px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px]">
-                    Exterior & Form
+                    {project.badgeMain}
                   </div>
                 </Link>
 
@@ -86,12 +98,12 @@ const Projects = () => {
                   >
                     <img
                       src={`/case-studies/${project.id}/image2.png`}
-                      alt={`${project.title} Interior`}
+                      alt={`${project.title} Dashboard`}
                       className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
-                      Interior Space
+                      {project.badgeTwo}
                     </div>
                   </Link>
                   <Link
@@ -100,12 +112,12 @@ const Projects = () => {
                   >
                     <img
                       src={`/case-studies/${project.id}/image3.png`}
-                      alt={`${project.title} Detail`}
+                      alt={`${project.title} Portal`}
                       className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
-                      Details & Finishes
+                      {project.badgeThree}
                     </div>
                   </Link>
                 </div>
@@ -115,7 +127,7 @@ const Projects = () => {
               <div className="w-full lg:w-2/5 flex flex-col justify-center">
                 {/* Visual Label & Sequence Number */}
                 <div className="flex items-center gap-3 text-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">
-                  <span>0{index + 1} // CASE STUDY</span>
+                  <span>0{index + 1} // NDIS SOLUTION</span>
                 </div>
 
                 <Link to={`/${project.id}.html`} className="inline-block group-hover:text-gold transition-colors duration-500">
@@ -135,19 +147,19 @@ const Projects = () => {
                 <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-8 font-sans">
                   <div className="bg-white/5 border border-white/5 p-4 rounded-[2px] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
                     <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-1.5">
-                      <MapPin size={12} className="text-gold" /> Location
+                      <Users size={12} className="text-gold" /> Provider Type
                     </div>
                     <div className="text-base font-bold text-white">{project.location}</div>
                   </div>
                   <div className="bg-white/5 border border-white/5 p-4 rounded-[2px] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
                     <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-1.5">
-                      <Ruler size={12} className="text-gold" /> Scale / Status
+                      <ShieldCheck size={12} className="text-gold" /> Compliance Level
                     </div>
                     <div className="text-base font-bold text-white">{project.scale} &bull; {project.status}</div>
                   </div>
                   <div className="col-span-2 bg-white/5 border border-white/5 p-4 rounded-[2px] hover:bg-white/10 hover:border-white/10 transition-all duration-300 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase">
-                      <Layers size={12} className="text-gold" /> Materials
+                      <Globe size={12} className="text-gold" /> Tech Stack
                     </div>
                     <div className="text-xs font-bold tracking-[0.15em] text-gold uppercase bg-white/5 px-3 py-1 border border-white/10 rounded-[2px]">
                       {project.materials}
@@ -161,7 +173,7 @@ const Projects = () => {
                     to={`/${project.id}.html`}
                     className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.25em] text-gold hover:text-white uppercase transition-all duration-300 group/link"
                   >
-                    <span>View Technical Details</span>
+                    <span>View Platform Details</span>
                     <ArrowRight className="group-hover/link:translate-x-1.5 transition-transform duration-300 text-gold group-hover/link:text-white" size={14} />
                   </Link>
                 </div>
@@ -172,9 +184,9 @@ const Projects = () => {
 
         {/* CTA Below Projects */}
         <div className="mt-32 text-center animate-slide-up border-t border-white/10 pt-24" style={{ animationDelay: '0.3s' }}>
-          <h3 className="text-4xl font-bold text-white mb-6">Ready to realize your vision?</h3>
+          <h3 className="text-4xl font-bold text-white mb-6">Ready to get your platform compliant?</h3>
           <p className="text-xl text-white/60 font-sans font-medium mb-10 max-w-2xl mx-auto">
-            Schedule a private consultation with our architectural directors to begin shaping your legacy.
+            Book a free NDIS digital audit and receive a tailored compliance gap report — no obligation, delivered within 48 hours.
           </p>
           <a
             href="#contact"
@@ -184,7 +196,7 @@ const Projects = () => {
             }}
             className="group bg-gold text-charcoal px-12 py-6 text-base font-bold tracking-widest uppercase hover:bg-white transition-all duration-500 inline-flex items-center gap-3 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] rounded-[2px] font-sans"
           >
-            Request a Consultation
+            Book a Free Platform Audit
             <ArrowRight className="group-hover:translate-x-2 transition-transform" size={22} />
           </a>
         </div>

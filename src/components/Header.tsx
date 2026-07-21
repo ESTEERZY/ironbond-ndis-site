@@ -8,9 +8,9 @@ const Header = () => {
   const navigate = useNavigate()
 
   const navLinks = [
-    { name: 'Signatures', href: '#features' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Process', href: '#process' },
+    { name: 'Services', href: '#features' },
+    { name: 'Solutions', href: '#portfolio' },
+    { name: 'Workflow', href: '#process' },
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -42,8 +42,8 @@ const Header = () => {
             onClick={handleLogoClick}
             className="text-2xl font-black tracking-[-0.08em] text-white uppercase flex items-center gap-2 hover:text-gold/90 transition-colors duration-300"
           >
-            <img src="/favicon.png" alt="Apex Architecture Logo" className="h-8 w-auto object-contain" />
-            <span>Apex <span className="text-gold">Architecture</span></span>
+            <img src="/favicon.png" alt="IronBond Logo" className="h-8 w-auto object-contain" />
+            <span>Iron<span className="text-gold">Bond</span></span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -66,7 +66,7 @@ const Header = () => {
               onClick={(e) => handleScroll(e, '#contact')}
               className="bg-white/5 text-white border border-white/10 px-8 py-3 text-sm font-bold tracking-widest uppercase hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-500 inline-flex items-center gap-2 rounded-[2px]"
             >
-              Start a Project
+              Book a Free Audit
             </a>
           </div>
 
@@ -104,7 +104,7 @@ const Header = () => {
                   handleScroll(e, '#contact')
                 }}
               >
-                Start a Project
+                Book a Free Audit
               </a>
             </div>
           </div>

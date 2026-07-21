@@ -4,18 +4,18 @@ const DesignSignatures = () => {
   const signatures = [
     {
       image: '/case-studies/industrial-loft/image1.png',
-      title: 'Modern Architecture',
-      description: 'Award-winning designs. Maximized natural light. Open living spaces.',
+      title: 'WCAG 2.2 AA Accessibility',
+      description: 'Screen-reader ready. Full keyboard navigation. Contrast ratios that exceed NDIS digital inclusion standards. Every participant can access your platform with confidence.',
     },
     {
       image: '/case-studies/suburban-elegance/image1.png',
-      title: 'Clean Timber Finishes',
-      description: 'Premium timber finishes. Sustainably sourced. Added warmth and character.',
+      title: 'NDIS Registration Signals',
+      description: 'Trust badges, PRODA-ready data flows, APPs-compliant privacy policies, and registration-grade security architecture — built in from day one.',
     },
     {
       image: '/images/luxury-kitchen.png',
-      title: 'Luxury Kitchens',
-      description: 'State-of-the-art culinary spaces. Stone benchtops. Integrated appliances.',
+      title: 'Automated Participant Intake',
+      description: 'Smart referral forms, digital consent management, support need capture, and automated plan matching — reducing admin overhead by up to 70%.',
     },
   ];
 
@@ -43,11 +43,11 @@ const DesignSignatures = () => {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-5xl lg:text-6xl font-black tracking-tighter text-white leading-tight max-w-3xl mx-auto">
-            Design <span className="text-gold">Signatures</span>
+            Platform <span className="text-gold">Pillars</span>
           </h2>
 
           <p className="text-xl text-white/60 font-medium leading-relaxed max-w-2xl mx-auto tracking-tight">
-            We craft high-end, custom living spaces. Designed to elevate your lifestyle.
+            Three non-negotiable foundations every NDIS provider needs in their digital infrastructure — and that we engineer into every platform we build.
           </p>
         </motion.div>
 
