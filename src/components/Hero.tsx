@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-28 bg-white overflow-hidden">
+    <section id="hero" className="pt-36 lg:pt-40 bg-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="min-h-[88vh] flex flex-col lg:flex-row items-center gap-10 lg:gap-16 py-12 lg:py-20">
 
