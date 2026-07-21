@@ -26,13 +26,13 @@ const CountUpStat = ({ stat }: { stat: { value: string; label: string } }) => {
       variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }}
       className="text-center space-y-3 group"
     >
-      <div className="text-5xl lg:text-6xl font-black tracking-tighter text-white group-hover:text-gold transition-colors duration-500 flex justify-center">
+      <div className="text-5xl lg:text-6xl font-black tracking-tighter text-white group-hover:text-teal transition-colors duration-500 flex justify-center">
         {prefix}
         <motion.span>{rounded}</motion.span>
         {suffix}
       </div>
-      <div className="w-8 h-px bg-gold mx-auto"></div>
-      <div className="text-sm font-bold tracking-widest uppercase text-white/50 group-hover:text-gold/80 transition-colors duration-300">
+      <div className="w-8 h-px bg-teal mx-auto"></div>
+      <div className="text-sm font-bold tracking-widest uppercase text-white/50 group-hover:text-teal/80 transition-colors duration-300">
         {stat.label}
       </div>
     </motion.div>
@@ -48,7 +48,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-charcoal border-y border-gold/10 relative z-20">
+    <section className="py-20 bg-navy-mid border-y border-teal/10 relative z-20">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial="hidden"

@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-charcoal text-white font-sans selection:bg-gold selection:text-charcoal">
+      <div className="min-h-screen bg-navy text-white font-sans selection:bg-teal selection:text-navy">
         <Routes>
           {/* Main Portfolio Index */}
           <Route path="/" element={<Home />} />

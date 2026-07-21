@@ -16,6 +16,7 @@ const Projects = () => {
       badgeTwo: 'Dashboard View',
       badgeThree: 'Participant Portal',
       icon: Users,
+      ndisTag: 'NDIS Registered',
     },
     {
       id: 'minimalist-pavilion',
@@ -30,6 +31,7 @@ const Projects = () => {
       badgeTwo: 'Budget Dashboard',
       badgeThree: 'Invoice Portal',
       icon: ShieldCheck,
+      ndisTag: 'PRODA Integrated',
     },
     {
       id: 'suburban-elegance',
@@ -44,18 +46,19 @@ const Projects = () => {
       badgeTwo: 'Roster View',
       badgeThree: 'Shift Notes',
       icon: Globe,
+      ndisTag: 'Practice Standards Aligned',
     }
   ]
 
   return (
-    <section id="portfolio" className="py-32 bg-darkgray relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent"></div>
+    <section id="portfolio" className="py-32 bg-navy-mid relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal/10 to-transparent"></div>
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
           <div className="space-y-6 max-w-3xl animate-fade-in">
             <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight animate-slide-up">
-              NDIS <span className="text-gold italic font-light">Digital Solutions</span>
+              NDIS <span className="text-teal italic font-light">Digital Solutions</span>
             </h2>
             <p className="text-xl text-white/60 font-sans font-medium animate-slide-up max-w-2xl" style={{ animationDelay: '0.1s' }}>
               Purpose-built platforms for the three core NDIS provider verticals. Compliant, accessible, and built to scale with your organisation.
@@ -76,7 +79,7 @@ const Projects = () => {
                 {/* Large Main Image (Exterior) */}
                 <Link
                   to={`/${project.id}.html`}
-                  className="col-span-8 aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-2xl transition-all duration-500 hover:border-gold/50 hover:scale-[1.01]"
+                  className="col-span-8 aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-2xl transition-all duration-500 hover:border-teal/50 hover:scale-[1.01]"
                 >
                   <img
                     src={project.image}
@@ -85,7 +88,7 @@ const Projects = () => {
                     loading={index === 0 ? undefined : "lazy"}
                     fetchPriority={index === 0 ? "high" : undefined}
                   />
-                  <div className="absolute bottom-4 left-4 bg-charcoal/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[9px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px]">
+                  <div className="absolute bottom-4 left-4 bg-navy/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[9px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px]">
                     {project.badgeMain}
                   </div>
                 </Link>
@@ -94,7 +97,7 @@ const Projects = () => {
                 <div className="col-span-4 flex flex-col gap-3 md:gap-4">
                   <Link
                     to={`/${project.id}.html`}
-                    className="aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-xl transition-all duration-500 hover:border-gold/50 hover:scale-[1.01]"
+                    className="aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-xl transition-all duration-500 hover:border-teal/50 hover:scale-[1.01]"
                   >
                     <img
                       src={`/case-studies/${project.id}/image2.png`}
@@ -102,13 +105,13 @@ const Projects = () => {
                       className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
+                    <div className="absolute bottom-3 left-3 bg-navy/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
                       {project.badgeTwo}
                     </div>
                   </Link>
                   <Link
                     to={`/${project.id}.html`}
-                    className="aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-xl transition-all duration-500 hover:border-gold/50 hover:scale-[1.01]"
+                    className="aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-xl transition-all duration-500 hover:border-teal/50 hover:scale-[1.01]"
                   >
                     <img
                       src={`/case-studies/${project.id}/image3.png`}
@@ -116,7 +119,7 @@ const Projects = () => {
                       className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
+                    <div className="absolute bottom-3 left-3 bg-navy/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
                       {project.badgeThree}
                     </div>
                   </Link>
@@ -126,18 +129,26 @@ const Projects = () => {
               {/* Case Study Content */}
               <div className="w-full lg:w-2/5 flex flex-col justify-center">
                 {/* Visual Label & Sequence Number */}
-                <div className="flex items-center gap-3 text-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">
+                <div className="flex items-center gap-3 text-teal text-xs font-bold tracking-[0.3em] uppercase mb-4">
                   <span>0{index + 1} // NDIS SOLUTION</span>
                 </div>
 
-                <Link to={`/${project.id}.html`} className="inline-block group-hover:text-gold transition-colors duration-500">
-                  <h3 className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6 group-hover:text-gold transition-colors duration-500 font-heading leading-tight">
+                {/* NDIS Registration Pill */}
+                <div className="mb-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald/10 border border-emerald/30 rounded-full text-emerald text-[11px] font-bold tracking-wide">
+                    <ShieldCheck size={12} />
+                    {project.ndisTag}
+                  </span>
+                </div>
+
+                <Link to={`/${project.id}.html`} className="inline-block group-hover:text-teal transition-colors duration-500">
+                  <h3 className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6 group-hover:text-teal transition-colors duration-500 font-heading leading-tight">
                     {project.title}
                   </h3>
                 </Link>
                 
                 {/* Intent Statement - Reduced Text with High Visual Priority */}
-                <div className="mb-8 border-l-2 border-gold/40 pl-6">
+                <div className="mb-8 border-l-2 border-teal/40 pl-6">
                   <p className="text-xl text-white/90 leading-relaxed font-sans font-light italic">
                     "{project.intent}"
                   </p>
@@ -145,23 +156,23 @@ const Projects = () => {
 
                 {/* Structured Metric Cards - Skimmable */}
                 <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-8 font-sans">
-                  <div className="bg-white/5 border border-white/5 p-4 rounded-[2px] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
+                  <div className="bg-navy-light border border-white/5 p-4 rounded-[2px] hover:bg-white/5 hover:border-white/10 transition-all duration-300">
                     <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-1.5">
-                      <Users size={12} className="text-gold" /> Provider Type
+                      <Users size={12} className="text-teal" /> Provider Type
                     </div>
                     <div className="text-base font-bold text-white">{project.location}</div>
                   </div>
-                  <div className="bg-white/5 border border-white/5 p-4 rounded-[2px] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
+                  <div className="bg-navy-light border border-white/5 p-4 rounded-[2px] hover:bg-white/5 hover:border-white/10 transition-all duration-300">
                     <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-1.5">
-                      <ShieldCheck size={12} className="text-gold" /> Compliance Level
+                      <ShieldCheck size={12} className="text-teal" /> Compliance Level
                     </div>
                     <div className="text-base font-bold text-white">{project.scale} &bull; {project.status}</div>
                   </div>
-                  <div className="col-span-2 bg-white/5 border border-white/5 p-4 rounded-[2px] hover:bg-white/10 hover:border-white/10 transition-all duration-300 flex items-center justify-between">
+                  <div className="col-span-2 bg-navy-light border border-white/5 p-4 rounded-[2px] hover:bg-white/5 hover:border-white/10 transition-all duration-300 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase">
-                      <Globe size={12} className="text-gold" /> Tech Stack
+                      <Globe size={12} className="text-teal" /> Tech Stack
                     </div>
-                    <div className="text-xs font-bold tracking-[0.15em] text-gold uppercase bg-white/5 px-3 py-1 border border-white/10 rounded-[2px]">
+                    <div className="text-xs font-bold tracking-[0.15em] text-teal uppercase bg-teal/10 px-3 py-1 border border-teal/20 rounded-[2px]">
                       {project.materials}
                     </div>
                   </div>
@@ -171,10 +182,10 @@ const Projects = () => {
                 <div className="mt-8 border-t border-white/5 pt-6">
                   <Link
                     to={`/${project.id}.html`}
-                    className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.25em] text-gold hover:text-white uppercase transition-all duration-300 group/link"
+                    className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.25em] text-teal hover:text-white uppercase transition-all duration-300 group/link"
                   >
                     <span>View Platform Details</span>
-                    <ArrowRight className="group-hover/link:translate-x-1.5 transition-transform duration-300 text-gold group-hover/link:text-white" size={14} />
+                    <ArrowRight className="group-hover/link:translate-x-1.5 transition-transform duration-300 text-teal group-hover/link:text-white" size={14} />
                   </Link>
                 </div>
               </div>
@@ -194,7 +205,7 @@ const Projects = () => {
               e.preventDefault()
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="group bg-gold text-charcoal px-12 py-6 text-base font-bold tracking-widest uppercase hover:bg-white transition-all duration-500 inline-flex items-center gap-3 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] rounded-[2px] font-sans"
+            className="group bg-teal text-navy px-12 py-6 text-base font-bold tracking-widest uppercase hover:bg-teal/90 transition-all duration-500 inline-flex items-center gap-3 shadow-[0_0_20px_rgba(0,180,216,0.2)] hover:shadow-[0_0_40px_rgba(0,180,216,0.4)] rounded-[2px] font-sans"
           >
             Book a Free Platform Audit
             <ArrowRight className="group-hover:translate-x-2 transition-transform" size={22} />

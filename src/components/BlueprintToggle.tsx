@@ -5,26 +5,26 @@ const BlueprintToggle = () => {
   const [view, setView] = useState<'blueprint' | 'reality'>('blueprint');
 
   return (
-    <section id="concept" className="py-24 bg-[#121212] relative overflow-hidden">
+    <section id="concept" className="py-24 bg-navy-mid relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Header Row */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-px bg-gold"></div>
-              <h2 className="text-xs md:text-sm font-black tracking-[0.4em] text-gold uppercase">04 // Compliance Visualiser</h2>
+              <div className="w-10 h-px bg-teal"></div>
+              <h2 className="text-xs md:text-sm font-black tracking-[0.4em] text-teal uppercase">04 // Compliance Visualiser</h2>
             </div>
-            <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.85]">Manual To <span className="text-gold">Automated.</span></h3>
+            <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.85]">Manual To <span className="text-teal">Automated.</span></h3>
           </div>
 
           {/* Control Switch */}
-          <div className="bg-darkgray/50 border border-white/10 p-1.5 rounded-[2px] flex gap-2">
+          <div className="bg-navy-light/50 border border-white/10 p-1.5 rounded-[2px] flex gap-2">
             <button 
               onClick={() => setView('blueprint')}
               className={`px-6 py-3 text-xs font-black tracking-widest uppercase transition-all duration-300 rounded-[1px] ${
                 view === 'blueprint' 
-                ? 'bg-gold text-charcoal shadow-[0_0_20px_rgba(197,160,89,0.3)]' 
+                ? 'bg-teal text-navy shadow-[0_0_20px_rgba(0,180,216,0.3)]' 
                 : 'text-white/40 hover:text-white/70'
               }`}
             >
@@ -34,7 +34,7 @@ const BlueprintToggle = () => {
               onClick={() => setView('reality')}
               className={`px-6 py-3 text-xs font-black tracking-widest uppercase transition-all duration-300 rounded-[1px] ${
                 view === 'reality' 
-                ? 'bg-gold text-charcoal shadow-[0_0_20px_rgba(197,160,89,0.3)]' 
+                ? 'bg-teal text-navy shadow-[0_0_20px_rgba(0,180,216,0.3)]' 
                 : 'text-white/40 hover:text-white/70'
               }`}
             >
@@ -44,7 +44,7 @@ const BlueprintToggle = () => {
         </div>
 
         {/* Display Canvas Wrapper */}
-        <div className="relative w-full aspect-[16/9] overflow-hidden border border-white/10 rounded-[2px] shadow-2xl bg-charcoal">
+        <div className="relative w-full aspect-[16/9] overflow-hidden border border-white/10 rounded-[2px] shadow-2xl bg-navy">
           
           {/* Layer 1: The Base (Reality Photo) */}
           <div className="absolute inset-0 w-full h-full">
@@ -88,14 +88,14 @@ const BlueprintToggle = () => {
           <motion.div 
             animate={{ top: ["0%", "100%", "0%"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="absolute left-0 w-full h-[2px] bg-gold/30 z-40 pointer-events-none opacity-50 blur-[2px]"
+            className="absolute left-0 w-full h-[2px] bg-teal/30 z-40 pointer-events-none opacity-50 blur-[2px]"
           />
         </div>
 
         {/* Status Text Indicator */}
         <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse"></div>
+            <div className="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></div>
             <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-white/50 uppercase text-center md:text-left">
               // CURRENT VIEW: {view === 'blueprint' ? 'MANUAL NDIS WORKFLOW' : 'NDIS PROTOTYPE AUTOMATED PLATFORM'}
             </span>
