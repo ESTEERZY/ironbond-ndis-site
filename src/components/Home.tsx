@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
+import { LayoutDashboard, ArrowRight } from 'lucide-react'
 import Header from './Header'
 import Hero from './Hero'
 import Stats from './Stats'
@@ -42,6 +43,24 @@ const Home = () => {
       <FAQSection />
       <Contact />
       <Footer />
+
+      {/* Floating Entry Button to Enterprise Platform */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Link
+          to="/platform"
+          className="group flex items-center gap-3 bg-navy text-white hover:bg-navy-mid border-2 border-teal px-5 py-3.5 rounded-2xl shadow-2xl shadow-navy/50 transition-all duration-300 hover:scale-105"
+        >
+          <div className="w-8 h-8 rounded-xl bg-teal text-navy flex items-center justify-center font-black">
+            <LayoutDashboard size={18} />
+          </div>
+          <div className="flex flex-col text-left leading-none">
+            <span className="text-xs font-black text-white group-hover:text-teal transition-colors">Enterprise Platform</span>
+            <span className="text-[10px] text-teal font-bold uppercase tracking-wider mt-0.5 flex items-center gap-1">
+              Launch Provider OS <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </div>
+        </Link>
+      </div>
     </>
   )
 }

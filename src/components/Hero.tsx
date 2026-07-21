@@ -1,4 +1,5 @@
-import { ArrowRight, Phone, MapPin, Heart } from 'lucide-react';
+import { ArrowRight, MapPin, Heart, LayoutDashboard } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -27,7 +28,7 @@ const Hero = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#contact"
                 onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="group bg-teal text-white px-8 py-4 text-base font-bold rounded-xl hover:bg-teal/90 transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-lg shadow-teal/25"
@@ -35,11 +36,12 @@ const Hero = () => {
                 Get Started Today
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
               </a>
-              <a href="tel:1300467426"
-                className="border-2 border-navy/15 text-navy px-8 py-4 text-base font-bold rounded-xl hover:border-teal hover:text-teal transition-all duration-300 inline-flex items-center justify-center gap-2.5"
+              <Link
+                to="/platform"
+                className="bg-navy text-white px-8 py-4 text-base font-bold rounded-xl hover:bg-navy-mid transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-lg shadow-navy/20"
               >
-                <Phone size={18} /> Call 1300 467 426
-              </a>
+                <LayoutDashboard size={18} className="text-teal" /> Staff Platform OS
+              </Link>
             </div>
 
             {/* Trust pills */}

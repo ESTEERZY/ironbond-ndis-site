@@ -1,16 +1,13 @@
 import { useState } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, LayoutDashboard } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const HorizonLogo = () => (
   <svg viewBox="0 0 44 44" fill="none" className="w-11 h-11 flex-shrink-0" aria-hidden="true">
     <rect width="44" height="44" rx="11" fill="#0B1F3A" />
-    {/* Horizon arc — sun rising */}
     <path d="M10 30 Q22 14 34 30" stroke="#00B4D8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
     <line x1="9" y1="30" x2="35" y2="30" stroke="#00B4D8" strokeWidth="1.5" strokeLinecap="round" />
-    {/* Sun */}
     <circle cx="22" cy="21" r="3.5" fill="#10B981" />
-    {/* Light rays */}
     <line x1="22" y1="13" x2="22" y2="11" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
     <line x1="28" y1="15" x2="29.5" y2="13.5" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
     <line x1="16" y1="15" x2="14.5" y2="13.5" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
@@ -45,13 +42,23 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/97 backdrop-blur-md border-b border-slate-100 shadow-sm">
       {/* Top bar */}
       <div className="bg-navy text-white text-xs py-2 px-6 lg:px-12 flex items-center justify-between">
-        <span className="flex items-center gap-1.5 font-medium">
+        <span className="flex items-center gap-1.5 font-medium text-[11px] sm:text-xs">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse inline-block"></span>
           Registered NDIS Provider · NDIS Reg. No. 4050023456
         </span>
-        <a href="tel:1300467426" className="flex items-center gap-1.5 font-bold hover:text-teal transition-colors">
-          <Phone size={11} /> 1300 467 426
-        </a>
+
+        <div className="flex items-center gap-4">
+          <Link
+            to="/platform"
+            className="flex items-center gap-1.5 text-teal font-bold hover:text-white transition-colors bg-teal/10 px-2.5 py-1 rounded-full text-[11px]"
+          >
+            <LayoutDashboard size={12} />
+            <span>Staff Platform Portal →</span>
+          </Link>
+          <a href="tel:1300467426" className="hidden sm:flex items-center gap-1.5 font-bold hover:text-teal transition-colors">
+            <Phone size={11} /> 1300 467 426
+          </a>
+        </div>
       </div>
 
       <nav className="container mx-auto px-6 lg:px-12 py-3.5" aria-label="Primary navigation">
@@ -83,13 +90,13 @@ const Header = () => {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <a href="tel:1300467426"
-              className="text-navy/70 hover:text-teal text-sm font-bold transition-colors px-3 py-2 flex items-center gap-1.5"
+            <Link to="/platform"
+              className="border border-navy/20 text-navy hover:bg-navy hover:text-white text-xs font-bold transition-all px-4 py-2 rounded-lg flex items-center gap-1.5"
             >
-              <Phone size={14} /> 1300 467 426
-            </a>
+              <LayoutDashboard size={14} /> Provider OS
+            </Link>
             <a href="#contact" onClick={(e) => handleScroll(e, '#contact')}
-              className="bg-teal text-white px-6 py-2.5 text-sm font-bold rounded-lg hover:bg-teal/90 transition-all shadow-sm shadow-teal/20"
+              className="bg-teal text-white px-5 py-2 text-xs font-bold rounded-lg hover:bg-teal/90 transition-all shadow-sm shadow-teal/20"
             >
               Make a Referral
             </a>
@@ -115,6 +122,9 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
+                <Link to="/platform" className="text-center bg-navy text-white py-3 text-sm font-bold rounded-lg flex items-center justify-center gap-2">
+                  <LayoutDashboard size={16} /> Open Provider Operating System
+                </Link>
                 <a href="tel:1300467426" className="text-center border border-slate-200 text-navy py-3 text-sm font-bold rounded-lg flex items-center justify-center gap-2">
                   <Phone size={14} /> 1300 467 426
                 </a>
