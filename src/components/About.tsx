@@ -1,103 +1,87 @@
-import { motion } from 'framer-motion'
-import { ShieldCheck, Accessibility, Lock, Award } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { ShieldCheck, Heart, Users, Award } from 'lucide-react';
 
 const About = () => {
-  const trustBadges = [
-    { icon: ShieldCheck, label: 'NDIS Practice Standards Aligned', color: 'text-emerald' },
-    { icon: Lock, label: 'Privacy Act 1988 (Cth) Compliant', color: 'text-teal' },
-    { icon: Accessibility, label: 'WCAG 2.2 AA Certified', color: 'text-teal' },
-    { icon: Award, label: 'Registered NDIS Provider Specialists', color: 'text-emerald' },
-  ]
+  const values = [
+    { icon: Heart, label: 'Dignity & Respect', desc: 'Every participant is treated with unconditional respect — their voice matters in every decision about their support.', color: 'text-rose-500' },
+    { icon: ShieldCheck, label: 'Safety First', desc: 'Robust safeguarding, police-checked workers, and ongoing training protect every person in our care.', color: 'text-emerald' },
+    { icon: Users, label: 'Community & Inclusion', desc: 'We believe disability inclusion strengthens communities. We actively support participation in everyday community life.', color: 'text-teal' },
+    { icon: Award, label: 'Continuous Improvement', desc: 'We collect participant feedback, audit our own practices, and constantly seek to raise the standard of care we provide.', color: 'text-violet-500' },
+  ];
 
   return (
     <section id="about" className="py-20 lg:py-28 bg-white">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-          {/* Left: Director image */}
+          {/* Left: Image + floating badge */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/10 border border-slate-100 aspect-[4/5]">
-              <img
-                src="/images/director.png"
-                alt="Meridian Digital — NDIS platform specialists working with allied health providers"
+              <img src="/images/occupational-therapy.png"
+                alt="Horizon Support Services — allied health practitioner working with a participant"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent"></div>
             </div>
-
-            {/* Floating credential badge */}
+            {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl shadow-navy/10 border border-slate-100 p-5 flex items-center gap-3">
               <div className="w-10 h-10 bg-emerald/10 rounded-xl flex items-center justify-center">
                 <ShieldCheck size={20} className="text-emerald" />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Platform Compliance</p>
-                <p className="text-sm font-black text-navy">100% Audit Pass Rate</p>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">NDIS Quality Standards</p>
+                <p className="text-sm font-black text-navy">Registered Provider</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Content */}
+          {/* Right: Story + values */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}
             className="flex flex-col gap-6"
           >
-            <p className="text-teal text-sm font-bold tracking-widest uppercase">About Meridian Digital</p>
+            <p className="text-teal text-sm font-bold tracking-widest uppercase">About Horizon Support Services</p>
 
             <h2 className="text-4xl lg:text-5xl font-black text-navy leading-tight">
-              Sector specialists.<br />
-              Not generalists.
+              Built on a belief<br />that everyone deserves<br />a good life.
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed">
-              Founded in 2019, Meridian Digital was built by a team of Australian software engineers and NDIS sector specialists who watched providers lose hours each day to paper-based intake, non-compliant websites, and disconnected systems. We set out to fix that.
+              Horizon Support Services was founded in Melbourne in 2017 by a team of disability support workers and allied health professionals who saw a clear gap: participants were receiving supports that were inflexible, impersonal, and built around provider convenience — not participant goals.
             </p>
 
             <p className="text-base text-slate-500 leading-relaxed">
-              Today, we build and maintain digital platforms for allied health clinics, support coordination organisations, registered plan managers, and core support providers across every state and territory. Every platform we deliver has passed its NDIS Commission audit — and we intend to keep that record intact.
+              We set out to build a different kind of organisation — one that genuinely listens to participants and families, invests in the quality and wellbeing of its support workers, and builds lasting relationships rather than filling rosters.
             </p>
 
             <p className="text-base text-slate-500 leading-relaxed">
-              We don't sell generic web templates. We engineer compliant, accessible, participant-centred digital infrastructure that makes your organisation operationally stronger and more defensible at audit time.
+              Today, we support over 600 participants across Melbourne and Victoria, with a team of more than 80 support workers, coordinators, and qualified allied health professionals. Every person on our team shares the same belief: the participant comes first.
             </p>
 
-            {/* Trust Badges */}
-            <div className="flex flex-col gap-3 pt-4 border-t border-slate-100">
-              {trustBadges.map((badge) => {
-                const Icon = badge.icon
+            {/* Values grid */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              {values.map((v) => {
+                const Icon = v.icon;
                 return (
-                  <div key={badge.label} className="flex items-center gap-3">
-                    <Icon size={18} className={badge.color} />
-                    <span className="text-sm font-semibold text-navy">{badge.label}</span>
+                  <div key={v.label} className="bg-slate-50 rounded-xl border border-slate-100 p-4">
+                    <Icon size={18} className={`${v.color} mb-2`} />
+                    <h4 className="text-sm font-bold text-navy mb-1">{v.label}</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed">{v.desc}</p>
                   </div>
-                )
+                );
               })}
-            </div>
-
-            <div className="pt-2">
-              <a
-                href="#contact"
-                onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-                className="inline-flex items-center gap-2.5 bg-navy text-white px-8 py-4 rounded-xl text-sm font-bold hover:bg-navy/90 transition-all duration-300"
-              >
-                Speak with our NDIS specialists
-              </a>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

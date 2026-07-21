@@ -3,13 +3,14 @@ import { useLocation } from 'react-router-dom'
 import Header from './Header'
 import Hero from './Hero'
 import Stats from './Stats'
-import DesignSignatures from './DesignSignatures'
-import Projects from './Projects'
-import WorkflowSection from './WorkflowSection'
-import ProcessBreakdown from './ProcessBreakdown'
-import IntegrationsSection from './IntegrationsSection'
-import ComplianceChecklist from './ComplianceChecklist'
 import About from './About'
+import Projects from './Projects'
+import DesignSignatures from './DesignSignatures'
+import WorkflowSection from './WorkflowSection'
+import TestimonialsSection from './TestimonialsSection'
+import TeamSection from './TeamSection'
+import ServiceAreas from './ServiceAreas'
+import FAQSection from './FAQSection'
 import Contact from './Contact'
 import Footer from './Footer'
 
@@ -17,19 +18,11 @@ const Home = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.state?.scrollToContact) {
-      const contactSection = document.getElementById('contact')
-      if (contactSection) {
-        setTimeout(() => {
-          contactSection.scrollIntoView({ behavior: 'smooth' })
-        }, 150)
-      }
-    } else if (location.state?.scrollToSection) {
-      const targetSection = document.getElementById(location.state.scrollToSection)
-      if (targetSection) {
-        setTimeout(() => {
-          targetSection.scrollIntoView({ behavior: 'smooth' })
-        }, 150)
+    const targetSection = location.state?.scrollToSection || (location.state?.scrollToContact ? 'contact' : null)
+    if (targetSection) {
+      const el = document.getElementById(targetSection)
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 150)
       }
     }
   }, [location])
@@ -39,13 +32,14 @@ const Home = () => {
       <Header />
       <Hero />
       <Stats />
-      <DesignSignatures />
-      <Projects />
-      <WorkflowSection />
-      <ProcessBreakdown />
-      <IntegrationsSection />
-      <ComplianceChecklist />
       <About />
+      <Projects />
+      <DesignSignatures />
+      <WorkflowSection />
+      <TestimonialsSection />
+      <TeamSection />
+      <ServiceAreas />
+      <FAQSection />
       <Contact />
       <Footer />
     </>
