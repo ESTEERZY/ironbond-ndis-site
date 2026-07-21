@@ -16,7 +16,7 @@ const About = () => {
             <div className="relative z-10 rounded-[2px] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <img 
                 src="/images/director.png" 
-                alt="Director of IronBond" 
+                alt="Director of NDIS Prototype" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-charcoal/10 mix-blend-multiply"></div>
@@ -41,7 +41,7 @@ const About = () => {
             </div>
 
             <p className="text-lg text-white/70 leading-relaxed font-sans">
-              IronBond was founded by practitioners who lived the operational pain of non-compliant, inaccessible, and participant-unfriendly digital systems. We exist to give NDIS providers — allied health, support coordinators, plan managers, and core support teams — the technology infrastructure they deserve.
+              NDIS Prototype was founded by practitioners who lived the operational pain of non-compliant, inaccessible, and participant-unfriendly digital systems. We exist to give NDIS providers — allied health, support coordinators, plan managers, and core support teams — the technology infrastructure they deserve.
             </p>
 
             <div className="space-y-6 pt-4 border-t border-white/10">
@@ -62,7 +62,7 @@ const About = () => {
             </div>
 
             <div className="pt-8">
-              <div className="text-white font-black tracking-widest uppercase text-xs mb-1">IronBond</div>
+              <div className="text-white font-black tracking-widest uppercase text-xs mb-1">NDIS Prototype</div>
               <div className="text-gold font-bold text-[10px] tracking-widest uppercase">Australia's NDIS Digital Compliance Platform</div>
             </div>
           </motion.div>

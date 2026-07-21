@@ -39,7 +39,7 @@ export const projectsData: CaseStudyData[] = [
       { label: 'Compliance Standard', value: 'WCAG 2.2 AA' },
       { label: 'Tech Stack', value: 'React, Node.js, PostgreSQL' },
       { label: 'Data Security', value: 'ISO 27001 Aligned' },
-      { label: 'Platform Lead', value: 'IronBond' },
+      { label: 'Platform Lead', value: 'NDIS Prototype' },
       { label: 'Admin Time Saved', value: '70% Reduction' }
     ],
     gallery: [
@@ -77,7 +77,7 @@ export const projectsData: CaseStudyData[] = [
       { label: 'Compliance Standard', value: 'PRODA-Ready' },
       { label: 'Tech Stack', value: 'Next.js, PostgreSQL, NDIS API' },
       { label: 'Data Security', value: 'APPs Compliant' },
-      { label: 'Platform Lead', value: 'IronBond' },
+      { label: 'Platform Lead', value: 'NDIS Prototype' },
       { label: 'Invoice Processing', value: 'Fully Automated' }
     ],
     gallery: [
@@ -115,7 +115,7 @@ export const projectsData: CaseStudyData[] = [
       { label: 'Compliance Standard', value: 'NDIS Practice Standards' },
       { label: 'Tech Stack', value: 'React Native, REST API' },
       { label: 'Data Security', value: 'Privacy Act 1988 (CTH)' },
-      { label: 'Platform Lead', value: 'IronBond' },
+      { label: 'Platform Lead', value: 'NDIS Prototype' },
       { label: 'Worker App', value: 'iOS & Android' }
     ],
     gallery: [

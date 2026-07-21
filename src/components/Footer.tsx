@@ -27,7 +27,7 @@ const Footer = () => {
               }}
               className="text-2xl font-black tracking-tighter uppercase text-charcoal flex items-center gap-3 hover:text-gold/90 transition-colors duration-300"
             >
-              Iron<span className="text-gold">Bond</span>
+              NDIS <span className="text-gold">Prototype</span>
             </Link>
             <p className="text-slate-600 font-medium leading-relaxed">
               Australia's NDIS digital compliance platform. WCAG 2.2 AA. Registration-ready. Automated participant intake — for allied health, support coordinators, plan managers, and core supports.
@@ -135,7 +135,7 @@ const Footer = () => {
         <div className="border-t border-slate-200 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-slate-500">
             <div>
-              © {new Date().getFullYear()} IronBond. All rights reserved. ABN 00 000 000 000
+              © {new Date().getFullYear()} NDIS Prototype. All rights reserved.
             </div>
             <div className="flex gap-8">
               <Link to="/privacy" className="hover:text-gold transition-colors duration-500">

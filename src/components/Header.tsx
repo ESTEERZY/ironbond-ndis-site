@@ -42,8 +42,8 @@ const Header = () => {
             onClick={handleLogoClick}
             className="text-2xl font-black tracking-[-0.08em] text-white uppercase flex items-center gap-2 hover:text-gold/90 transition-colors duration-300"
           >
-            <img src="/favicon.png" alt="IronBond Logo" className="h-8 w-auto object-contain" />
-            <span>Iron<span className="text-gold">Bond</span></span>
+            <img src="/favicon.png" alt="NDIS Prototype Logo" className="h-8 w-auto object-contain" />
+            <span>NDIS <span className="text-gold">Prototype</span></span>
           </Link>
 
           {/* Desktop Navigation */}
