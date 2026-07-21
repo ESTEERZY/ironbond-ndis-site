@@ -38,7 +38,7 @@ const BlueprintToggle = () => {
                 : 'text-white/40 hover:text-white/70'
               }`}
             >
-              02 // NDIS Prototype Platform
+              02 // Meridian Digital Platform
             </button>
           </div>
         </div>
@@ -50,7 +50,7 @@ const BlueprintToggle = () => {
           <div className="absolute inset-0 w-full h-full">
             <img 
               src="/images/blueprint-base.png" 
-              alt="NDIS Prototype Automated Platform" 
+              alt="Meridian Digital Automated Platform" 
               className="w-full h-full object-cover"
             />
           </div>
@@ -97,10 +97,10 @@ const BlueprintToggle = () => {
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></div>
             <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-white/50 uppercase text-center md:text-left">
-              // CURRENT VIEW: {view === 'blueprint' ? 'MANUAL NDIS WORKFLOW' : 'NDIS PROTOTYPE AUTOMATED PLATFORM'}
+              // CURRENT VIEW: {view === 'blueprint' ? 'MANUAL NDIS WORKFLOW' : 'MERIDIAN AUTOMATED PLATFORM'}
             </span>
           </div>
-          <span className="text-[8px] font-mono text-white/20 tracking-widest uppercase">NDIS Prototype // NDIS Compliance Engine v4.0</span>
+          <span className="text-[8px] font-mono text-white/20 tracking-widest uppercase">Meridian Digital // NDIS Compliance Engine v4.0</span>
         </div>
 
       </div>

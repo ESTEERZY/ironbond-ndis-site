@@ -40,7 +40,7 @@ const DesignSignatures = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Why choose NDIS Prototype?</p>
+          <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Why choose Meridian Digital?</p>
           <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">
             Built for the sector.<br />Compliant by design.
           </h2>

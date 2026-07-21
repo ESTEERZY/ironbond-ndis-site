@@ -11,7 +11,7 @@ const Hero = () => {
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 rounded-full px-4 py-1.5 mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse"></div>
-              <span className="text-teal text-xs font-bold tracking-widest uppercase">Australia's NDIS Digital Platform</span>
+              <span className="text-teal text-xs font-bold tracking-widest uppercase">Australia's NDIS Digital Agency</span>
             </div>
 
             {/* Main headline */}
@@ -23,7 +23,7 @@ const Hero = () => {
 
             {/* Subtext */}
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 max-w-lg">
-              WCAG 2.2 AA compliant. Registration-ready. Automated participant intake — built for allied health, support coordinators, plan managers, and core supports.
+              Meridian Digital builds WCAG 2.2 AA compliant participant intake portals, staff dashboards, provider websites, and client portals — exclusively for registered Australian NDIS providers.
             </p>
 
             {/* CTA Buttons */}
@@ -33,7 +33,7 @@ const Hero = () => {
                 onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="group bg-teal text-white px-8 py-4 text-base font-bold rounded-xl hover:bg-teal/90 transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-lg shadow-teal/25"
               >
-                Book a free audit
+                Request a free audit
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
               </a>
               <a
@@ -41,13 +41,13 @@ const Hero = () => {
                 onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="border-2 border-navy/15 text-navy px-8 py-4 text-base font-bold rounded-xl hover:border-teal hover:text-teal transition-all duration-300 inline-flex items-center justify-center gap-2.5"
               >
-                See our solutions
+                View our platforms
               </a>
             </div>
 
             {/* Trust signal */}
             <p className="text-sm text-slate-400 font-semibold mb-6">
-              Proudly NDIS Quality &amp; Safeguards aligned
+              Trusted by NDIS providers across allied health, support coordination, plan management, and core supports.
             </p>
 
             {/* Trust pills */}
@@ -56,10 +56,10 @@ const Hero = () => {
                 <ShieldCheck size={12} /> WCAG 2.2 AA Compliant
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald/8 border border-emerald/20 rounded-full text-emerald text-xs font-semibold">
-                <ClipboardCheck size={12} /> Registration-Ready Builds
+                <ClipboardCheck size={12} /> Registration-Ready
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-teal/8 border border-teal/20 rounded-full text-teal text-xs font-semibold">
-                <Accessibility size={12} /> 98% Audit Pass Rate
+                <Accessibility size={12} /> Built in Australia
               </span>
             </div>
           </div>
@@ -76,6 +76,7 @@ const Hero = () => {
                 muted
                 playsInline
                 preload="auto"
+                aria-label="Support worker and participant interaction — the people our platforms serve"
               />
               {/* Subtle overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-navy/5 to-transparent pointer-events-none"></div>
@@ -98,8 +99,8 @@ const Hero = () => {
                 <ClipboardCheck size={16} className="text-teal" />
               </div>
               <div>
-                <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Providers Onboarded</p>
-                <p className="text-sm font-black text-navy">150+ NDIS orgs</p>
+                <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Australian Providers</p>
+                <p className="text-sm font-black text-navy">Registered NDIS</p>
               </div>
             </div>
           </div>

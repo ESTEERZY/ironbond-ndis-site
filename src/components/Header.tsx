@@ -2,6 +2,18 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
+// Meridian Digital logo mark SVG
+const MeridianLogo = () => (
+  <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9 flex-shrink-0" aria-hidden="true">
+    <rect width="36" height="36" rx="9" fill="#00B4D8" />
+    {/* Meridian mark: globe arc + horizontal line */}
+    <ellipse cx="18" cy="18" rx="9" ry="9" stroke="white" strokeWidth="1.8" fill="none" />
+    <ellipse cx="18" cy="18" rx="4.5" ry="9" stroke="white" strokeWidth="1.5" fill="none" />
+    <line x1="9" y1="18" x2="27" y2="18" stroke="white" strokeWidth="1.5" />
+    <circle cx="18" cy="18" r="1.5" fill="white" />
+  </svg>
+)
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
@@ -9,8 +21,9 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Services', href: '#features' },
-    { name: 'Solutions', href: '#portfolio' },
-    { name: 'How It Works', href: '#process' },
+    { name: 'Platforms', href: '#portfolio' },
+    { name: 'Our Process', href: '#process' },
+    { name: 'Integrations', href: '#integrations' },
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -29,27 +42,33 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
-      <nav className="container mx-auto px-6 lg:px-12 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-md border-b border-slate-100 shadow-sm">
+      <nav className="container mx-auto px-6 lg:px-12 py-4" aria-label="Primary navigation">
         <div className="flex items-center justify-between gap-8">
+
           {/* Logo */}
           <Link
             to="/"
             onClick={handleLogoClick}
-            className="text-xl font-black tracking-tight text-navy uppercase flex items-center gap-2.5 hover:text-teal transition-colors duration-300 flex-shrink-0"
+            className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300 flex-shrink-0"
+            aria-label="Meridian Digital — Home"
           >
-            <div className="w-8 h-8 bg-teal rounded-lg flex items-center justify-center text-white text-xs font-black">NP</div>
-            <span>NDIS <span className="text-teal">Prototype</span></span>
+            <MeridianLogo />
+            <div className="flex flex-col leading-none">
+              <span className="text-[15px] font-black tracking-tight text-navy">Meridian Digital</span>
+              <span className="text-[9px] font-semibold tracking-widest text-slate-400 uppercase">NDIS Digital Agency</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8" role="menubar">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                role="menuitem"
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-navy/70 hover:text-teal transition-colors duration-300 text-sm font-semibold tracking-wide"
+                className="text-navy/65 hover:text-teal transition-colors duration-300 text-sm font-semibold tracking-wide"
               >
                 {link.name}
               </a>
@@ -61,7 +80,7 @@ const Header = () => {
             <a
               href="#contact"
               onClick={(e) => handleScroll(e, '#contact')}
-              className="text-navy/70 hover:text-teal text-sm font-semibold tracking-wide transition-colors duration-300 px-4 py-2"
+              className="text-navy/65 hover:text-teal text-sm font-semibold tracking-wide transition-colors duration-300 px-4 py-2"
             >
               Contact us
             </a>
@@ -70,7 +89,7 @@ const Header = () => {
               onClick={(e) => handleScroll(e, '#contact')}
               className="bg-teal text-white px-6 py-2.5 text-sm font-bold rounded-lg hover:bg-teal/90 transition-all duration-300 shadow-sm shadow-teal/20"
             >
-              Book Free Audit
+              Free Compliance Audit
             </a>
           </div>
 
@@ -78,7 +97,8 @@ const Header = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden text-navy p-1"
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -86,7 +106,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-slate-100 pt-4 animate-fade-in">
+          <div className="lg:hidden mt-4 pb-4 border-t border-slate-100 pt-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
@@ -111,7 +131,7 @@ const Header = () => {
                   onClick={(e) => handleScroll(e, '#contact')}
                   className="text-center bg-teal text-white py-3 text-sm font-bold rounded-lg hover:bg-teal/90 transition-all"
                 >
-                  Book Free Audit
+                  Free Compliance Audit
                 </a>
               </div>
             </div>

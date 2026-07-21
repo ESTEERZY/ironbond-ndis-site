@@ -10,7 +10,7 @@ const IntakePortalMockup = () => (
   <div className="flex h-full font-sans">
     {/* Sidebar */}
     <div className="w-24 bg-navy flex-shrink-0 flex flex-col gap-0.5 p-2 overflow-hidden">
-      <div className="text-[7px] font-black text-teal uppercase tracking-wide px-1 mb-2 mt-1">NDIS Prototype</div>
+      <div className="text-[7px] font-black text-teal uppercase tracking-wide px-1 mb-2 mt-1">Meridian Digital</div>
       {[['● Dashboard', false], ['● Referrals', true], ['● Participants', false], ['● Consent', false], ['● Reports', false]].map(([item, active]) => (
         <div key={String(item)} className={`px-2 py-1 rounded-md text-[7px] font-medium ${active ? 'bg-teal/20 text-teal' : 'text-white/40 hover:text-white/70'}`}>{String(item)}</div>
       ))}
@@ -331,7 +331,7 @@ const Projects = () => {
                     <div className="w-2 h-2 rounded-full bg-amber-400"></div>
                     <div className="w-2 h-2 rounded-full bg-emerald/70"></div>
                     <div className="flex-1 mx-3 bg-white rounded text-[7px] text-slate-400 px-2 py-0.5 text-center truncate">
-                      app.ndisprototype.com.au/{sol.id.replace('-', '/')}
+                      app.meridiandigital.com.au/{sol.id.replace('-', '/')}
                     </div>
                   </div>
                   {/* Dashboard content */}

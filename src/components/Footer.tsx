@@ -1,6 +1,17 @@
 import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin, ShieldCheck, Accessibility, Lock, Zap, Server } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
+// Meridian Digital logo mark (small, for footer)
+const MeridianMark = () => (
+  <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7 flex-shrink-0" aria-hidden="true">
+    <rect width="28" height="28" rx="7" fill="#00B4D8" />
+    <ellipse cx="14" cy="14" rx="7" ry="7" stroke="white" strokeWidth="1.4" fill="none" />
+    <ellipse cx="14" cy="14" rx="3.5" ry="7" stroke="white" strokeWidth="1.2" fill="none" />
+    <line x1="7" y1="14" x2="21" y2="14" stroke="white" strokeWidth="1.2" />
+    <circle cx="14" cy="14" r="1.2" fill="white" />
+  </svg>
+)
+
 const Footer = () => {
   const location = useLocation()
   const navigate = useNavigate()
@@ -91,12 +102,15 @@ const Footer = () => {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-1 space-y-5">
-            <Link to="/" className="text-xl font-black tracking-tight uppercase flex items-center gap-2.5 hover:text-teal transition-colors">
-              <div className="w-8 h-8 bg-teal rounded-lg flex items-center justify-center text-white text-xs font-black">NP</div>
-              <span>NDIS <span className="text-teal">Prototype</span></span>
+            <Link to="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
+              <MeridianMark />
+              <div className="flex flex-col leading-none">
+                <span className="text-[13px] font-black tracking-tight text-white">Meridian Digital</span>
+                <span className="text-[9px] font-semibold tracking-widest text-white/40 uppercase">NDIS Digital Agency</span>
+              </div>
             </Link>
             <p className="text-white/40 text-xs leading-relaxed">
-              Australia's dedicated NDIS digital compliance platform. Built for allied health, support coordinators, plan managers, and core supports providers.
+              Australia's specialist digital agency for NDIS providers. WCAG 2.2 AA. Registration-ready. Privacy Act compliant. Built in Melbourne, delivered Australia-wide.
             </p>
             <div className="flex gap-2.5">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
@@ -153,20 +167,20 @@ const Footer = () => {
 
         {/* Contact strip */}
         <div className="flex flex-col md:flex-row gap-4 mb-6">
-          <a href="tel:+611300000000" className="flex items-center gap-2 text-white/40 text-xs hover:text-teal transition-colors">
-            <Phone size={13} className="text-teal" /> 1300 000 000
+          <a href="tel:1300637434" className="flex items-center gap-2 text-white/40 text-xs hover:text-teal transition-colors">
+            <Phone size={13} className="text-teal" /> 1300 637 434
           </a>
-          <a href="mailto:hello@ndisprototype.com.au" className="flex items-center gap-2 text-white/40 text-xs hover:text-teal transition-colors">
-            <Mail size={13} className="text-teal" /> hello@ndisprototype.com.au
+          <a href="mailto:hello@meridiandigital.com.au" className="flex items-center gap-2 text-white/40 text-xs hover:text-teal transition-colors">
+            <Mail size={13} className="text-teal" /> hello@meridiandigital.com.au
           </a>
           <div className="flex items-center gap-2 text-white/40 text-xs">
-            <MapPin size={13} className="text-teal" /> Australia-Wide · Remote & On-Site
+            <MapPin size={13} className="text-teal" /> Level 7, 120 Spencer St, Melbourne VIC 3000
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-medium text-white/25">
-          <div>© {new Date().getFullYear()} NDIS Prototype. All rights reserved. ABN 00 000 000 000</div>
+          <div>© {new Date().getFullYear()} Meridian Digital Pty Ltd. All rights reserved. ABN 72 634 891 057</div>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-teal transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-teal transition-colors">Terms of Service</Link>

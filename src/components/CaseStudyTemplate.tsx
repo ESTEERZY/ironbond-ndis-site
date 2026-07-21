@@ -45,8 +45,15 @@ const CaseStudyTemplate = () => {
             <span>Back to Solutions</span>
           </Link>
           
-          <Link to="/" className="text-2xl font-black tracking-[-0.08em] text-white uppercase flex items-center gap-3">
-            NDIS <span className="text-teal">Prototype</span>
+          <Link to="/" className="text-lg font-black tracking-tight text-white flex items-center gap-2.5">
+            <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6 flex-shrink-0" aria-hidden="true">
+              <rect width="28" height="28" rx="6" fill="#00B4D8" />
+              <ellipse cx="14" cy="14" rx="7" ry="7" stroke="white" strokeWidth="1.4" fill="none" />
+              <ellipse cx="14" cy="14" rx="3.5" ry="7" stroke="white" strokeWidth="1.2" fill="none" />
+              <line x1="7" y1="14" x2="21" y2="14" stroke="white" strokeWidth="1.2" />
+              <circle cx="14" cy="14" r="1.2" fill="white" />
+            </svg>
+            Meridian <span className="text-teal">Digital</span>
           </Link>
 
           {/* Dummy element to balance flexbox */}
@@ -245,7 +252,7 @@ const CaseStudyTemplate = () => {
       {/* Footer copyright section for completeness */}
       <footer className="py-12 bg-navy-mid border-t border-white/5 text-center text-xs font-semibold tracking-wider text-white/30 uppercase z-10 relative">
         <div className="container mx-auto px-6">
-          © {new Date().getFullYear()} NDIS Prototype. All rights reserved. Compliant by Design. Built for NDIS.
+          © {new Date().getFullYear()} Meridian Digital. All rights reserved. Compliant by Design. Built for NDIS.
         </div>
       </footer>
 

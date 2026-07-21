@@ -103,7 +103,7 @@ const Contact = () => {
                     type="email" id="email" name="email" value={formData.email}
                     onChange={handleChange} required
                     className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                    placeholder="jane@ndisprovider.com.au"
+                    placeholder="jane@yourorganisation.com.au"
                   />
                 </div>
               </div>
@@ -148,7 +148,7 @@ const Contact = () => {
 
               <p className="text-center text-xs text-slate-400 flex items-center justify-center gap-1.5 pt-2">
                 <ShieldCheck size={12} className="text-emerald" />
-                Protected under the Privacy Act 1988 (Cth) &amp; NDIS Practice Standards
+                Managed under the Privacy Act 1988 (Cth) &amp; NDIS Practice Standards — Meridian Digital Pty Ltd
               </p>
             </form>
           </motion.div>
