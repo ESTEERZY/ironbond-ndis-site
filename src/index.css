@@ -7,27 +7,27 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   * {
-    @apply border-white/10;
+    @apply border-slate-200;
   }
 
   body {
-    @apply bg-navy text-white font-sans antialiased;
-    letter-spacing: -0.02em;
+    @apply bg-white text-navy font-sans antialiased;
+    letter-spacing: -0.01em;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold tracking-tight text-white;
-    line-height: 1.2;
+    @apply font-heading font-bold tracking-tight text-navy;
+    line-height: 1.15;
   }
 
-  h1 { @apply text-7xl lg:text-8xl font-black; }
-  h2 { @apply text-5xl lg:text-6xl font-bold; }
-  h3 { @apply text-3xl lg:text-4xl font-bold; }
+  h1 { @apply text-5xl lg:text-6xl font-black; }
+  h2 { @apply text-4xl lg:text-5xl font-bold; }
+  h3 { @apply text-2xl lg:text-3xl font-bold; }
 
   p {
     line-height: 1.7;
@@ -39,41 +39,6 @@
     text-wrap: balance;
   }
 
-  /* NDIS Teal Accent */
-  .accent-teal {
-    color: #00B4D8;
-  }
-
-  .bg-accent-teal {
-    background-color: #00B4D8;
-  }
-
-  .border-accent-teal {
-    border-color: #00B4D8;
-  }
-
-  /* NDIS Emerald — Compliance/Trust */
-  .accent-emerald {
-    color: #10B981;
-  }
-
-  .bg-accent-emerald {
-    background-color: #10B981;
-  }
-
-  /* Legacy Gold — Kept for backward compat */
-  .accent-gold {
-    color: #C5A059;
-  }
-
-  .bg-accent-gold {
-    background-color: #C5A059;
-  }
-
-  .border-accent-gold {
-    border-color: #C5A059;
-  }
-
   /* NDIS Trust Badge utility */
   .trust-badge {
     @apply inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald/10 border border-emerald/30 rounded-full text-emerald text-xs font-bold tracking-wide;
@@ -83,47 +48,25 @@
     @apply inline-flex items-center gap-1.5 px-3 py-1 bg-teal/10 border border-teal/20 rounded-full text-teal text-[11px] font-semibold tracking-wide;
   }
 
-  .wcag-glow {
-    box-shadow: 0 0 20px rgba(0, 180, 216, 0.15);
-  }
-
   /* Ambient Cinematic Animations */
   @keyframes infinitePan {
-    0% {
-      transform: scale(1.00) translate(0, 0);
-    }
-    50% {
-      transform: scale(1.07) translate(-1%, -1%);
-    }
-    100% {
-      transform: scale(1.00) translate(0, 0);
-    }
+    0% { transform: scale(1.00) translate(0, 0); }
+    50% { transform: scale(1.04) translate(-0.5%, -0.5%); }
+    100% { transform: scale(1.00) translate(0, 0); }
   }
 
   @keyframes heading-breath {
-    0%, 100% {
-      opacity: 0.9;
-      transform: translateY(0px);
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(-3px);
-    }
+    0%, 100% { opacity: 1; transform: translateY(0px); }
+    50% { opacity: 1; transform: translateY(-2px); }
   }
 
   @keyframes subtext-breath {
-    0%, 100% {
-      opacity: 0.9;
-      transform: translateY(0px);
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
+    0%, 100% { opacity: 1; transform: translateY(0px); }
+    50% { opacity: 1; transform: translateY(-1px); }
   }
 
   .animate-infinitePan {
-    animation: infinitePan 25s linear infinite alternate;
+    animation: infinitePan 25s ease-in-out infinite;
   }
 
   .animate-heading-breath {
@@ -134,38 +77,20 @@
     animation: subtext-breath 8s ease-in-out infinite;
   }
 
-  /* Kinetic Ambient Mesh — NDIS Navy/Teal tones */
+  /* Kinetic Ambient Mesh */
   @keyframes ambientMesh {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .animate-ambient-mesh {
     animation: ambientMesh 20s linear infinite;
   }
 
-  .bg-kinetic-mesh {
-    background: radial-gradient(circle at 10% 20%, rgba(0, 180, 216, 0.08) 0%, rgba(11, 31, 58, 0) 55%),
-                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.06) 0%, rgba(11, 31, 58, 0) 55%),
-                radial-gradient(circle at 50% 50%, rgba(11, 31, 58, 1) 0%, rgba(7, 18, 36, 1) 100%);
-    background-size: 200% 200%;
-  }
-
-  /* Cinematic slow-zoom Ken Burns animation loop */
   @keyframes kenBurns {
-    0% {
-      transform: scale(1.00) translate(0, 0);
-    }
-    100% {
-      transform: scale(1.06) translate(-0.5%, -0.5%);
-    }
+    0% { transform: scale(1.00) translate(0, 0); }
+    100% { transform: scale(1.06) translate(-0.5%, -0.5%); }
   }
 
   .animate-ken-burns {
@@ -178,6 +103,18 @@
   }
   @keyframes kineticZoom {
     0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.08) translate(-1%, -0.5%); }
+    100% { transform: scale(1.06) translate(-0.5%, -0.5%); }
+  }
+
+  /* Float animation for hero badges */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-float-delay {
+    animation: float 4s ease-in-out 1.5s infinite;
   }
 }

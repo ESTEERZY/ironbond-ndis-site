@@ -10,121 +10,110 @@ const Header = () => {
   const navLinks = [
     { name: 'Services', href: '#features' },
     { name: 'Solutions', href: '#portfolio' },
-    { name: 'Workflow', href: '#process' },
+    { name: 'How It Works', href: '#process' },
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const targetId = href.replace('#', '')
     if (location.pathname === '/') {
-      const element = document.getElementById(targetId)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
     } else {
       navigate('/', { state: { scrollToSection: targetId } })
     }
+    setIsMenuOpen(false)
   }
 
   const handleLogoClick = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-navy/90 backdrop-blur-md border-b border-white/10 shadow-sm">
-      <nav className="container mx-auto px-6 lg:px-12 py-5">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+      <nav className="container mx-auto px-6 lg:px-12 py-4">
+        <div className="flex items-center justify-between gap-8">
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             onClick={handleLogoClick}
-            className="text-2xl font-black tracking-[-0.08em] text-white uppercase flex items-center gap-2 hover:text-teal/90 transition-colors duration-300"
+            className="text-xl font-black tracking-tight text-navy uppercase flex items-center gap-2.5 hover:text-teal transition-colors duration-300 flex-shrink-0"
           >
-            <img src="/favicon.png" alt="NDIS Prototype Logo" className="h-8 w-auto object-contain" />
+            <div className="w-8 h-8 bg-teal rounded-lg flex items-center justify-center text-white text-xs font-black">NP</div>
             <span>NDIS <span className="text-teal">Prototype</span></span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-white/80 hover:text-teal transition-colors duration-500 text-sm font-bold tracking-widest uppercase relative group"
+                className="text-navy/70 hover:text-teal transition-colors duration-300 text-sm font-semibold tracking-wide"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal group-hover:w-full transition-all duration-500"></span>
               </a>
             ))}
+          </div>
 
-            {/* Secondary CTA */}
+          {/* Desktop CTAs */}
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href="#contact"
               onClick={(e) => handleScroll(e, '#contact')}
-              className="text-teal border border-teal/40 px-6 py-2.5 text-sm font-bold tracking-widest uppercase hover:bg-teal/10 transition-all duration-300 rounded-[2px]"
+              className="text-navy/70 hover:text-teal text-sm font-semibold tracking-wide transition-colors duration-300 px-4 py-2"
             >
-              Get Support
+              Contact us
             </a>
-
-            {/* Primary CTA Button */}
             <a
               href="#contact"
               onClick={(e) => handleScroll(e, '#contact')}
-              className="bg-teal text-navy px-8 py-3 text-sm font-bold tracking-widest uppercase hover:bg-teal/90 transition-all duration-500 inline-flex items-center gap-2 rounded-[2px] shadow-[0_0_20px_rgba(0,180,216,0.25)]"
+              className="bg-teal text-white px-6 py-2.5 text-sm font-bold rounded-lg hover:bg-teal/90 transition-all duration-300 shadow-sm shadow-teal/20"
             >
-              Book a Free Audit
+              Book Free Audit
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white"
+            className="lg:hidden text-navy p-1"
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-6 pb-6 border-t border-white/10 pt-6 animate-fade-in">
-            <div className="flex flex-col space-y-5">
+          <div className="lg:hidden mt-4 pb-4 border-t border-slate-100 pt-4 animate-fade-in">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => {
-                    setIsMenuOpen(false)
-                    handleScroll(e, link.href)
-                  }}
-                  className="text-white/80 hover:text-teal transition-colors duration-300 text-lg font-bold uppercase tracking-widest"
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className="text-navy/80 hover:text-teal text-base font-semibold transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
-              <a
-                href="#contact"
-                className="text-teal border border-teal/50 px-8 py-3 text-base font-bold tracking-widest uppercase hover:bg-teal/10 transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-[2px] whitespace-nowrap"
-                onClick={(e) => {
-                  setIsMenuOpen(false)
-                  handleScroll(e, '#contact')
-                }}
-              >
-                Get Support
-              </a>
-              <a
-                href="#contact"
-                className="bg-teal text-navy shadow-[0_0_15px_rgba(0,180,216,0.3)] px-8 py-4 text-base font-bold tracking-widest uppercase hover:bg-teal/90 transition-all duration-300 inline-flex items-center justify-center gap-2 rounded-[2px] whitespace-nowrap"
-                onClick={(e) => {
-                  setIsMenuOpen(false)
-                  handleScroll(e, '#contact')
-                }}
-              >
-                Book a Free Audit
-              </a>
+              <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleScroll(e, '#contact')}
+                  className="text-center border border-slate-200 text-navy py-3 text-sm font-bold rounded-lg hover:border-teal hover:text-teal transition-all"
+                >
+                  Contact us
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => handleScroll(e, '#contact')}
+                  className="text-center bg-teal text-white py-3 text-sm font-bold rounded-lg hover:bg-teal/90 transition-all"
+                >
+                  Book Free Audit
+                </a>
+              </div>
             </div>
           </div>
         )}

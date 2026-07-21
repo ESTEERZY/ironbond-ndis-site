@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Globe, ShieldCheck, Users } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const Projects = () => {
   const projects = [
@@ -51,75 +52,82 @@ const Projects = () => {
   ]
 
   return (
-    <section id="portfolio" className="py-32 bg-navy-mid relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal/10 to-transparent"></div>
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+    <section id="portfolio" className="py-20 lg:py-28 bg-white">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
-          <div className="space-y-6 max-w-3xl animate-fade-in">
-            <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight animate-slide-up">
-              NDIS <span className="text-teal italic font-light">Digital Solutions</span>
-            </h2>
-            <p className="text-xl text-white/60 font-sans font-medium animate-slide-up max-w-2xl" style={{ animationDelay: '0.1s' }}>
-              Purpose-built platforms for the three core NDIS provider verticals. Compliant, accessible, and built to scale with your organisation.
-            </p>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Our NDIS Solutions</p>
+          <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">
+            Purpose-built platforms<br />for every provider type.
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Compliant, accessible, and built to scale. Choose the solution that fits your organisation.
+          </p>
+        </motion.div>
 
         {/* Projects List */}
-        <div className="space-y-40">
+        <div className="space-y-20 lg:space-y-28">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-20 items-center animate-slide-up group`}
-              style={{ animationDelay: `${index * 0.15}s` }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7 }}
+              className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 lg:gap-16 items-center group`}
             >
-              {/* Asymmetric Multi-Image Collage (3 Images) */}
-              <div className="w-full lg:w-3/5 grid grid-cols-12 gap-3 md:gap-4 relative shrink-0">
-                {/* Large Main Image (Exterior) */}
+              {/* Asymmetric Multi-Image Collage */}
+              <div className="w-full lg:w-3/5 grid grid-cols-12 gap-3 relative shrink-0">
+                {/* Large Main Image */}
                 <Link
                   to={`/${project.id}.html`}
-                  className="col-span-8 aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-2xl transition-all duration-500 hover:border-teal/50 hover:scale-[1.01]"
+                  className="col-span-8 aspect-[4/3] relative overflow-hidden rounded-2xl border border-slate-100 block shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]"
                 >
                   <img
                     src={project.image}
                     alt={`${project.title} Platform`}
-                    className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-103"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading={index === 0 ? undefined : "lazy"}
                     fetchPriority={index === 0 ? "high" : undefined}
                   />
-                  <div className="absolute bottom-4 left-4 bg-navy/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[9px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px]">
+                  <div className="absolute bottom-4 left-4 bg-navy/85 backdrop-blur-sm px-3 py-1.5 text-[9px] font-bold tracking-widest text-white uppercase rounded-lg">
                     {project.badgeMain}
                   </div>
                 </Link>
 
-                {/* Right Side Stacked Images (Interior + Detail) */}
-                <div className="col-span-4 flex flex-col gap-3 md:gap-4">
+                {/* Right Side Stacked Images */}
+                <div className="col-span-4 flex flex-col gap-3">
                   <Link
                     to={`/${project.id}.html`}
-                    className="aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-xl transition-all duration-500 hover:border-teal/50 hover:scale-[1.01]"
+                    className="aspect-[4/3] relative overflow-hidden rounded-xl border border-slate-100 block shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.01]"
                   >
                     <img
                       src={`/case-studies/${project.id}/image2.png`}
                       alt={`${project.title} Dashboard`}
-                      className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-3 left-3 bg-navy/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
+                    <div className="absolute bottom-2 left-2 bg-navy/80 px-2 py-1 text-[8px] font-bold tracking-wide text-white uppercase rounded-md whitespace-nowrap">
                       {project.badgeTwo}
                     </div>
                   </Link>
                   <Link
                     to={`/${project.id}.html`}
-                    className="aspect-[4/3] relative overflow-hidden rounded-[2px] border border-white/10 block cursor-pointer shadow-xl transition-all duration-500 hover:border-teal/50 hover:scale-[1.01]"
+                    className="aspect-[4/3] relative overflow-hidden rounded-xl border border-slate-100 block shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.01]"
                   >
                     <img
                       src={`/case-studies/${project.id}/image3.png`}
                       alt={`${project.title} Portal`}
-                      className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-3 left-3 bg-navy/80 backdrop-blur-md px-2 py-1 border border-white/10 text-[8px] font-bold tracking-[0.2em] text-white uppercase rounded-[2px] whitespace-nowrap">
+                    <div className="absolute bottom-2 left-2 bg-navy/80 px-2 py-1 text-[8px] font-bold tracking-wide text-white uppercase rounded-md whitespace-nowrap">
                       {project.badgeThree}
                     </div>
                   </Link>
@@ -128,89 +136,84 @@ const Projects = () => {
 
               {/* Case Study Content */}
               <div className="w-full lg:w-2/5 flex flex-col justify-center">
-                {/* Visual Label & Sequence Number */}
-                <div className="flex items-center gap-3 text-teal text-xs font-bold tracking-[0.3em] uppercase mb-4">
-                  <span>0{index + 1} // NDIS SOLUTION</span>
+                <div className="text-teal text-xs font-bold tracking-widest uppercase mb-3">
+                  0{index + 1} — NDIS Solution
                 </div>
 
-                {/* NDIS Registration Pill */}
-                <div className="mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald/10 border border-emerald/30 rounded-full text-emerald text-[11px] font-bold tracking-wide">
-                    <ShieldCheck size={12} />
-                    {project.ndisTag}
-                  </span>
-                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald/8 border border-emerald/20 rounded-full text-emerald text-xs font-semibold mb-4 w-fit">
+                  <ShieldCheck size={12} />
+                  {project.ndisTag}
+                </span>
 
-                <Link to={`/${project.id}.html`} className="inline-block group-hover:text-teal transition-colors duration-500">
-                  <h3 className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6 group-hover:text-teal transition-colors duration-500 font-heading leading-tight">
+                <Link to={`/${project.id}.html`}>
+                  <h3 className="text-3xl lg:text-4xl font-black text-navy mb-5 hover:text-teal transition-colors duration-300 leading-tight">
                     {project.title}
                   </h3>
                 </Link>
-                
-                {/* Intent Statement - Reduced Text with High Visual Priority */}
-                <div className="mb-8 border-l-2 border-teal/40 pl-6">
-                  <p className="text-xl text-white/90 leading-relaxed font-sans font-light italic">
+
+                <div className="mb-7 border-l-2 border-teal/30 pl-5">
+                  <p className="text-lg text-slate-600 leading-relaxed italic">
                     "{project.intent}"
                   </p>
                 </div>
 
-                {/* Structured Metric Cards - Skimmable */}
-                <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-8 font-sans">
-                  <div className="bg-navy-light border border-white/5 p-4 rounded-[2px] hover:bg-white/5 hover:border-white/10 transition-all duration-300">
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-1.5">
-                      <Users size={12} className="text-teal" /> Provider Type
+                {/* Metric Cards */}
+                <div className="grid grid-cols-2 gap-3 mb-7">
+                  <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-1.5">
+                      <Users size={11} className="text-teal" /> Provider Type
                     </div>
-                    <div className="text-base font-bold text-white">{project.location}</div>
+                    <div className="text-sm font-bold text-navy">{project.location}</div>
                   </div>
-                  <div className="bg-navy-light border border-white/5 p-4 rounded-[2px] hover:bg-white/5 hover:border-white/10 transition-all duration-300">
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-1.5">
-                      <ShieldCheck size={12} className="text-teal" /> Compliance Level
+                  <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-1.5">
+                      <ShieldCheck size={11} className="text-teal" /> Compliance
                     </div>
-                    <div className="text-base font-bold text-white">{project.scale} &bull; {project.status}</div>
+                    <div className="text-sm font-bold text-navy">{project.scale} · {project.status}</div>
                   </div>
-                  <div className="col-span-2 bg-navy-light border border-white/5 p-4 rounded-[2px] hover:bg-white/5 hover:border-white/10 transition-all duration-300 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase">
-                      <Globe size={12} className="text-teal" /> Tech Stack
+                  <div className="col-span-2 bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-slate-400 uppercase">
+                      <Globe size={11} className="text-teal" /> Tech Stack
                     </div>
-                    <div className="text-xs font-bold tracking-[0.15em] text-teal uppercase bg-teal/10 px-3 py-1 border border-teal/20 rounded-[2px]">
+                    <span className="text-xs font-bold text-teal bg-teal/10 px-3 py-1 rounded-full border border-teal/20">
                       {project.materials}
-                    </div>
+                    </span>
                   </div>
                 </div>
 
-                {/* Explore Case Study CTA Link */}
-                <div className="mt-8 border-t border-white/5 pt-6">
-                  <Link
-                    to={`/${project.id}.html`}
-                    className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.25em] text-teal hover:text-white uppercase transition-all duration-300 group/link"
-                  >
-                    <span>View Platform Details</span>
-                    <ArrowRight className="group-hover/link:translate-x-1.5 transition-transform duration-300 text-teal group-hover/link:text-white" size={14} />
-                  </Link>
-                </div>
+                <Link
+                  to={`/${project.id}.html`}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-teal hover:text-navy transition-colors duration-300 group/link"
+                >
+                  <span>View Platform Details</span>
+                  <ArrowRight className="group-hover/link:translate-x-1 transition-transform" size={16} />
+                </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA Below Projects */}
-        <div className="mt-32 text-center animate-slide-up border-t border-white/10 pt-24" style={{ animationDelay: '0.3s' }}>
-          <h3 className="text-4xl font-bold text-white mb-6">Ready to get your platform compliant?</h3>
-          <p className="text-xl text-white/60 font-sans font-medium mb-10 max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 pt-16 border-t border-slate-100 text-center"
+        >
+          <h3 className="text-3xl font-bold text-navy mb-4">Ready to get your platform compliant?</h3>
+          <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto">
             Book a free NDIS digital audit and receive a tailored compliance gap report — no obligation, delivered within 48 hours.
           </p>
           <a
             href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="group bg-teal text-navy px-12 py-6 text-base font-bold tracking-widest uppercase hover:bg-teal/90 transition-all duration-500 inline-flex items-center gap-3 shadow-[0_0_20px_rgba(0,180,216,0.2)] hover:shadow-[0_0_40px_rgba(0,180,216,0.4)] rounded-[2px] font-sans"
+            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+            className="group bg-teal text-white px-10 py-4 text-base font-bold rounded-xl hover:bg-teal/90 transition-all duration-300 inline-flex items-center gap-2.5 shadow-lg shadow-teal/20"
           >
-            Book a Free Platform Audit
-            <ArrowRight className="group-hover:translate-x-2 transition-transform" size={22} />
+            Book a Free Audit
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
