@@ -2,11 +2,14 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Header from './Header'
 import Hero from './Hero'
-import ProcessBreakdown from './ProcessBreakdown'
 import Stats from './Stats'
-import About from './About'
 import DesignSignatures from './DesignSignatures'
 import Projects from './Projects'
+import WorkflowSection from './WorkflowSection'
+import ProcessBreakdown from './ProcessBreakdown'
+import IntegrationsSection from './IntegrationsSection'
+import ComplianceChecklist from './ComplianceChecklist'
+import About from './About'
 import Contact from './Contact'
 import Footer from './Footer'
 
@@ -14,7 +17,6 @@ const Home = () => {
   const location = useLocation()
 
   useEffect(() => {
-    // If state contains scrollToContact, smooth scroll to the contact form block
     if (location.state?.scrollToContact) {
       const contactSection = document.getElementById('contact')
       if (contactSection) {
@@ -39,7 +41,10 @@ const Home = () => {
       <Stats />
       <DesignSignatures />
       <Projects />
+      <WorkflowSection />
       <ProcessBreakdown />
+      <IntegrationsSection />
+      <ComplianceChecklist />
       <About />
       <Contact />
       <Footer />
