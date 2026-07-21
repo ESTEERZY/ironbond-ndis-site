@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 18px;
+  }
+
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply bg-charcoal text-white font-sans antialiased;
+    letter-spacing: -0.02em;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight text-white;
+    line-height: 1.2;
+  }
+
+  h1 { @apply text-7xl lg:text-8xl font-black; }
+  h2 { @apply text-5xl lg:text-6xl font-bold; }
+  h3 { @apply text-3xl lg:text-4xl font-bold; }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .accent-gold {
+    color: #D4AF37;
+  }
+
+  .bg-accent-gold {
+    background-color: #D4AF37;
+  }
+
+  .border-accent-gold {
+    border-color: #D4AF37;
+  }
+
+  /* Industrial Orange - Premium accent */
+  .accent-orange {
+    color: #EA6B1F;
+  }
+
+  .bg-accent-orange {
+    background-color: #EA6B1F;
+  }
+
+  .border-accent-orange {
+    border-color: #EA6B1F;
+  }
+
+  /* Ambient Cinematic Animations */
+  @keyframes infinitePan {
+    0% {
+      transform: scale(1.00) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.07) translate(-1%, -1%);
+    }
+    100% {
+      transform: scale(1.00) translate(0, 0);
+    }
+  }
+
+  @keyframes heading-breath {
+    0%, 100% {
+      opacity: 0.9;
+      transform: translateY(0px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+  }
+
+  @keyframes subtext-breath {
+    0%, 100% {
+      opacity: 0.9;
+      transform: translateY(0px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+  }
+
+  .animate-infinitePan {
+    animation: infinitePan 25s linear infinite alternate;
+  }
+
+  .animate-heading-breath {
+    animation: heading-breath 6s ease-in-out infinite;
+  }
+
+  .animate-subtext-breath {
+    animation: subtext-breath 8s ease-in-out infinite;
+  }
+
+  /* Kinetic Ambient Mesh background loop */
+  @keyframes ambientMesh {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-ambient-mesh {
+    animation: ambientMesh 20s linear infinite;
+  }
+
+  .bg-kinetic-mesh {
+    background: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 0.9) 0%, rgba(30, 41, 59, 0) 55%),
+                radial-gradient(circle at 90% 80%, rgba(68, 51, 34, 0.8) 0%, rgba(68, 51, 34, 0) 55%),
+                radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%);
+    background-size: 200% 200%;
+  }
+
+
+  /* Cinematic slow-zoom Ken Burns animation loop */
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1.00) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.06) translate(-0.5%, -0.5%);
+    }
+  }
+
+  .animate-ken-burns {
+    animation: kenBurns 30s linear infinite alternate;
+  }
+
+  .animate-kinetic-zoom {
+    animation: kineticZoom 30s linear infinite alternate;
+    will-change: transform;
+  }
+  @keyframes kineticZoom {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, -0.5%); }
+  }
+}
+
