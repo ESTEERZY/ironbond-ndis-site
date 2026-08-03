@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Info, Sparkles } from 'lucide-react';
 
-
 export const BeforeAfterGallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'whitening' | 'veneers' | 'aligners'>('whitening');
   const [sliderPos, setSliderPos] = useState(50);
@@ -11,22 +10,22 @@ export const BeforeAfterGallery: React.FC = () => {
     whitening: {
       title: 'Professional In-Chair Teeth Whitening',
       description: 'Lifting enamel stains and discolouration under professional dentist supervision.',
-      beforeImg: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=1200&q=80',
+      beforeImg: '/images/teeth_before_whitening.png',
+      afterImg: '/images/teeth_after_whitening.png',
       tag: 'In-Chair Whitening Case',
     },
     veneers: {
       title: 'Porcelain Veneer Restorations',
       description: 'Restoring tooth symmetry, chip damage, and natural enamel translucency.',
-      beforeImg: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1200&q=80',
+      beforeImg: '/images/teeth_before_veneers.png',
+      afterImg: '/images/teeth_after_veneers.png',
       tag: 'Custom Veneer Smile Design',
     },
     aligners: {
       title: 'Clear Aligner Orthodontics',
       description: 'Discrete alignment of crowded front teeth without traditional metal brackets.',
-      beforeImg: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1200&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80',
+      beforeImg: '/images/teeth_before_aligners.png',
+      afterImg: '/images/teeth_after_aligners.png',
       tag: 'Clear Aligner Alignment Case',
     },
   };
@@ -46,7 +45,7 @@ export const BeforeAfterGallery: React.FC = () => {
             CLINICAL TEETH CASE GALLERY
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-charcoal">
-            Before & After Teeth Photos
+            Before & After Teeth Photo Comparison
           </h2>
           <p className="text-xs sm:text-sm text-charcoal-muted max-w-lg mx-auto font-sans leading-relaxed">
             Drag the slider horizontally or toggle view modes to compare before and after teeth photos for our clinical treatment cases.
@@ -70,7 +69,7 @@ export const BeforeAfterGallery: React.FC = () => {
           ))}
         </div>
 
-        {/* View Mode Switcher (Split / Before Only / After Only) */}
+        {/* View Mode Switcher */}
         <div className="flex justify-center items-center gap-2 mb-8 text-xs font-sans">
           <span className="text-charcoal-muted font-medium text-[11px] uppercase tracking-wider mr-2">View Mode:</span>
           <button
@@ -102,18 +101,18 @@ export const BeforeAfterGallery: React.FC = () => {
         {/* Interactive Comparison Box */}
         <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-charcoal/10 overflow-hidden shadow-xl">
           
-          {/* Main Visual Container */}
-          <div className="relative aspect-[16/10] sm:aspect-[16/9] select-none overflow-hidden bg-sand-light">
+          {/* Main Visual Viewer */}
+          <div className="relative aspect-[4/3] sm:aspect-[16/10] select-none overflow-hidden bg-sand-light">
             
             {viewMode === 'before' && (
               <div className="w-full h-full relative">
                 <img
                   src={current.beforeImg}
-                  alt={`${current.title} Before`}
+                  alt={`${current.title} Before Teeth`}
                   className="w-full h-full object-cover"
                 />
-                <span className="absolute top-4 left-4 bg-charcoal text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
-                  BEFORE TREATMENT (INITIAL)
+                <span className="absolute top-4 left-4 bg-charcoal text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
+                  BEFORE TREATMENT (INITIAL TEETH)
                 </span>
               </div>
             )}
@@ -122,28 +121,28 @@ export const BeforeAfterGallery: React.FC = () => {
               <div className="w-full h-full relative">
                 <img
                   src={current.afterImg}
-                  alt={`${current.title} After`}
+                  alt={`${current.title} After Teeth`}
                   className="w-full h-full object-cover"
                 />
-                <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
-                  AFTER TREATMENT (RESULT)
+                <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
+                  AFTER TREATMENT (RESULT TEETH)
                 </span>
               </div>
             )}
 
             {viewMode === 'split' && (
               <>
-                {/* AFTER Image (Underneath) */}
+                {/* AFTER Teeth Image (Underneath) */}
                 <img
                   src={current.afterImg}
-                  alt={`${current.title} After Result`}
+                  alt={`${current.title} After Result Teeth`}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
                   AFTER RESULT
                 </span>
 
-                {/* BEFORE Image (Clipped Overlay) */}
+                {/* BEFORE Teeth Image (Clipped Overlay) */}
                 <div
                   className="absolute inset-y-0 left-0 overflow-hidden z-10"
                   style={{ width: `${sliderPos}%` }}
@@ -151,7 +150,7 @@ export const BeforeAfterGallery: React.FC = () => {
                   <div className="absolute inset-0 w-[100vw] max-w-[896px] h-full">
                     <img
                       src={current.beforeImg}
-                      alt={`${current.title} Before Initial`}
+                      alt={`${current.title} Before Initial Teeth`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -185,32 +184,32 @@ export const BeforeAfterGallery: React.FC = () => {
 
           </div>
 
-          {/* Side-by-side Thumbnail Cards for Quick Reference */}
+          {/* Side-by-side Thumbnail Cards */}
           <div className="p-6 bg-ivory/50 border-t border-charcoal/10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             
-            <div className="flex items-center gap-4 bg-white p-3 border border-charcoal/10 rounded-2xl shadow-sm">
-              <div className="w-20 h-14 rounded-lg overflow-hidden bg-sand-light flex-shrink-0 border border-charcoal/10">
-                <img src={current.beforeImg} alt="Before thumbnail" className="w-full h-full object-cover" />
+            <div className="flex items-center gap-4 bg-white p-3.5 border border-charcoal/10 rounded-2xl shadow-sm">
+              <div className="w-20 h-16 rounded-xl overflow-hidden bg-sand-light flex-shrink-0 border border-charcoal/10">
+                <img src={current.beforeImg} alt="Before teeth thumbnail" className="w-full h-full object-cover" />
               </div>
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-muted block">BEFORE PHOTO</span>
-                <p className="text-xs font-bold text-charcoal">Initial Teeth Condition</p>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-muted block">BEFORE TEETH PHOTO</span>
+                <p className="text-xs font-bold text-charcoal">Initial Tooth Condition</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 bg-white p-3 border border-charcoal/10 rounded-2xl shadow-sm">
-              <div className="w-20 h-14 rounded-lg overflow-hidden bg-sand-light flex-shrink-0 border border-charcoal/10">
-                <img src={current.afterImg} alt="After thumbnail" className="w-full h-full object-cover" />
+            <div className="flex items-center gap-4 bg-white p-3.5 border border-charcoal/10 rounded-2xl shadow-sm">
+              <div className="w-20 h-16 rounded-xl overflow-hidden bg-sand-light flex-shrink-0 border border-charcoal/10">
+                <img src={current.afterImg} alt="After teeth thumbnail" className="w-full h-full object-cover" />
               </div>
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-forest block">AFTER PHOTO</span>
-                <p className="text-xs font-bold text-forest">Treatment Outcome</p>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-forest block">AFTER TEETH PHOTO</span>
+                <p className="text-xs font-bold text-forest">Treatment Teeth Result</p>
               </div>
             </div>
 
           </div>
 
-          {/* Case Description & Tag */}
+          {/* Case Description */}
           <div className="p-6 bg-white border-t border-charcoal/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="font-serif text-xl font-normal text-charcoal">{current.title}</h3>
