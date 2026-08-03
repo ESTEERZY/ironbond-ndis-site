@@ -5,19 +5,18 @@ import { ArrowRight } from 'lucide-react';
 export const IntroSection: React.FC = () => {
   return (
     <section id="intro" className="py-24 bg-white border-y border-charcoal/10 font-sans">
-
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Photography */}
+          {/* Left Column: Caring Dentist Photography */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] lg:aspect-[16/11] overflow-hidden bg-sand-light shadow-xl">
+            <div className="relative aspect-[4/3] lg:aspect-[16/12] overflow-hidden bg-sand-light shadow-xl rounded-2xl border border-charcoal/10 group">
               <img
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80"
-                alt="Dentist consulting naturally with patient at Harbour Dental Studio"
-                className="w-full h-full object-cover object-[center_30%]"
-
+                src="/images/caring_dentist_intro.png"
+                alt="Caring female dentist consulting warmly with patient at Harbour Dental Studio Hobart"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-charcoal/5 pointer-events-none"></div>
             </div>
           </div>
 
