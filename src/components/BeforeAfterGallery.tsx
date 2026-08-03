@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Info } from 'lucide-react';
-
+import { Info, Sparkles } from 'lucide-react';
 
 export const BeforeAfterGallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'whitening' | 'veneers' | 'aligners'>('whitening');
@@ -9,127 +8,137 @@ export const BeforeAfterGallery: React.FC = () => {
   const galleryData = {
     whitening: {
       title: 'Professional Teeth Whitening',
-      description: 'Brightening surface stains and discolouration under professional dental supervision.',
-      beforeImg: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=800&q=80',
-      tag: 'In-Chair Whitening Treatment Concept',
+      description: 'Brightening surface stains and discolouration under dentist supervision.',
+      beforeImg: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80',
+      afterImg: 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=1000&q=80',
+      tag: 'In-Chair Whitening Case',
     },
     veneers: {
       title: 'Porcelain Veneer Restorations',
       description: 'Restoring tooth proportion, symmetry, and natural translucency.',
-      beforeImg: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80',
-      tag: 'Custom Veneer Smile Design Concept',
+      beforeImg: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80',
+      afterImg: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80',
+      tag: 'Porcelain Veneers Case',
     },
     aligners: {
-      title: 'Clear Aligner Alignment',
-      description: 'Gradual, discrete alignment of crowded front teeth without fixed metal braces.',
-      beforeImg: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=800&q=80',
-      tag: 'Clear Aligner Therapy Concept',
+      title: 'Clear Aligner Orthodontics',
+      description: 'Gradual alignment of crowded teeth without fixed metal brackets.',
+      beforeImg: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1000&q=80',
+      afterImg: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1000&q=80',
+      tag: 'Clear Aligners Case',
     },
   };
 
   const current = galleryData[activeTab];
 
   return (
-    <div className="bg-slate-50 rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm my-12">
-      <div className="text-center max-w-xl mx-auto mb-8">
-        <span className="text-teal font-bold text-xs uppercase tracking-widest bg-teal/10 border border-teal/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
-          Clinical Case Showcase
-        </span>
-        <h3 className="text-2xl sm:text-3xl font-black text-navy">
-          Visual Treatment Transformations
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-600 mt-2">
-          Demonstration concepts inspired by leading Australian cosmetic dental clinics.
-        </p>
-      </div>
-
-      {/* Tabs */}
-      <div className="flex justify-center gap-2 mb-8">
-        {(['whitening', 'veneers', 'aligners'] as const).map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all uppercase tracking-wider ${
-              activeTab === tab
-                ? 'bg-navy text-white shadow-md'
-                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      {/* Interactive Slider Container */}
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-lg relative">
-        <div className="relative aspect-[16/10] select-none overflow-hidden">
-          {/* AFTER Image (Full background) */}
-          <img
-            src={current.afterImg}
-            alt="After treatment preview"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <span className="absolute top-4 right-4 bg-emerald text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
-            After Treatment
+    <section className="py-24 bg-ivory border-b border-charcoal/10 font-sans">
+      <div className="container mx-auto px-6 lg:px-12">
+        
+        {/* Section Header */}
+        <div className="max-w-2xl mx-auto text-center space-y-3 mb-12">
+          <div className="font-script text-3xl sm:text-4xl text-forest font-normal">
+            Smile Transformations
+          </div>
+          <span className="text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-forest block">
+            CLINICAL CASE GALLERY
           </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-charcoal">
+            Before & After Treatments
+          </h2>
+          <p className="text-xs sm:text-sm text-charcoal-muted max-w-lg mx-auto font-sans leading-relaxed">
+            Drag the slider to compare clinical results achieved through custom dental care plans.
+          </p>
+        </div>
 
-          {/* BEFORE Image (Clipped overlay) */}
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={{ width: `${sliderPos}%` }}
-          >
+        {/* Tab Controls */}
+        <div className="flex justify-center flex-wrap gap-3 mb-10">
+          {(['whitening', 'veneers', 'aligners'] as const).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all uppercase tracking-widest ${
+                activeTab === tab
+                  ? 'bg-forest text-white shadow-md'
+                  : 'bg-white text-charcoal border border-charcoal/15 hover:bg-sand-light'
+              }`}
+            >
+              {tab === 'whitening' ? 'Whitening' : tab === 'veneers' ? 'Veneers' : 'Clear Aligners'}
+            </button>
+          ))}
+        </div>
+
+        {/* Interactive Comparison Slider Container */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-charcoal/10 overflow-hidden shadow-xl relative">
+          <div className="relative aspect-[16/10] sm:aspect-[16/9] select-none overflow-hidden bg-sand-light">
+            
+            {/* AFTER Image (Background) */}
             <img
-              src={current.beforeImg}
-              alt="Before treatment preview"
-              className="absolute inset-0 w-full h-full object-cover max-w-none"
-              style={{ width: '100%', height: '100%' }}
+              src={current.afterImg}
+              alt="After treatment preview"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <span className="absolute top-4 left-4 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
-              Before Treatment
+            <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
+              AFTER TREATMENT
+            </span>
+
+            {/* BEFORE Image (Overlay Clip) */}
+            <div
+              className="absolute inset-0 overflow-hidden"
+              style={{ width: `${sliderPos}%` }}
+            >
+              <img
+                src={current.beforeImg}
+                alt="Before treatment preview"
+                className="absolute inset-0 w-full h-full object-cover max-w-none"
+                style={{ width: '100%', height: '100%' }}
+              />
+              <span className="absolute top-4 left-4 bg-charcoal text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
+                BEFORE TREATMENT
+              </span>
+            </div>
+
+            {/* Slider Divider Line */}
+            <div
+              className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-20 cursor-ew-resize flex items-center justify-center"
+              style={{ left: `${sliderPos}%` }}
+            >
+              <div className="w-9 h-9 rounded-full bg-forest text-white shadow-2xl border-2 border-white flex items-center justify-center text-xs font-bold">
+                ↔
+              </div>
+            </div>
+
+            {/* Range Input for Dragging */}
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={sliderPos}
+              onChange={(e) => setSliderPos(Number(e.target.value))}
+              className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
+              aria-label="Drag slider to compare before and after treatment images"
+            />
+          </div>
+
+          <div className="p-6 bg-white border-t border-charcoal/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="font-serif text-xl font-normal text-charcoal">{current.title}</h3>
+              <p className="text-xs text-charcoal-muted font-sans mt-0.5">{current.description}</p>
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-forest bg-forest/10 px-3 py-1 rounded-full border border-forest/20 flex items-center gap-1">
+              <Sparkles size={11} /> {current.tag}
             </span>
           </div>
-
-          {/* Slider Line Divider */}
-          <div
-            className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-20 cursor-ew-resize flex items-center justify-center"
-            style={{ left: `${sliderPos}%` }}
-          >
-            <div className="w-8 h-8 rounded-full bg-teal text-white shadow-xl border-2 border-white flex items-center justify-center text-xs font-bold">
-              ↔
-            </div>
-          </div>
-
-          {/* Range Input Overlay for Dragging */}
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={sliderPos}
-            onChange={(e) => setSliderPos(Number(e.target.value))}
-            className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
-            aria-label="Drag slider to compare before and after images"
-          />
         </div>
 
-        <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-          <div>
-            <h4 className="font-bold text-navy text-sm">{current.title}</h4>
-            <p className="text-slate-500">{current.description}</p>
-          </div>
-          <span className="text-[10px] text-teal font-bold bg-teal/10 px-2.5 py-1 rounded-full">
-            {current.tag}
-          </span>
+        {/* Disclaimer Note */}
+        <div className="mt-6 text-center text-[11px] text-charcoal-muted flex items-center justify-center gap-1.5 max-w-lg mx-auto font-sans">
+          <Info size={14} className="text-forest flex-shrink-0" />
+          <span>Individual treatment outcomes vary. Results depend on existing tooth structure and comprehensive dentist assessment.</span>
         </div>
-      </div>
 
-      <div className="mt-4 text-center text-[11px] text-slate-500 flex items-center justify-center gap-1 max-w-md mx-auto">
-        <Info size={13} className="text-teal" />
-        <span>Individual treatment outcomes vary. Results depend on existing tooth structure and overall health.</span>
       </div>
-    </div>
+    </section>
   );
 };
 
