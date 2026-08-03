@@ -14,10 +14,9 @@ import PatientJourney from './PatientJourney'; // 07
 import TeamSection from './TeamSection'; // 08
 import EmergencySection from './EmergencySection'; // 09
 import TestimonialsSection from './TestimonialsSection'; // 10
-import AIReceptionistSection from './AIReceptionistSection'; // 11
-import LocationSection from './LocationSection'; // 12
-import FinalCTA from './FinalCTA'; // 13
-import Footer from './Footer'; // 14
+import LocationSection from './LocationSection'; // 11
+import FinalCTA from './FinalCTA'; // 12
+import Footer from './Footer'; // 13
 
 import MobileStickyBar from './MobileStickyBar';
 import BookingModal from './BookingModal';
@@ -77,8 +76,8 @@ export const Home: React.FC<HomeProps> = ({
         {/* 02 — HERO */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 03 — INTRODUCTION */}
-        <IntroSection />
+        {/* 03 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
+        <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
         {/* 04 — TREATMENTS DIRECTORY */}
         <TreatmentsDirectory onOpenBooking={handleOpenBooking} />
@@ -107,17 +106,14 @@ export const Home: React.FC<HomeProps> = ({
         {/* 10 — PATIENT TESTIMONIAL */}
         <TestimonialsSection />
 
-        {/* 11 — AI RECEPTIONIST */}
-        <AIReceptionistSection onOpenAIReceptionist={handleOpenAIReceptionist} />
-
-        {/* 12 — LOCATION */}
+        {/* 11 — LOCATION & HOURS */}
         <LocationSection />
 
-        {/* 13 — FINAL BOOKING CTA */}
+        {/* 12 — FINAL BOOKING CTA */}
         <FinalCTA onOpenBooking={() => handleOpenBooking()} />
       </main>
 
-      {/* 14 — FOOTER */}
+      {/* 13 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenAIReceptionist={handleOpenAIReceptionist}
