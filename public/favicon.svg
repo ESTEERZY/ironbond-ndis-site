@@ -1,9 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none">
-  <rect width="44" height="44" rx="11" fill="#0B1F3A" />
-  <path d="M10 30 Q22 14 34 30" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" fill="none" />
-  <line x1="9" y1="30" x2="35" y2="30" stroke="#00B4D8" stroke-width="1.5" stroke-linecap="round" />
-  <circle cx="22" cy="21" r="3.5" fill="#10B981" />
-  <line x1="22" y1="13" x2="22" y2="11" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" />
-  <line x1="28" y1="15" x2="29.5" y2="13.5" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" />
-  <line x1="16" y1="15" x2="14.5" y2="13.5" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Rounded Square Container with Deep Forest Background -->
+  <rect width="64" height="64" rx="16" fill="#0F3832"/>
+  
+  <!-- Subtle Inner Border -->
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#D9C5B2" stroke-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- Elegant Tooth & Harbour Wave Motif -->
+  <g transform="translate(12, 11)">
+    <!-- Tooth Contour -->
+    <path 
+      d="M20 5C13.5 5 9 9.5 9 16C9 23 11.5 31.5 15 35C17 37 19 34.5 20 31C21 34.5 23 37 25 35C28.5 31.5 31 23 31 16C31 9.5 26.5 5 20 5Z" 
+      fill="#FAF8F5" 
+      fill-opacity="0.15" 
+      stroke="#FAF8F5" 
+      stroke-width="2.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    />
+    <!-- Harbour Gentle Smile Wave -->
+    <path 
+      d="M13 18C16 21 24 21 27 18" 
+      stroke="#D9C5B2" 
+      stroke-width="2.5" 
+      stroke-linecap="round"
+    />
+    <!-- Subtle Sparkle Accent -->
+    <circle cx="20" cy="11" r="2" fill="#D9C5B2"/>
+  </g>
 </svg>
