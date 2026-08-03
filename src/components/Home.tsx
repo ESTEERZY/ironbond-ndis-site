@@ -14,10 +14,17 @@ import Contact from './Contact';
 import Footer from './Footer';
 import BookingModal from './BookingModal';
 import AIReceptionistModal from './AIReceptionistModal';
-import { Bot } from 'lucide-react';
+import MobileStickyBar from './MobileStickyBar';
 
+interface HomeProps {
+  onOpenBooking?: (serviceName?: string) => void;
+  onOpenAIReceptionist?: () => void;
+}
 
-export const Home: React.FC = () => {
+export const Home: React.FC<HomeProps> = ({
+  onOpenBooking: parentOpenBooking,
+  onOpenAIReceptionist: parentOpenAIReceptionist,
+}) => {
   const location = useLocation();
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
@@ -34,8 +41,20 @@ export const Home: React.FC = () => {
   }, [location]);
 
   const handleOpenBooking = (serviceName?: string) => {
-    setSelectedService(serviceName);
-    setIsBookingOpen(true);
+    if (parentOpenBooking) {
+      parentOpenBooking(serviceName);
+    } else {
+      setSelectedService(serviceName);
+      setIsBookingOpen(true);
+    }
+  };
+
+  const handleOpenAIReceptionist = () => {
+    if (parentOpenAIReceptionist) {
+      parentOpenAIReceptionist();
+    } else {
+      setIsAIReceptionistOpen(true);
+    }
   };
 
   return (
@@ -43,7 +62,7 @@ export const Home: React.FC = () => {
       {/* Navigation Header */}
       <Header
         onOpenBooking={handleOpenBooking}
-        onOpenAIReceptionist={() => setIsAIReceptionistOpen(true)}
+        onOpenAIReceptionist={handleOpenAIReceptionist}
       />
 
       {/* Main Page Content Journey */}
@@ -52,7 +71,7 @@ export const Home: React.FC = () => {
         <ServicesSection onOpenBooking={handleOpenBooking} />
         <WhyChooseUs />
         <EmergencySection onOpenBooking={handleOpenBooking} />
-        <AIReceptionistSection onOpenAIReceptionist={() => setIsAIReceptionistOpen(true)} />
+        <AIReceptionistSection onOpenAIReceptionist={handleOpenAIReceptionist} />
         <TeamSection />
         <TestimonialsSection />
         <BookingSection onOpenBooking={handleOpenBooking} />
@@ -63,41 +82,30 @@ export const Home: React.FC = () => {
       {/* Footer */}
       <Footer
         onOpenBooking={handleOpenBooking}
-        onOpenAIReceptionist={() => setIsAIReceptionistOpen(true)}
+        onOpenAIReceptionist={handleOpenAIReceptionist}
       />
 
-      {/* Floating Action Trigger for AI Virtual Receptionist Demo */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        <button
-          onClick={() => setIsAIReceptionistOpen(true)}
-          className="group flex items-center gap-3 bg-navy hover:bg-navy-mid text-white border-2 border-teal px-4 py-3.5 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105"
-          aria-label="Open AI Virtual Receptionist"
-        >
-          <div className="w-8 h-8 rounded-xl bg-teal text-white flex items-center justify-center font-black">
-            <Bot size={18} />
-          </div>
-          <div className="flex flex-col text-left leading-none">
-            <span className="text-xs font-black text-white group-hover:text-teal transition-colors">
-              Virtual Receptionist
-            </span>
-            <span className="text-[10px] text-teal font-bold uppercase tracking-wider mt-0.5">
-              Ask Questions 24/7
-            </span>
-          </div>
-        </button>
-      </div>
-
-      {/* Modals */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        initialService={selectedService}
+      {/* Mobile Sticky Bar */}
+      <MobileStickyBar
+        onOpenBooking={() => handleOpenBooking()}
+        onOpenAIReceptionist={handleOpenAIReceptionist}
       />
 
-      <AIReceptionistModal
-        isOpen={isAIReceptionistOpen}
-        onClose={() => setIsAIReceptionistOpen(false)}
-      />
+      {/* Fallback local modals if not rendered by App */}
+      {!parentOpenBooking && (
+        <BookingModal
+          isOpen={isBookingOpen}
+          onClose={() => setIsBookingOpen(false)}
+          initialService={selectedService}
+        />
+      )}
+
+      {!parentOpenAIReceptionist && (
+        <AIReceptionistModal
+          isOpen={isAIReceptionistOpen}
+          onClose={() => setIsAIReceptionistOpen(false)}
+        />
+      )}
     </div>
   );
 };

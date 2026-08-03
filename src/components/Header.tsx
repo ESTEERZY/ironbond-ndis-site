@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone, Calendar, Sparkles, Bot } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   onOpenBooking?: (service?: string) => void;
   onOpenAIReceptionist?: () => void;
 }
 
-
 const HarbourLogo = () => (
   <div className="flex items-center gap-3">
     <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal via-teal-light to-emerald flex items-center justify-center text-white shadow-md shadow-teal/20">
       <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        {/* Tooth / Harbour Wave motif */}
         <path d="M12 4.5C8.5 4.5 6 7 6 10.5C6 14.5 7.5 19.5 9.5 21.5C10.5 22.5 11.5 21 12 19C12.5 21 13.5 22.5 14.5 21.5C16.5 19.5 18 14.5 18 10.5C18 7 15.5 4.5 12 4.5Z" fill="currentColor" fillOpacity="0.15" />
         <path d="M8 12C9.5 13.5 14.5 13.5 16 12" stroke="#FFFFFF" strokeWidth="2" />
       </svg>
@@ -27,27 +25,19 @@ const HarbourLogo = () => (
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenAIReceptionist }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Services', href: '#services' },
-    { name: 'Why Choose Us', href: '#why-us' },
-    { name: 'Our Team', href: '#team' },
-    { name: 'FAQs', href: '#faqs' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', path: '/' },
+    { name: 'Treatments', path: '/treatments' },
+    { name: 'Our Team', path: '/team' },
+    { name: 'Patient Experience', path: '/patient-experience' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    if (location.pathname === '/') {
-      const el = document.getElementById(targetId);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/', { state: { scrollToSection: targetId } });
-    }
-    setIsMenuOpen(false);
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
   };
 
   return (
@@ -58,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenAIReception
           <span className="bg-teal/20 text-teal-light border border-teal/30 px-2 py-0.5 rounded-full font-bold uppercase text-[10px] flex items-center gap-1">
             <Sparkles size={10} /> Ironbond Digital Demo
           </span>
-          <span className="hidden md:inline text-slate-300">| Premium Dental Practice Website Showcase</span>
+          <span className="hidden md:inline text-slate-300">| Premium Dental Practice Showcase · Hobart TAS</span>
         </div>
 
         <div className="flex items-center gap-4 text-xs font-semibold">
@@ -97,15 +87,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenAIReception
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-7" role="menubar">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                role="menuitem"
-                onClick={(e) => handleScroll(e, link.href)}
-                className="text-navy/70 hover:text-teal font-semibold text-sm transition-colors duration-200"
+                to={link.path}
+                className={`font-semibold text-sm transition-colors duration-200 ${
+                  isActive(link.path)
+                    ? 'text-teal font-bold border-b-2 border-teal pb-0.5'
+                    : 'text-navy/70 hover:text-teal'
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -117,12 +109,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenAIReception
             >
               <Phone size={14} className="text-teal" /> Call Clinic
             </a>
-            <button
-              onClick={() => onOpenBooking?.()}
-              className="bg-teal text-white px-5 py-2.5 text-xs font-bold rounded-xl hover:bg-teal/90 transition-all shadow-md shadow-teal/20 flex items-center gap-1.5"
-            >
-              <Calendar size={14} /> Book Appointment
-            </button>
+            {onOpenBooking ? (
+              <button
+                onClick={() => onOpenBooking()}
+                className="bg-teal text-white px-5 py-2.5 text-xs font-bold rounded-xl hover:bg-teal/90 transition-all shadow-md shadow-teal/20 flex items-center gap-1.5"
+              >
+                <Calendar size={14} /> Book Appointment
+              </button>
+            ) : (
+              <Link
+                to="/book"
+                className="bg-teal text-white px-5 py-2.5 text-xs font-bold rounded-xl hover:bg-teal/90 transition-all shadow-md shadow-teal/20 flex items-center gap-1.5"
+              >
+                <Calendar size={14} /> Book Appointment
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,23 +142,35 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenAIReception
           <div className="lg:hidden mt-4 pb-4 border-t border-slate-100 pt-4 animate-fade-in">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleScroll(e, link.href)}
-                  className="text-navy hover:text-teal font-bold text-base py-1.5 transition-colors"
+                  to={link.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`font-bold text-base py-1.5 transition-colors ${
+                    isActive(link.path) ? 'text-teal' : 'text-navy hover:text-teal'
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
 
               <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
-                <button
-                  onClick={() => { setIsMenuOpen(false); onOpenBooking?.(); }}
-                  className="w-full bg-teal text-white py-3 text-sm font-bold rounded-xl hover:bg-teal/90 flex items-center justify-center gap-2 shadow-sm"
-                >
-                  <Calendar size={16} /> Book an Appointment
-                </button>
+                {onOpenBooking ? (
+                  <button
+                    onClick={() => { setIsMenuOpen(false); onOpenBooking(); }}
+                    className="w-full bg-teal text-white py-3 text-sm font-bold rounded-xl hover:bg-teal/90 flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <Calendar size={16} /> Book an Appointment
+                  </button>
+                ) : (
+                  <Link
+                    to="/book"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="w-full bg-teal text-white py-3 text-sm font-bold rounded-xl hover:bg-teal/90 flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <Calendar size={16} /> Book an Appointment
+                  </Link>
+                )}
 
                 <button
                   onClick={() => { setIsMenuOpen(false); onOpenAIReceptionist?.(); }}
