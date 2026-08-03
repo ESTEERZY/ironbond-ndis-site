@@ -8,27 +8,25 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden font-sans">
-
+    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-32 sm:pt-36 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden font-sans">
       
-      {/* FULL-SCREEN HIGH-IMPACT DENTAL CLINIC PHOTOGRAPHY */}
+      {/* FULL-SCREEN DENTAL CLINIC PHOTOGRAPHY */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=85"
           alt="Harbour Dental Studio modern clinic environment Hobart"
-          className="w-full h-full object-cover object-[center_30%] scale-105 filter brightness-[0.85] transform transition-transform duration-1000"
-
+          className="w-full h-full object-cover object-[center_30%] scale-105 filter brightness-[0.80] transform transition-transform duration-1000"
         />
         
-        {/* Luxury Vignette Overlay for High Typography Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/50"></div>
-        <div className="absolute inset-0 bg-charcoal/30 backdrop-blur-[1px]"></div>
+        {/* Luxury Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/45"></div>
+        <div className="absolute inset-0 bg-charcoal/25 backdrop-blur-[1px]"></div>
       </div>
 
-      {/* Hero Content Container */}
-      <div className="container mx-auto relative z-10 my-auto py-12 flex flex-col items-start max-w-4xl space-y-7">
+      {/* Hero Content */}
+      <div className="container mx-auto relative z-10 my-auto py-10 flex flex-col items-start max-w-4xl space-y-6">
         
-        {/* Cursive Script Accent Line */}
+        {/* Script Accent */}
         <div className="font-script text-3xl sm:text-5xl text-sand font-normal tracking-wide drop-shadow-md">
           Confidence starts with a smile
         </div>
@@ -39,18 +37,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           <span>HARBOUR DENTAL STUDIO · HOBART</span>
         </div>
 
-        {/* Main Editorial Headline */}
+        {/* Updated Punchy Main Headline */}
         <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] text-white tracking-tight">
-          Modern dentistry.<br />
-          <span className="italic font-normal text-sand">Personalised care.</span>
+          Hobart's most<br />
+          <span className="italic font-normal text-sand">trusted dentist.</span>
         </h1>
 
-        {/* Supporting Copy */}
-        <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-sans drop-shadow-sm">
-          Thoughtful dental care in a comfortable, modern environment — from routine check-ups to cosmetic and restorative treatments.
+        {/* Concise Streamlined Supporting Copy */}
+        <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-sans drop-shadow-sm">
+          Personalised dental care in a calm, modern environment — from routine check-ups to cosmetic transformations.
         </p>
 
-        {/* Action CTAs */}
+        {/* Clean Primary CTAs */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
           {onOpenBooking ? (
             <button
@@ -77,19 +75,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <Phone size={15} className="text-sand" />
             CALL THE CLINIC
           </a>
-
-          <Link
-            to="/about"
-            className="bg-sand text-charcoal hover:bg-white font-sans text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full transition-all duration-300 text-center shadow-lg hover:scale-105"
-          >
-            WHY CHOOSE HARBOUR DENTAL
-          </Link>
         </div>
 
       </div>
 
-      {/* Bottom Trust Strip & Scroll Arrow */}
-      <div className="container mx-auto relative z-10 pt-8 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4">
+      {/* Bottom Trust Strip & Scroll Down Indicator */}
+      <div className="container mx-auto relative z-10 pt-6 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4">
         
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[11px] font-sans font-bold uppercase tracking-widest text-slate-300">
           <span>NEW PATIENTS WELCOME</span>
