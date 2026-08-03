@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Info, Sparkles } from 'lucide-react';
 
+
 export const BeforeAfterGallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'whitening' | 'veneers' | 'aligners'>('whitening');
   const [sliderPos, setSliderPos] = useState(50);
+  const [viewMode, setViewMode] = useState<'split' | 'before' | 'after'>('split');
 
   const galleryData = {
     whitening: {
       title: 'Professional In-Chair Teeth Whitening',
-      description: 'Safely lifting deep discolouration and enamel staining under dentist supervision.',
+      description: 'Lifting enamel stains and discolouration under professional dentist supervision.',
       beforeImg: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80',
       afterImg: 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=1200&q=80',
       tag: 'In-Chair Whitening Case',
@@ -44,15 +46,15 @@ export const BeforeAfterGallery: React.FC = () => {
             CLINICAL TEETH CASE GALLERY
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-charcoal">
-            Before & After Teeth Photo Comparison
+            Before & After Teeth Photos
           </h2>
           <p className="text-xs sm:text-sm text-charcoal-muted max-w-lg mx-auto font-sans leading-relaxed">
-            Drag the slider horizontally to compare before and after teeth photos for our cosmetic treatments.
+            Drag the slider horizontally or toggle view modes to compare before and after teeth photos for our clinical treatment cases.
           </p>
         </div>
 
-        {/* Tab Selection */}
-        <div className="flex justify-center flex-wrap gap-3 mb-10">
+        {/* Treatment Category Tabs */}
+        <div className="flex justify-center flex-wrap gap-3 mb-8">
           {(['whitening', 'veneers', 'aligners'] as const).map((tab) => (
             <button
               key={tab}
@@ -68,59 +70,147 @@ export const BeforeAfterGallery: React.FC = () => {
           ))}
         </div>
 
-        {/* Interactive Teeth Photo Slider */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-charcoal/10 overflow-hidden shadow-xl relative">
+        {/* View Mode Switcher (Split / Before Only / After Only) */}
+        <div className="flex justify-center items-center gap-2 mb-8 text-xs font-sans">
+          <span className="text-charcoal-muted font-medium text-[11px] uppercase tracking-wider mr-2">View Mode:</span>
+          <button
+            onClick={() => setViewMode('split')}
+            className={`px-3.5 py-1.5 rounded-lg font-bold border transition-colors ${
+              viewMode === 'split' ? 'bg-charcoal text-white border-charcoal' : 'bg-white text-charcoal border-charcoal/20 hover:bg-sand-light'
+            }`}
+          >
+            ↔ Interactive Split
+          </button>
+          <button
+            onClick={() => setViewMode('before')}
+            className={`px-3.5 py-1.5 rounded-lg font-bold border transition-colors ${
+              viewMode === 'before' ? 'bg-charcoal text-white border-charcoal' : 'bg-white text-charcoal border-charcoal/20 hover:bg-sand-light'
+            }`}
+          >
+            Before Photo
+          </button>
+          <button
+            onClick={() => setViewMode('after')}
+            className={`px-3.5 py-1.5 rounded-lg font-bold border transition-colors ${
+              viewMode === 'after' ? 'bg-charcoal text-white border-charcoal' : 'bg-white text-charcoal border-charcoal/20 hover:bg-sand-light'
+            }`}
+          >
+            After Photo
+          </button>
+        </div>
+
+        {/* Interactive Comparison Box */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-charcoal/10 overflow-hidden shadow-xl">
+          
+          {/* Main Visual Container */}
           <div className="relative aspect-[16/10] sm:aspect-[16/9] select-none overflow-hidden bg-sand-light">
             
-            {/* AFTER Teeth Image (Right) */}
-            <img
-              src={current.afterImg}
-              alt={`${current.title} After Photo`}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
-              AFTER (RESULT)
-            </span>
+            {viewMode === 'before' && (
+              <div className="w-full h-full relative">
+                <img
+                  src={current.beforeImg}
+                  alt={`${current.title} Before`}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute top-4 left-4 bg-charcoal text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
+                  BEFORE TREATMENT (INITIAL)
+                </span>
+              </div>
+            )}
 
-            {/* BEFORE Teeth Image (Left Clipped) */}
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ width: `${sliderPos}%` }}
-            >
-              <img
-                src={current.beforeImg}
-                alt={`${current.title} Before Photo`}
-                className="absolute inset-0 w-full h-full object-cover max-w-none"
-                style={{ width: '100%', height: '100%' }}
-              />
-              <span className="absolute top-4 left-4 bg-charcoal text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
-                BEFORE (INITIAL)
-              </span>
-            </div>
+            {viewMode === 'after' && (
+              <div className="w-full h-full relative">
+                <img
+                  src={current.afterImg}
+                  alt={`${current.title} After`}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
+                  AFTER TREATMENT (RESULT)
+                </span>
+              </div>
+            )}
 
-            {/* Interactive Slider Divider Handle */}
-            <div
-              className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-20 cursor-ew-resize flex items-center justify-center"
-              style={{ left: `${sliderPos}%` }}
-            >
-              <div className="w-10 h-10 rounded-full bg-forest text-white shadow-2xl border-2 border-white flex items-center justify-center text-xs font-bold hover:scale-110 transition-transform">
-                ↔
+            {viewMode === 'split' && (
+              <>
+                {/* AFTER Image (Underneath) */}
+                <img
+                  src={current.afterImg}
+                  alt={`${current.title} After Result`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <span className="absolute top-4 right-4 bg-forest text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
+                  AFTER RESULT
+                </span>
+
+                {/* BEFORE Image (Clipped Overlay) */}
+                <div
+                  className="absolute inset-y-0 left-0 overflow-hidden z-10"
+                  style={{ width: `${sliderPos}%` }}
+                >
+                  <div className="absolute inset-0 w-[100vw] max-w-[896px] h-full">
+                    <img
+                      src={current.beforeImg}
+                      alt={`${current.title} Before Initial`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="absolute top-4 left-4 bg-charcoal text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-20 whitespace-nowrap">
+                    BEFORE INITIAL
+                  </span>
+                </div>
+
+                {/* Vertical Divider Line */}
+                <div
+                  className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-20 cursor-ew-resize flex items-center justify-center pointer-events-none"
+                  style={{ left: `${sliderPos}%` }}
+                >
+                  <div className="w-9 h-9 rounded-full bg-forest text-white shadow-2xl border-2 border-white flex items-center justify-center text-xs font-bold">
+                    ↔
+                  </div>
+                </div>
+
+                {/* Drag Overlay Slider */}
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={sliderPos}
+                  onChange={(e) => setSliderPos(Number(e.target.value))}
+                  className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
+                  aria-label="Drag slider to compare before and after teeth photos"
+                />
+              </>
+            )}
+
+          </div>
+
+          {/* Side-by-side Thumbnail Cards for Quick Reference */}
+          <div className="p-6 bg-ivory/50 border-t border-charcoal/10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            
+            <div className="flex items-center gap-4 bg-white p-3 border border-charcoal/10 rounded-2xl shadow-sm">
+              <div className="w-20 h-14 rounded-lg overflow-hidden bg-sand-light flex-shrink-0 border border-charcoal/10">
+                <img src={current.beforeImg} alt="Before thumbnail" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-muted block">BEFORE PHOTO</span>
+                <p className="text-xs font-bold text-charcoal">Initial Teeth Condition</p>
               </div>
             </div>
 
-            {/* Hidden Interactive Range Control */}
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={sliderPos}
-              onChange={(e) => setSliderPos(Number(e.target.value))}
-              className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
-              aria-label="Drag slider to compare before and after teeth photos"
-            />
+            <div className="flex items-center gap-4 bg-white p-3 border border-charcoal/10 rounded-2xl shadow-sm">
+              <div className="w-20 h-14 rounded-lg overflow-hidden bg-sand-light flex-shrink-0 border border-charcoal/10">
+                <img src={current.afterImg} alt="After thumbnail" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-forest block">AFTER PHOTO</span>
+                <p className="text-xs font-bold text-forest">Treatment Outcome</p>
+              </div>
+            </div>
+
           </div>
 
-          {/* Case Detail Footer */}
+          {/* Case Description & Tag */}
           <div className="p-6 bg-white border-t border-charcoal/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="font-serif text-xl font-normal text-charcoal">{current.title}</h3>
@@ -130,6 +220,7 @@ export const BeforeAfterGallery: React.FC = () => {
               <Sparkles size={12} /> {current.tag}
             </span>
           </div>
+
         </div>
 
         {/* Clinical Disclaimer */}
