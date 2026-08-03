@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Calendar, ChevronDown } from 'lucide-react';
+import { Phone, Calendar, ChevronDown, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface HeroProps {
@@ -8,7 +8,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-32 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden">
+    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-36 sm:pt-40 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden">
       
       {/* DENTIST CLINICAL VIDEO BACKGROUND */}
       <div className="absolute inset-0 z-0">
@@ -18,7 +18,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           muted
           playsInline
           poster="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1600&q=80"
-          className="w-full h-full object-cover scale-105 filter brightness-[0.85]"
+          className="w-full h-full object-cover scale-105 filter brightness-[0.80]"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patient-42861-large.mp4" type="video/mp4" />
           <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-working-on-a-patients-teeth-42862-large.mp4" type="video/mp4" />
@@ -26,15 +26,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         </video>
         
         {/* Luxury Dark Vignette Overlay for High Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/65 to-charcoal/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/50"></div>
         <div className="absolute inset-0 bg-charcoal/30 backdrop-blur-[1px]"></div>
       </div>
 
-      {/* Hero Content */}
-      <div className="container mx-auto relative z-10 my-auto py-12 flex flex-col items-start max-w-4xl space-y-8">
+      {/* Hero Content Container */}
+      <div className="container mx-auto relative z-10 my-auto py-8 flex flex-col items-start max-w-4xl space-y-6">
         
+        {/* Cursive Script Accent Line */}
+        <div className="font-script text-3xl sm:text-4xl text-sand font-normal tracking-wide drop-shadow-md">
+          Confidence starts with a smile
+        </div>
+
         {/* Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 bg-ivory/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-sand">
+          <Sparkles size={12} className="text-sand" />
           <span>HARBOUR DENTAL STUDIO · HOBART</span>
         </div>
 
@@ -49,8 +55,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           Thoughtful dental care in a comfortable, modern environment — from routine check-ups to cosmetic and restorative treatments.
         </p>
 
-        {/* Primary & Secondary Action CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
+        {/* Action CTAs & Pill Button */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
           {onOpenBooking ? (
             <button
               onClick={onOpenBooking}
@@ -76,6 +82,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <Phone size={15} className="text-sand" />
             CALL THE CLINIC
           </a>
+
+          <Link
+            to="/about"
+            className="bg-sand text-charcoal hover:bg-white font-sans text-xs font-bold uppercase tracking-widest px-6 py-4 rounded-full transition-all duration-300 text-center shadow-lg hover:scale-105"
+          >
+            WHY CHOOSE HARBOUR DENTAL
+          </Link>
         </div>
 
       </div>

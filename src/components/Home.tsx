@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// 14 Homepage Sections
+// 14+ Homepage Sections
 import Header from './Header'; // 01
 import Hero from './Hero'; // 02
 import IntroSection from './IntroSection'; // 03
 import TreatmentsDirectory from './TreatmentsDirectory'; // 04
 import FeaturedExperience from './FeaturedExperience'; // 05
+import AestheticShowcase from './AestheticShowcase'; // Dedicated Aesthetic Feature
 import WhyChooseUs from './WhyChooseUs'; // 06
 import PatientJourney from './PatientJourney'; // 07
 import TeamSection from './TeamSection'; // 08
@@ -72,7 +73,7 @@ export const Home: React.FC<HomeProps> = ({
       />
 
       <main>
-        {/* 02 — HERO */}
+        {/* 02 — HERO WITH VIDEO BACKGROUND */}
         <Hero onOpenBooking={handleOpenBooking} />
 
         {/* 03 — INTRODUCTION */}
@@ -83,6 +84,9 @@ export const Home: React.FC<HomeProps> = ({
 
         {/* 05 — FEATURED DENTAL EXPERIENCE */}
         <FeaturedExperience onOpenBooking={handleOpenBooking} />
+
+        {/* DEDICATED AESTHETIC SHOWCASE */}
+        <AestheticShowcase onOpenBooking={handleOpenBooking} />
 
         {/* 06 — WHY PATIENTS CHOOSE US */}
         <WhyChooseUs />

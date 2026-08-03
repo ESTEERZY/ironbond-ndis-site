@@ -28,11 +28,16 @@ export default {
           DEFAULT: '#D9C5B2',
           light: '#EFE8DF',
           soft: '#F7F3EE',
+          warm: '#C8A882',
+        },
+        accent: {
+          rose: '#D9467A', // Aesthetic Highlight Accent
         },
       },
       fontFamily: {
         serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        script: ['"Caveat"', 'cursive', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
