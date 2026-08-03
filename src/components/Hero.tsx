@@ -8,7 +8,8 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-36 sm:pt-44 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden font-sans">
+    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden font-sans">
+
       
       {/* FULL-SCREEN HIGH-IMPACT DENTAL CLINIC PHOTOGRAPHY */}
       <div className="absolute inset-0 z-0">
