@@ -5,8 +5,11 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header'; // 01
 import Hero from './Hero'; // 02
 import IntroSection from './IntroSection'; // 03
+import PhilosophySection from './PhilosophySection'; // Philosophy & Empowerment (Proud Smile Style)
 import NewPatientSpecialSection from './NewPatientSpecialSection'; // New Patient Special Offer (Proud Smile Style)
+import ServicesPillarsSection from './ServicesPillarsSection'; // 3-Column Pillars Banner (Proud Smile Style)
 import FeaturedExperience from './FeaturedExperience'; // 04
+import SameDayAestheticsSection from './SameDayAestheticsSection'; // Same-Day Aesthetics Leaders (Proud Smile Style)
 import PaymentPlansSection from './PaymentPlansSection'; // Flexible Payment Plans & Health Funds (Proud Smile Style)
 import AestheticShowcase from './AestheticShowcase'; // Aesthetic Feature
 import BeforeAfterGallery from './BeforeAfterGallery'; // Before & After Interactive Showcase
@@ -75,11 +78,20 @@ export const Home: React.FC<HomeProps> = ({
         {/* 03 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
         <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
+        {/* PHILOSOPHY & EMPOWERMENT SECTION (PROUD SMILE STYLE) */}
+        <PhilosophySection onOpenBooking={handleOpenBooking} />
+
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
 
+        {/* 3-COLUMN SERVICES PILLARS BANNER (PROUD SMILE STYLE) */}
+        <ServicesPillarsSection onOpenBooking={handleOpenBooking} />
+
         {/* 04 — FEATURED DENTAL EXPERIENCE */}
         <FeaturedExperience onOpenBooking={handleOpenBooking} />
+
+        {/* SAME-DAY AESTHETICS LEADERS SECTION (PROUD SMILE STYLE) */}
+        <SameDayAestheticsSection onOpenBooking={handleOpenBooking} />
 
         {/* FLEXIBLE PAYMENT PLANS & HEALTH FUNDS SECTION (PROUD SMILE STYLE) */}
         <PaymentPlansSection onOpenBooking={handleOpenBooking} />
