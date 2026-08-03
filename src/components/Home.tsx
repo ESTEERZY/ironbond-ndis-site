@@ -13,10 +13,10 @@ import WhyChooseUs from './WhyChooseUs'; // 06
 import PatientJourney from './PatientJourney'; // 07
 import TeamSection from './TeamSection'; // 08
 import EmergencySection from './EmergencySection'; // 09
-import TestimonialsSection from './TestimonialsSection'; // 10
-import LocationSection from './LocationSection'; // 11
-import FinalCTA from './FinalCTA'; // 12
-import Footer from './Footer'; // 13
+import SocialFeedSection from './SocialFeedSection'; // Harbour Social Feed Section (Proud Smile Style)
+import LocationSection from './LocationSection'; // 10
+import FinalCTA from './FinalCTA'; // 11
+import Footer from './Footer'; // 12
 
 import MobileStickyBar from './MobileStickyBar';
 import BookingModal from './BookingModal';
@@ -103,17 +103,17 @@ export const Home: React.FC<HomeProps> = ({
         {/* 09 — EMERGENCY DENTAL */}
         <EmergencySection onOpenBooking={handleOpenBooking} />
 
-        {/* 10 — PATIENT TESTIMONIAL */}
-        <TestimonialsSection />
+        {/* HARBOUR SOCIAL SHOWCASE (REPLACING TESTIMONIALS WITH PROUD SMILE SOCIAL STYLE) */}
+        <SocialFeedSection />
 
-        {/* 11 — LOCATION & HOURS */}
+        {/* 10 — LOCATION & HOURS */}
         <LocationSection />
 
-        {/* 12 — FINAL BOOKING CTA */}
+        {/* 11 — FINAL BOOKING CTA */}
         <FinalCTA onOpenBooking={() => handleOpenBooking()} />
       </main>
 
-      {/* 13 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
+      {/* 12 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenAIReceptionist={handleOpenAIReceptionist}
