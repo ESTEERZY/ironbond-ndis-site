@@ -6,45 +6,45 @@ interface FooterProps {
   onOpenAIReceptionist?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
+export const Footer: React.FC<FooterProps> = () => {
 
   return (
     <footer className="bg-charcoal text-white pt-20 pb-10 border-t border-charcoal-mid font-sans">
       <div className="container mx-auto px-6 lg:px-12">
         
-        {/* Main Footer Layout */}
+        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
           {/* Brand Col (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <h3 className="font-serif text-2xl text-white tracking-tight">HARBOUR DENTAL STUDIO</h3>
-            <p className="text-xs text-sand font-bold uppercase tracking-widest">HOBART · TASMANIA</p>
+            <h3 className="font-serif text-2xl sm:text-3xl text-white tracking-tight">Harbour Dental Studio</h3>
+            <p className="text-xs text-sand font-bold uppercase tracking-widest">MODERN DENTISTRY. PERSONALISED CARE.</p>
             
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm pt-2">
-              Thoughtful dental care for every stage of your smile, delivered in a calm, modern environment.
+              Thoughtful dental care for every stage of your smile, delivered in a calm, modern environment in Hobart.
             </p>
 
-            <div className="pt-4 flex items-center gap-4 text-xs font-bold text-slate-300">
-              <a href="tel:0361000000" className="hover:text-sand transition-colors">(03) 6100 0000</a>
-              <span>•</span>
-              <a href="mailto:hello@harbourdentalstudio.com.au" className="hover:text-sand transition-colors">hello@harbourdentalstudio.com.au</a>
+            <div className="pt-2 flex flex-col space-y-1.5 text-xs text-slate-300">
+              <p><span className="text-slate-400">Address:</span> 123 Harbour Street, Hobart TAS 7000</p>
+              <p><span className="text-slate-400">Phone:</span> <a href="tel:0361000000" className="text-sand font-bold hover:underline">(03) 6100 0000</a></p>
+              <p><span className="text-slate-400">Email:</span> <a href="mailto:hello@harbourdentalstudio.com.au" className="hover:text-white">hello@harbourdentalstudio.com.au</a></p>
             </div>
           </div>
 
-          {/* Quick Links (3 cols) */}
+          {/* Navigation Links (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-sand uppercase tracking-widest">PRACTICE DIRECTORY</h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
-              <li><Link to="/treatments" className="hover:text-white transition-colors">Treatments & Services</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">About Harbour Dental</Link></li>
-              <li><Link to="/team" className="hover:text-white transition-colors">Our Dentists & Team</Link></li>
+              <li><Link to="/treatments" className="hover:text-white transition-colors">Treatments</Link></li>
+              <li><Link to="/team" className="hover:text-white transition-colors">Team</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
               <li><Link to="/patient-information" className="hover:text-white transition-colors">Patient Information</Link></li>
-              <li><Link to="/faqs" className="hover:text-white transition-colors">Frequently Asked Questions</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact & Location</Link></li>
+              <li><Link to="/faqs" className="hover:text-white transition-colors">FAQs</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Opening Hours & Action (4 cols) */}
+          {/* Hours & Legal (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <h4 className="text-xs font-bold text-sand uppercase tracking-widest">HOURS & APPOINTMENTS</h4>
             <div className="text-xs text-slate-300 space-y-1.5 font-medium">
@@ -62,22 +62,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
               </div>
             </div>
 
-            <div className="pt-2 flex gap-3">
-              {onOpenBooking ? (
-                <button
-                  onClick={() => onOpenBooking()}
-                  className="w-full bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest py-3 transition-colors text-center"
-                >
-                  BOOK ONLINE
-                </button>
-              ) : (
-                <Link
-                  to="/book"
-                  className="w-full bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest py-3 transition-colors text-center"
-                >
-                  BOOK ONLINE
-                </Link>
-              )}
+            <div className="pt-2 flex gap-4 text-xs text-slate-400">
+              <Link to="/privacy" className="hover:text-white underline">Privacy</Link>
+              <Link to="/terms" className="hover:text-white underline">Terms</Link>
             </div>
           </div>
 
@@ -87,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Harbour Dental Studio. 123 Harbour St, Hobart TAS 7000.</p>
           <p className="text-slate-400 font-medium">
-            Demo website created by <span className="text-sand font-bold">Ironbond Digital</span>.
+            Website concept by <span className="text-sand font-bold">Ironbond Digital</span>
           </p>
         </div>
 

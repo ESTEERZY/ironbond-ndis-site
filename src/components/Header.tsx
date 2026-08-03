@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
-
+import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
@@ -14,8 +13,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
 
   const navLinks = [
     { name: 'Treatments', path: '/treatments' },
-    { name: 'About', path: '/about' },
     { name: 'Our Team', path: '/team' },
+    { name: 'About', path: '/about' },
     { name: 'Patient Information', path: '/patient-information' },
     { name: 'FAQs', path: '/faqs' },
     { name: 'Contact', path: '/contact' },
@@ -28,8 +27,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/90 backdrop-blur-md border-b border-charcoal/10 transition-all duration-300">
-      <nav className="container mx-auto px-6 lg:px-12 py-5" aria-label="Primary navigation">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-charcoal/10 transition-all duration-300">
+      <nav className="container mx-auto px-6 lg:px-12 py-4 sm:py-5" aria-label="Primary navigation">
         <div className="flex items-center justify-between gap-6">
 
           {/* Left Brand Identity */}
@@ -38,15 +37,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex flex-col leading-none tracking-tight group"
           >
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-charcoal group-hover:text-forest transition-colors">
+            <span className="font-serif text-xl sm:text-2xl font-normal tracking-tight text-charcoal group-hover:text-forest transition-colors">
               HARBOUR DENTAL STUDIO
             </span>
-            <span className="text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-charcoal-muted mt-1">
+            <span className="text-[10px] font-sans font-bold uppercase tracking-[0.25em] text-forest mt-1">
               HOBART · TASMANIA
             </span>
           </Link>
 
-          {/* Center/Right Minimalist Nav Links */}
+          {/* Center Navigation Links */}
           <div className="hidden xl:flex items-center gap-8" role="menubar">
             {navLinks.map((link) => (
               <Link
@@ -70,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               className="text-xs font-sans font-bold tracking-wider text-charcoal hover:text-forest transition-colors flex items-center gap-2"
             >
               <Phone size={13} className="text-forest" />
-              <span>CALL (03) 6100 0000</span>
+              <span>(03) 6100 0000</span>
             </a>
 
             {onOpenBooking ? (
@@ -78,32 +77,49 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
                 onClick={() => onOpenBooking()}
                 className="bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-6 py-3 transition-all duration-300 shadow-sm"
               >
-                BOOK APPOINTMENT
+                BOOK AN APPOINTMENT
               </button>
             ) : (
               <Link
                 to="/book"
                 className="bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-6 py-3 transition-all duration-300 shadow-sm"
               >
-                BOOK APPOINTMENT
+                BOOK AN APPOINTMENT
               </Link>
             )}
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="xl:hidden text-charcoal p-2 focus:outline-none"
-            aria-label="Toggle Navigation Menu"
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Actions: Call, Book, Menu */}
+          <div className="flex sm:hidden items-center gap-2">
+            <a
+              href="tel:0361000000"
+              className="p-2 text-forest bg-forest/10 rounded-lg"
+              aria-label="Call clinic"
+            >
+              <Phone size={18} />
+            </a>
+
+            <button
+              onClick={() => onOpenBooking ? onOpenBooking() : null}
+              className="p-2 text-white bg-forest rounded-lg text-xs font-bold uppercase tracking-wider"
+              aria-label="Book appointment"
+            >
+              <Calendar size={18} />
+            </button>
+
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-charcoal focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Dropdown Drawer */}
         {isMenuOpen && (
-          <div className="xl:hidden mt-6 pt-6 border-t border-charcoal/10 flex flex-col gap-4 animate-fade-in bg-ivory pb-4">
+          <div className="xl:hidden mt-4 pt-4 border-t border-charcoal/10 flex flex-col gap-4 animate-fade-in bg-ivory pb-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -130,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
                   onClick={() => { setIsMenuOpen(false); onOpenBooking(); }}
                   className="w-full bg-forest text-white py-3.5 text-xs font-bold uppercase tracking-widest text-center"
                 >
-                  BOOK APPOINTMENT
+                  BOOK AN APPOINTMENT
                 </button>
               ) : (
                 <Link
@@ -138,7 +154,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
                   onClick={() => setIsMenuOpen(false)}
                   className="w-full bg-forest text-white py-3.5 text-xs font-bold uppercase tracking-widest text-center"
                 >
-                  BOOK APPOINTMENT
+                  BOOK AN APPOINTMENT
                 </Link>
               )}
             </div>
