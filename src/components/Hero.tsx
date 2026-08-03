@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Calendar, ChevronDown, Sparkles } from 'lucide-react';
+import { Calendar, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface HeroProps {
@@ -8,101 +8,68 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-32 sm:pt-36 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden font-sans">
+    <section id="hero" className="w-full bg-ivory pt-24 sm:pt-28 pb-8 px-4 sm:px-8 lg:px-12 font-sans">
       
-      {/* FULL-SCREEN DENTAL CLINIC PHOTOGRAPHY */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=85"
-          alt="Harbour Dental Studio modern clinic environment Hobart"
-          className="w-full h-full object-cover object-[center_30%] scale-105 filter brightness-[0.80] transform transition-transform duration-1000"
-        />
+      {/* ROUNDED HERO CARD FRAME (SMILE SOLUTIONS MELBOURNE STYLE) */}
+      <div className="relative rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] w-full flex flex-col justify-between p-8 sm:p-14 text-white">
         
-        {/* Luxury Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/45"></div>
-        <div className="absolute inset-0 bg-charcoal/25 backdrop-blur-[1px]"></div>
-      </div>
-
-      {/* Hero Content */}
-      <div className="container mx-auto relative z-10 my-auto py-10 flex flex-col items-start max-w-4xl space-y-6">
-        
-        {/* Script Accent */}
-        <div className="font-script text-3xl sm:text-5xl text-sand font-normal tracking-wide drop-shadow-md">
-          Confidence starts with a smile
+        {/* Full-Bleed Background Photography */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2000&q=85"
+            alt="Hobart Home of Dentistry Harbour Dental Studio"
+            className="w-full h-full object-cover object-[center_20%] filter brightness-[0.92] transform hover:scale-105 transition-transform duration-1000"
+          />
+          {/* Subtle Bottom Vignette Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/30 to-transparent"></div>
         </div>
 
-        {/* Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 bg-ivory/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-sand">
-          <Sparkles size={12} className="text-sand" />
-          <span>HARBOUR DENTAL STUDIO · HOBART</span>
-        </div>
-
-        {/* Updated Punchy Main Headline */}
-        <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] text-white tracking-tight">
-          Hobart's most<br />
-          <span className="italic font-normal text-sand">trusted dentist.</span>
-        </h1>
-
-        {/* Concise Streamlined Supporting Copy */}
-        <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-sans drop-shadow-sm">
-          Personalised dental care in a calm, modern environment — from routine check-ups to cosmetic transformations.
-        </p>
-
-        {/* Clean Primary CTAs */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
+        {/* Top Floating Action Pill (Top-Right) */}
+        <div className="relative z-10 flex justify-end">
           {onOpenBooking ? (
             <button
               onClick={onOpenBooking}
-              className="bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-9 py-4 transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl hover:scale-105"
+              className="bg-forest hover:bg-forest-light text-white px-6 py-3.5 rounded-2xl shadow-2xl font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 hover:scale-105 transition-all border border-white/20"
             >
+              <span>Book Now</span>
               <Calendar size={16} />
-              BOOK AN APPOINTMENT
             </button>
           ) : (
             <Link
               to="/book"
-              className="bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-9 py-4 transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl hover:scale-105"
+              className="bg-forest hover:bg-forest-light text-white px-6 py-3.5 rounded-2xl shadow-2xl font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 hover:scale-105 transition-all border border-white/20"
             >
+              <span>Book Now</span>
               <Calendar size={16} />
-              BOOK AN APPOINTMENT
             </Link>
           )}
+        </div>
 
+        {/* Bottom Left Hero Title & Eyebrow */}
+        <div className="relative z-10 max-w-3xl space-y-2 mt-auto pt-16">
+          <p className="text-sm sm:text-base font-bold uppercase tracking-[0.3em] text-white/90 font-sans">
+            HOBART'S
+          </p>
+
+          <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal leading-[1.02] text-white tracking-tight drop-shadow-md">
+            Home of Dentistry
+          </h1>
+        </div>
+
+        {/* Bottom Right Scroll Indicator */}
+        <div className="relative z-10 flex justify-end pt-4">
           <a
-            href="tel:0361000000"
-            className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 flex items-center justify-center gap-2"
+            href="#intro"
+            className="text-white/80 hover:text-white transition-colors p-2"
+            aria-label="Scroll to intro section"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
-            <Phone size={15} className="text-sand" />
-            CALL THE CLINIC
+            <ChevronDown size={22} className="animate-bounce" />
           </a>
         </div>
-
-      </div>
-
-      {/* Bottom Trust Strip & Scroll Down Indicator */}
-      <div className="container mx-auto relative z-10 pt-6 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[11px] font-sans font-bold uppercase tracking-widest text-slate-300">
-          <span>NEW PATIENTS WELCOME</span>
-          <span className="text-sand/50">•</span>
-          <span>PERSONALISED CARE</span>
-          <span className="text-sand/50">•</span>
-          <span>MODERN CLINIC</span>
-          <span className="text-sand/50">•</span>
-          <span>CONVENIENT APPOINTMENTS</span>
-        </div>
-
-        <a
-          href="#intro"
-          className="hidden md:flex items-center gap-2 text-xs font-bold text-sand uppercase tracking-wider hover:text-white transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          <span>Explore Practice</span>
-          <ChevronDown size={16} className="animate-bounce" />
-        </a>
 
       </div>
 
