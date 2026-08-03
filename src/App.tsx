@@ -137,27 +137,6 @@ function App() {
           <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
 
-        {/* Global Floating Action Bar for AI Virtual Receptionist */}
-        <div className="fixed bottom-20 lg:bottom-6 right-6 z-40 flex flex-col gap-3">
-          <button
-            onClick={() => setIsAIReceptionistOpen(true)}
-            className="group flex items-center gap-3 bg-charcoal hover:bg-forest text-white border border-sand px-4 py-3.5 shadow-2xl transition-all duration-300 hover:scale-105"
-            aria-label="Open AI Virtual Receptionist"
-          >
-            <div className="w-7 h-7 rounded-full bg-forest text-white flex items-center justify-center font-bold text-xs">
-              🤖
-            </div>
-            <div className="flex flex-col text-left leading-none">
-              <span className="text-xs font-bold text-white group-hover:text-sand transition-colors">
-                Virtual Receptionist
-              </span>
-              <span className="text-[10px] text-sand font-mono uppercase tracking-wider mt-0.5">
-                24/7 AI Demo
-              </span>
-            </div>
-          </button>
-        </div>
-
         {/* Global Modals */}
         <BookingModal
           isOpen={isBookingOpen}

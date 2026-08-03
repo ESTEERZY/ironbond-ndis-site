@@ -10,14 +10,10 @@ import TreatmentsDirectory from './TreatmentsDirectory'; // 04
 import FeaturedExperience from './FeaturedExperience'; // 05
 import AestheticShowcase from './AestheticShowcase'; // Aesthetic Feature
 import BeforeAfterGallery from './BeforeAfterGallery'; // Before & After Interactive Showcase
-import WhyChooseUs from './WhyChooseUs'; // 06
-import PatientJourney from './PatientJourney'; // 07
-import TeamSection from './TeamSection'; // 08
-import EmergencySection from './EmergencySection'; // 09
 import SocialFeedSection from './SocialFeedSection'; // Harbour Social Feed Section (Proud Smile Style)
-import LocationSection from './LocationSection'; // 10
-import FinalCTA from './FinalCTA'; // 11
-import Footer from './Footer'; // 12
+import LocationSection from './LocationSection'; // 06
+import FinalCTA from './FinalCTA'; // 07
+import Footer from './Footer'; // 08
 
 import MobileStickyBar from './MobileStickyBar';
 import BookingModal from './BookingModal';
@@ -95,29 +91,17 @@ export const Home: React.FC<HomeProps> = ({
         {/* CLINICAL BEFORE & AFTER TRANSFORMATIONS */}
         <BeforeAfterGallery />
 
-        {/* 06 — WHY PATIENTS CHOOSE US */}
-        <WhyChooseUs />
-
-        {/* 07 — PATIENT JOURNEY */}
-        <PatientJourney onOpenBooking={() => handleOpenBooking()} />
-
-        {/* 08 — OUR TEAM */}
-        <TeamSection onOpenBooking={handleOpenBooking} />
-
-        {/* 09 — EMERGENCY DENTAL */}
-        <EmergencySection onOpenBooking={handleOpenBooking} />
-
         {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
         <SocialFeedSection />
 
-        {/* 10 — LOCATION & HOURS */}
+        {/* 06 — LOCATION & HOURS */}
         <LocationSection />
 
-        {/* 11 — FINAL BOOKING CTA */}
+        {/* 07 — FINAL BOOKING CTA */}
         <FinalCTA onOpenBooking={() => handleOpenBooking()} />
       </main>
 
-      {/* 12 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
+      {/* 08 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenAIReceptionist={handleOpenAIReceptionist}
