@@ -10,28 +10,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
     <section id="hero" className="relative w-full min-h-screen flex flex-col justify-between pt-32 pb-12 px-6 lg:px-12 bg-charcoal text-white overflow-hidden">
       
-      {/* FULL-SCREEN VIDEO BACKGROUND */}
+      {/* DENTIST CLINICAL VIDEO BACKGROUND */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           loop
           muted
           playsInline
-          poster="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80"
-          className="w-full h-full object-cover scale-105 filter brightness-90"
+          poster="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1600&q=80"
+          className="w-full h-full object-cover scale-105 filter brightness-[0.85]"
         >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patient-42861-large.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-working-on-a-patients-teeth-42862-large.mp4" type="video/mp4" />
           <source src="/videos/hero.mp4" type="video/mp4" />
-          <source src="/videos/hero-bg-optimized.mp4" type="video/mp4" />
         </video>
-        {/* Luxury Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/40"></div>
+        
+        {/* Luxury Dark Vignette Overlay for High Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/65 to-charcoal/50"></div>
         <div className="absolute inset-0 bg-charcoal/30 backdrop-blur-[1px]"></div>
       </div>
 
-      {/* Hero Content Container */}
+      {/* Hero Content */}
       <div className="container mx-auto relative z-10 my-auto py-12 flex flex-col items-start max-w-4xl space-y-8">
         
-        {/* Small Eyebrow Badge */}
+        {/* Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 bg-ivory/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-sand">
           <span>HARBOUR DENTAL STUDIO · HOBART</span>
         </div>
@@ -78,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
       </div>
 
-      {/* Bottom Trust Strip & Scroll Down Indicator */}
+      {/* Bottom Trust Strip */}
       <div className="container mx-auto relative z-10 pt-8 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4">
         
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[11px] font-sans font-bold uppercase tracking-widest text-slate-300">
