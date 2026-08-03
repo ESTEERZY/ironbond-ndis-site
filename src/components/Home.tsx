@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header'; // 01
 import Hero from './Hero'; // 02
 import IntroSection from './IntroSection'; // 03
+import NewPatientSpecialSection from './NewPatientSpecialSection'; // New Patient Special Offer (Proud Smile Style)
 import TreatmentsDirectory from './TreatmentsDirectory'; // 04
 import FeaturedExperience from './FeaturedExperience'; // 05
 import AestheticShowcase from './AestheticShowcase'; // Aesthetic Feature
@@ -79,6 +80,9 @@ export const Home: React.FC<HomeProps> = ({
         {/* 03 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
         <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
+        {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
+        <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
+
         {/* 04 — TREATMENTS DIRECTORY */}
         <TreatmentsDirectory onOpenBooking={handleOpenBooking} />
 
@@ -103,7 +107,7 @@ export const Home: React.FC<HomeProps> = ({
         {/* 09 — EMERGENCY DENTAL */}
         <EmergencySection onOpenBooking={handleOpenBooking} />
 
-        {/* HARBOUR SOCIAL SHOWCASE (REPLACING TESTIMONIALS WITH PROUD SMILE SOCIAL STYLE) */}
+        {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
         <SocialFeedSection />
 
         {/* 10 — LOCATION & HOURS */}
