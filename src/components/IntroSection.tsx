@@ -1,51 +1,69 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-export const IntroSection: React.FC = () => {
+interface IntroSectionProps {
+  onOpenBooking?: () => void;
+}
+
+export const IntroSection: React.FC<IntroSectionProps> = ({ onOpenBooking }) => {
   return (
-    <section id="intro" className="py-24 bg-white border-y border-charcoal/10 font-sans">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section id="intro" className="w-full bg-charcoal text-white font-sans overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px] sm:min-h-[640px]">
+        
+        {/* Left Side: Architectural Ambient Practice Photography (50% / 6 cols) */}
+        <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full overflow-hidden group">
+          <img
+            src="/images/caring_dentist_intro.png"
+            alt="Harbour Dental Studio luxury architectural entry and caring dentist"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 filter brightness-[0.92]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-charcoal/40 hidden lg:block"></div>
+        </div>
+
+        {/* Right Side: Dark Luxury Typography Container (50% / 6 cols) */}
+        <div className="lg:col-span-6 p-8 sm:p-14 lg:p-20 flex flex-col justify-center space-y-8 bg-charcoal">
           
-          {/* Left Column: Caring Dentist Photography */}
-          <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] lg:aspect-[16/12] overflow-hidden bg-sand-light shadow-xl rounded-2xl border border-charcoal/10 group">
-              <img
-                src="/images/caring_dentist_intro.png"
-                alt="Caring female dentist consulting warmly with patient at Harbour Dental Studio Hobart"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-charcoal/5 pointer-events-none"></div>
-            </div>
+          {/* Cursive Script Accent Header */}
+          <div className="font-script text-3xl sm:text-5xl text-sand font-normal tracking-wide">
+            A dental practice, but not as you know it.
           </div>
 
-          {/* Right Column: Editorial Typography */}
-          <div className="lg:col-span-6 space-y-6">
-            <span className="text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-forest block">
-              A DIFFERENT DENTAL EXPERIENCE
-            </span>
+          {/* Horizontal Accent Divider Line */}
+          <div className="w-full border-t border-white/15 my-2"></div>
 
-            <h2 className="font-serif text-4xl sm:text-5xl font-normal leading-tight text-charcoal tracking-tight">
-              Care that feels considered.
-            </h2>
+          {/* Serif Title Headline */}
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal leading-[1.15] text-white tracking-tight">
+            A modern approach to cosmetic & restorative dentistry
+          </h2>
 
-            <p className="text-base text-charcoal-muted leading-relaxed font-sans max-w-xl">
-              At Harbour Dental Studio, we take a straightforward, personal approach to dentistry. From your first visit through ongoing care, our team focuses on clear communication and a comfortable experience.
-            </p>
+          {/* Body Copy */}
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-lg font-sans">
+            Say Goodbye to Pain, Anxiety, and Sterile Environments. Say Hello to a Refreshing, Relaxed and Warm Experience in Hobart.
+          </p>
 
-            <div className="pt-2">
-              <Link
-                to="/team"
-                className="inline-flex items-center gap-3 text-xs font-sans font-bold uppercase tracking-widest text-charcoal hover:text-forest border-b border-charcoal pb-1 transition-colors"
+          {/* Vibrant Accent Pill CTA Button */}
+          <div className="pt-2">
+            {onOpenBooking ? (
+              <button
+                onClick={onOpenBooking}
+                className="inline-flex items-center gap-3 bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full shadow-2xl transition-all hover:scale-105 border border-white/15"
               >
-                <span>MEET OUR TEAM</span>
+                <span>THE HARBOUR DENTAL EXPERIENCE</span>
                 <ArrowRight size={15} />
-              </Link>
-            </div>
+              </button>
+            ) : (
+              <a
+                href="#treatments"
+                className="inline-flex items-center gap-3 bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full shadow-2xl transition-all hover:scale-105 border border-white/15"
+              >
+                <span>THE HARBOUR DENTAL EXPERIENCE</span>
+                <ArrowRight size={15} />
+              </a>
+            )}
           </div>
 
         </div>
+
       </div>
     </section>
   );

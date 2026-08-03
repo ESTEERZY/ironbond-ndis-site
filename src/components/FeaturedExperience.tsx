@@ -1,58 +1,73 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface FeaturedExperienceProps {
-  onOpenBooking?: (serviceName?: string) => void;
+  onOpenBooking?: (service?: string) => void;
 }
 
 export const FeaturedExperience: React.FC<FeaturedExperienceProps> = ({ onOpenBooking }) => {
   return (
-    <section className="py-24 bg-charcoal text-white relative overflow-hidden font-sans">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section className="w-full bg-ivory text-charcoal font-sans overflow-hidden border-y border-charcoal/10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px] sm:min-h-[640px]">
+        
+        {/* Left Side: Dark Luxury Typography Container (50% / 6 cols) */}
+        <div className="lg:col-span-6 p-8 sm:p-14 lg:p-20 flex flex-col justify-center space-y-8 bg-ivory order-2 lg:order-1">
           
-          <div className="lg:col-span-7">
-            <div className="aspect-[16/10] overflow-hidden bg-slate-800 shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1200&q=80"
-                alt="Considered dental aesthetic treatment at Harbour Dental Studio"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="inline-flex items-center gap-2 bg-forest/10 border border-forest/20 px-3.5 py-1.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-widest text-forest w-fit">
+            <Sparkles size={12} />
+            <span>EXCEPTIONAL CLINICAL COMFORT</span>
           </div>
 
-          <div className="lg:col-span-5 space-y-6">
-            <span className="text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-sand">
-              FEATURED DENTAL CARE
-            </span>
+          {/* Cursive Script Accent Header */}
+          <div className="font-script text-3xl sm:text-5xl text-forest font-normal tracking-wide">
+            Designed for total peace of mind.
+          </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white">
-              Your smile deserves a considered approach.
-            </h2>
+          {/* Horizontal Accent Divider Line */}
+          <div className="w-full border-t border-charcoal/10 my-2"></div>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-              Whether you are interested in subtle aesthetic alignment, whitening, or porcelain restorations, our dentists take time to understand your individual goals and present suitable options clearly.
-            </p>
+          {/* Serif Title Headline */}
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal leading-[1.15] text-charcoal tracking-tight">
+            Gentle dental care crafted around you
+          </h2>
 
-            <div className="pt-3 flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/treatments/cosmetic-dentistry"
-                className="bg-sand text-charcoal hover:bg-white font-sans text-xs font-bold uppercase tracking-widest px-7 py-4 transition-colors text-center shadow-md"
+          {/* Body Copy */}
+          <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed max-w-lg font-sans">
+            From noise-cancelling headphones and ceiling screens to warm herbal tea and unhurried appointments, we make sure every visit is calm, empowering, and completely stress-free.
+          </p>
+
+          {/* Vibrant Accent Pill CTA Button */}
+          <div className="pt-2">
+            {onOpenBooking ? (
+              <button
+                onClick={() => onOpenBooking('General Dental Experience')}
+                className="inline-flex items-center gap-3 bg-charcoal hover:bg-forest text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full shadow-xl transition-all hover:scale-105"
               >
-                EXPLORE COSMETIC DENTISTRY
-              </Link>
-              {onOpenBooking && (
-                <button
-                  onClick={() => onOpenBooking('Cosmetic Dentistry')}
-                  className="border border-white/30 hover:border-white text-white font-sans text-xs font-bold uppercase tracking-widest px-6 py-4 transition-colors text-center"
-                >
-                  BOOK CONSULTATION
-                </button>
-              )}
-            </div>
+                <span>EXPLORE CLINICAL CARE</span>
+                <ArrowRight size={15} />
+              </button>
+            ) : (
+              <a
+                href="#team"
+                className="inline-flex items-center gap-3 bg-charcoal hover:bg-forest text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full shadow-xl transition-all hover:scale-105"
+              >
+                <span>EXPLORE CLINICAL CARE</span>
+                <ArrowRight size={15} />
+              </a>
+            )}
           </div>
 
         </div>
+
+        {/* Right Side: Architectural Ambient Practice Photography (50% / 6 cols) */}
+        <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full overflow-hidden group order-1 lg:order-2">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=85"
+            alt="Harbour Dental Studio luxury treatment suite Hobart"
+            className="w-full h-full object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-1000 filter brightness-[0.95]"
+          />
+        </div>
+
       </div>
     </section>
   );
