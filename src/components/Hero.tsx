@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Phone, Calendar, ShieldCheck, UserCheck, Clock, Heart, Sparkles, MapPin } from 'lucide-react';
+import { Phone, Calendar } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 interface HeroProps {
@@ -8,135 +9,87 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section id="hero" className="pt-32 lg:pt-36 pb-16 bg-gradient-to-b from-slate-50 via-white to-slate-50/50 overflow-hidden relative">
-      {/* Background Ambient Glow Effects */}
-      <div className="absolute top-1/4 right-5 w-[450px] h-[450px] bg-teal/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute top-1/3 left-5 w-[350px] h-[350px] bg-emerald/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="hero" className="pt-32 lg:pt-40 pb-16 lg:pb-24 bg-ivory text-charcoal overflow-hidden relative">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 py-6 lg:py-12">
-
-          {/* LEFT: Content */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start">
-            {/* Location Pill */}
-            <div className="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 rounded-full px-4 py-1.5 mb-6 shadow-sm">
-              <MapPin size={13} className="text-teal" />
-              <span className="text-teal text-xs font-bold tracking-wide">123 Harbour Street, Hobart TAS 7000</span>
+          {/* LEFT: Editorial Content Block */}
+          <div className="w-full lg:w-5/12 flex flex-col items-start space-y-6">
+            
+            {/* Small Eyebrow */}
+            <div className="text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-forest">
+              HARBOUR DENTAL STUDIO · HOBART
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy leading-[1.1] mb-6">
+            {/* Large Editorial Headline */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] text-charcoal tracking-tight">
               Modern dentistry.<br />
-              <span className="text-teal">Personalised care.</span>
+              <span className="italic font-normal text-forest">Personalised care.</span>
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
-              Thoughtful dental care for every stage of your smile, delivered in a comfortable modern environment.
+            <p className="text-base text-charcoal-muted leading-relaxed max-w-lg font-sans">
+              Thoughtful dental care in a calm, modern environment, from routine check-ups to cosmetic and restorative treatments.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3.5 mb-10 w-full sm:w-auto">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
               {onOpenBooking ? (
                 <button
                   onClick={onOpenBooking}
-                  className="group bg-teal text-white px-8 py-4 text-xs font-extrabold tracking-wider uppercase rounded-xl hover:bg-teal/90 transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-lg shadow-teal/20"
+                  className="bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 flex items-center justify-center gap-3 shadow-md"
                 >
-                  <Calendar size={18} />
+                  <Calendar size={15} />
                   BOOK AN APPOINTMENT
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
                 </button>
               ) : (
                 <Link
                   to="/book"
-                  className="group bg-teal text-white px-8 py-4 text-xs font-extrabold tracking-wider uppercase rounded-xl hover:bg-teal/90 transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-lg shadow-teal/20"
+                  className="bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 flex items-center justify-center gap-3 shadow-md"
                 >
-                  <Calendar size={18} />
+                  <Calendar size={15} />
                   BOOK AN APPOINTMENT
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
                 </Link>
               )}
 
               <a
                 href="tel:0361000000"
-                className="bg-navy text-white px-8 py-4 text-xs font-extrabold tracking-wider uppercase rounded-xl hover:bg-navy-mid transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-lg shadow-navy/15"
+                className="border border-charcoal/20 hover:border-charcoal text-charcoal font-sans text-xs font-bold uppercase tracking-widest px-7 py-4 transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <Phone size={18} className="text-teal" /> CALL THE CLINIC
+                <Phone size={15} className="text-forest" />
+                CALL THE CLINIC
               </a>
             </div>
 
-            {/* Trust / Value Strip Beneath Hero */}
-            <div className="w-full pt-6 border-t border-slate-200/80">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">Hobart Patient Values</p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-navy bg-white border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
-                  <UserCheck size={16} className="text-teal flex-shrink-0" />
-                  <span>Experienced Team</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-bold text-navy bg-white border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
-                  <Sparkles size={16} className="text-teal flex-shrink-0" />
-                  <span>Modern Facility</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-bold text-navy bg-white border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
-                  <Clock size={16} className="text-teal flex-shrink-0" />
-                  <span>Convenient Hours</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-bold text-navy bg-white border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
-                  <Heart size={16} className="text-emerald flex-shrink-0" />
-                  <span>Comfort Focused</span>
-                </div>
+            {/* Subtle Credibility Text Strip (NO Cards) */}
+            <div className="w-full pt-8 mt-4 border-t border-charcoal/10">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-sans font-bold uppercase tracking-widest text-charcoal-muted">
+                <span>NEW PATIENTS WELCOME</span>
+                <span className="text-charcoal/20">•</span>
+                <span>MODERN CLINIC</span>
+                <span className="text-charcoal/20">•</span>
+                <span>PERSONALISED CARE</span>
+                <span className="text-charcoal/20">•</span>
+                <span>CONVENIENT APPOINTMENTS</span>
               </div>
             </div>
+
           </div>
 
-          {/* RIGHT: High quality dental visual showcase frame */}
-          <div className="w-full lg:w-1/2 relative">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-teal/20 via-emerald/10 to-teal/20 rounded-[36px] blur-2xl opacity-70 transform rotate-1 pointer-events-none"></div>
+          {/* RIGHT: Large Premium Photography Frame */}
+          <div className="w-full lg:w-7/12">
+            <div className="relative aspect-[4/3] lg:aspect-[16/11] overflow-hidden bg-sand-light shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80"
+                alt="Harbour Dental Studio Hobart clinic interior"
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-charcoal/10 pointer-events-none"></div>
 
-            <div className="relative bg-white rounded-3xl p-3 shadow-2xl border border-slate-200/80 overflow-hidden group">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80"
-                  alt="Harbour Dental Studio modern treatment suite in Hobart"
-                  className="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
-                />
-                
-                {/* Subtle Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none"></div>
-
-                {/* Live Clinic Badge */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md border border-slate-200 px-3.5 py-1.5 rounded-full flex items-center gap-2 text-navy text-xs font-bold shadow-lg">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald animate-pulse"></span>
-                  <span>Welcoming New Patients</span>
-                </div>
-
-                {/* Bottom Overlay Text */}
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs font-semibold text-teal-light">Harbour Dental Studio Hobart</p>
-                  <p className="text-sm font-bold">State-of-the-art dental care with a calm, personal touch.</p>
-                </div>
-              </div>
-
-              {/* Floating Badge 1 */}
-              <div className="absolute -top-4 -right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200 p-3.5 flex items-center gap-3 animate-float z-20 hidden sm:flex">
-                <div className="w-10 h-10 bg-teal/10 rounded-xl flex items-center justify-center text-teal flex-shrink-0">
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Clinical Standard</p>
-                  <p className="text-xs font-black text-navy">Accredited Dental Practice</p>
-                </div>
-              </div>
-
-              {/* Floating Badge 2 */}
-              <div className="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200 p-3.5 flex items-center gap-3 animate-float-delay z-20 hidden sm:flex">
-                <div className="w-10 h-10 bg-emerald/10 rounded-xl flex items-center justify-center text-emerald flex-shrink-0">
-                  <Heart size={20} />
-                </div>
-                <div>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Patient Experience</p>
-                  <p className="text-xs font-black text-navy">Gentle & Caring Care</p>
-                </div>
+              {/* Minimal Editorial Badge overlay */}
+              <div className="absolute bottom-6 left-6 right-6 sm:right-auto bg-ivory/95 backdrop-blur-md p-5 border border-charcoal/10 max-w-sm">
+                <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-forest">HOBART PRACTICE</p>
+                <p className="font-serif text-lg text-charcoal mt-0.5">123 Harbour Street, Hobart TAS 7000</p>
               </div>
             </div>
           </div>

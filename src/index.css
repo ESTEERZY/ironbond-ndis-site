@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,22 +15,21 @@
   }
 
   body {
-    @apply bg-white text-navy font-sans antialiased;
+    @apply bg-ivory text-charcoal font-sans antialiased selection:bg-forest selection:text-white;
     letter-spacing: -0.01em;
-    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold tracking-tight text-navy;
-    line-height: 1.15;
+  h1, h2, h3, h4 {
+    @apply font-serif font-normal tracking-tight text-charcoal;
+    line-height: 1.12;
   }
 
-  h1 { @apply text-5xl lg:text-6xl font-black; }
-  h2 { @apply text-4xl lg:text-5xl font-bold; }
-  h3 { @apply text-2xl lg:text-3xl font-bold; }
+  h1 { @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl; }
+  h2 { @apply text-3xl sm:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl sm:text-3xl; }
 
   p {
-    line-height: 1.7;
+    line-height: 1.75;
   }
 }
 
@@ -39,82 +38,24 @@
     text-wrap: balance;
   }
 
-  /* NDIS Trust Badge utility */
-  .trust-badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald/10 border border-emerald/30 rounded-full text-emerald text-xs font-bold tracking-wide;
+  /* Editorial Link Underline Animation */
+  .animated-underline {
+    position: relative;
   }
-
-  .ndis-pill {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-teal/10 border border-teal/20 rounded-full text-teal text-[11px] font-semibold tracking-wide;
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
   }
-
-  /* Ambient Cinematic Animations */
-  @keyframes infinitePan {
-    0% { transform: scale(1.00) translate(0, 0); }
-    50% { transform: scale(1.04) translate(-0.5%, -0.5%); }
-    100% { transform: scale(1.00) translate(0, 0); }
-  }
-
-  @keyframes heading-breath {
-    0%, 100% { opacity: 1; transform: translateY(0px); }
-    50% { opacity: 1; transform: translateY(-2px); }
-  }
-
-  @keyframes subtext-breath {
-    0%, 100% { opacity: 1; transform: translateY(0px); }
-    50% { opacity: 1; transform: translateY(-1px); }
-  }
-
-  .animate-infinitePan {
-    animation: infinitePan 25s ease-in-out infinite;
-  }
-
-  .animate-heading-breath {
-    animation: heading-breath 6s ease-in-out infinite;
-  }
-
-  .animate-subtext-breath {
-    animation: subtext-breath 8s ease-in-out infinite;
-  }
-
-  /* Kinetic Ambient Mesh */
-  @keyframes ambientMesh {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .animate-ambient-mesh {
-    animation: ambientMesh 20s linear infinite;
-  }
-
-  @keyframes kenBurns {
-    0% { transform: scale(1.00) translate(0, 0); }
-    100% { transform: scale(1.06) translate(-0.5%, -0.5%); }
-  }
-
-  .animate-ken-burns {
-    animation: kenBurns 30s linear infinite alternate;
-  }
-
-  .animate-kinetic-zoom {
-    animation: kineticZoom 30s linear infinite alternate;
-    will-change: transform;
-  }
-  @keyframes kineticZoom {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.06) translate(-0.5%, -0.5%); }
-  }
-
-  /* Float animation for hero badges */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-  .animate-float-delay {
-    animation: float 4s ease-in-out 1.5s infinite;
+  .animated-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 }
