@@ -1,130 +1,115 @@
-import { motion } from 'framer-motion';
+import React from 'react';
+import { Award, GraduationCap, Sparkles } from 'lucide-react';
 
-const teamMembers = [
-  {
-    name: 'Emma Kavanagh',
-    role: 'CEO & Founder',
-    specialty: 'Disability Sector Leadership',
-    bio: 'Emma founded Horizon in 2017 after 12 years working in disability support and advocacy. She holds a Master\'s in Social Work and is passionate about genuine person-centred practice.',
-    image: '/images/director.png',
-    initials: 'EK',
-    color: 'bg-teal/15 text-teal',
-  },
-  {
-    name: 'Brooke Simmons',
-    role: 'Senior Support Coordinator',
-    specialty: 'Complex NDIS Plans & SIL',
-    bio: 'Brooke has 8 years of experience in support coordination across complex disability, mental health, and acquired brain injury. She\'s known for her calm, thorough approach to plan navigation.',
-    image: null,
-    initials: 'BS',
-    color: 'bg-violet-100 text-violet-600',
-  },
-  {
-    name: 'Dr. James Thornton',
-    role: 'Lead Occupational Therapist',
-    specialty: 'Functional Capacity Assessment',
-    bio: 'James completed his Doctorate in OT at the University of Melbourne and specialises in functional capacity assessments, home modifications, and assistive technology recommendations.',
-    image: null,
-    initials: 'JT',
-    color: 'bg-blue-100 text-blue-600',
-  },
-  {
-    name: 'Priya Patel',
-    role: 'Behaviour Support Practitioner',
-    specialty: 'Positive Behaviour Support Plans',
-    bio: 'Priya is a registered Behaviour Support Practitioner with expertise in developing positive behaviour support plans for participants with complex needs across age groups.',
-    image: null,
-    initials: 'PP',
-    color: 'bg-rose-100 text-rose-500',
-  },
-  {
-    name: 'Marcus Williams',
-    role: 'Physiotherapist',
-    specialty: 'Mobility & Neurological Rehab',
-    bio: 'Marcus specialises in NDIS physiotherapy for adults and children, including neurological rehabilitation, mobility assessments, and hydrotherapy. He works across clinic and community settings.',
-    image: null,
-    initials: 'MW',
-    color: 'bg-emerald/10 text-emerald',
-  },
-  {
-    name: 'Sarah Chen',
-    role: 'Senior Support Worker',
-    specialty: 'Community Access & Daily Living',
-    bio: 'Sarah brings warmth and creativity to every shift. With a background in community services and 6 years of direct support work, she is a trusted team member and participant favourite.',
-    image: null,
-    initials: 'SC',
-    color: 'bg-amber-100 text-amber-600',
-  },
-];
 
-const TeamSection = () => (
-  <section id="team" className="py-20 lg:py-28 bg-white">
-    <div className="container mx-auto px-6 lg:px-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.6 }}
-        className="text-center mb-14"
-      >
-        <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Meet Our Team</p>
-        <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">
-          Experienced people<br />who genuinely care.
-        </h2>
-        <p className="text-lg text-slate-600 max-w-xl mx-auto">
-          Our team includes qualified support coordinators, allied health professionals, and support workers — all committed to participant wellbeing and genuine outcomes.
-        </p>
-      </motion.div>
+export const TeamSection: React.FC = () => {
+  const teamMembers = [
+    {
+      name: 'Dr. Sophie Mitchell',
+      role: 'Principal Dentist',
+      qualifications: 'BDS (Distinction), Univ. of Sydney',
+      experience: '14+ Years Clinical Experience',
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80',
+      bio: 'Dr. Sophie Mitchell founded Harbour Dental Studio with a vision to deliver exceptional, gentle dental care in Hobart. She has extensive experience in general, preventive, and complex restorative dentistry. Sophie is passionate about helping nervous patients feel completely comfortable during their visits.',
+      interests: 'Restorative care, gentle dentistry & preventative health',
+    },
+    {
+      name: 'Dr. James Carter',
+      role: 'Dentist',
+      qualifications: 'BDSc (Hons), Univ. of Melbourne',
+      experience: '9+ Years Clinical Experience',
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80',
+      bio: 'Dr. James Carter brings a warm and meticulous approach to clinical dentistry. After practicing in Melbourne, James moved to Hobart to join Harbour Dental Studio. He focuses on cosmetic treatments, clear aligner therapy, and crown restorations with a commitment to long-term patient comfort.',
+      interests: 'Cosmetic dentistry, clear aligners & smile design',
+    },
+    {
+      name: 'Sarah Jenkins',
+      role: 'Senior Dental Hygienist',
+      qualifications: 'BOH, Univ. of Adelaide',
+      experience: '8+ Years Clinical Hygiene',
+      image: 'https://images.unsplash.com/photo-1594824813571-2b253563605c?auto=format&fit=crop&w=600&q=80',
+      bio: 'Sarah Jenkins leads our dental hygiene and preventative clean programs. She works closely with patients to maintain healthy gums and teeth through thorough cleans and practical oral hygiene guidance tailored for adults and children alike.',
+      interests: 'Preventative care, gum health & children’s hygiene',
+    },
+  ];
 
-      <motion.div
-        initial="hidden" whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ staggerChildren: 0.1 }}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {teamMembers.map((member) => (
-          <motion.div
-            key={member.name}
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55 } } }}
-            className="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden hover:border-teal/25 hover:shadow-lg hover:shadow-teal/5 transition-all duration-300 hover:-translate-y-1"
-          >
-            {/* Photo or avatar */}
-            <div className="h-52 overflow-hidden bg-slate-100">
-              {member.image ? (
-                <img src={member.image} alt={`${member.name} — Horizon Support Services`}
-                  className="w-full h-full object-cover object-top" loading="lazy" />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                  <div className={`w-20 h-20 ${member.color} rounded-full flex items-center justify-center text-2xl font-black`}>
-                    {member.initials}
+  return (
+    <section id="team" className="py-20 bg-slate-50 relative">
+      <div className="container mx-auto px-6 lg:px-12">
+        
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <span className="text-teal font-bold text-xs uppercase tracking-widest bg-teal/10 border border-teal/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
+            Our Dental Team
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-4">
+            Meet the team dedicated to your smile.
+          </h2>
+          <p className="text-base text-slate-600 leading-relaxed">
+            Our experienced dentists and clinical team combine professional expertise with a friendly, welcoming approach to ensure you receive the highest standard of dental care.
+          </p>
+        </div>
+
+        {/* Team Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-teal/40 transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                {/* Photo Header */}
+                <div className="relative h-72 overflow-hidden bg-slate-100">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                  
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="bg-teal text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full inline-block mb-1">
+                      {member.role}
+                    </span>
+                    <h3 className="text-xl font-black">{member.name}</h3>
                   </div>
                 </div>
-              )}
-            </div>
-            {/* Content */}
-            <div className="p-6">
-              <h3 className="text-lg font-bold text-navy mb-0.5">{member.name}</h3>
-              <p className={`text-xs font-bold uppercase tracking-widest mb-0.5 ${member.color.includes('teal') ? 'text-teal' : member.color.includes('violet') ? 'text-violet-600' : member.color.includes('blue') ? 'text-blue-600' : member.color.includes('rose') ? 'text-rose-500' : member.color.includes('emerald') ? 'text-emerald' : 'text-amber-600'}`}>{member.role}</p>
-              <p className="text-xs text-slate-400 mb-3">{member.specialty}</p>
-              <p className="text-sm text-slate-500 leading-relaxed">{member.bio}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center mt-12"
-      >
-        <p className="text-slate-500 mb-4">Our team of 80+ support workers, coordinators, and allied health professionals are based across Melbourne and Victoria.</p>
-        <a href="#contact"
-          onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-          className="inline-flex items-center gap-2 text-teal font-bold text-sm hover:underline"
-        >
-          Join our team →
-        </a>
-      </motion.div>
-    </div>
-  </section>
-);
+                {/* Content */}
+                <div className="p-6 space-y-4">
+                  <div className="space-y-1.5 border-b border-slate-100 pb-3 text-xs text-slate-500 font-semibold">
+                    <p className="flex items-center gap-1.5">
+                      <GraduationCap size={14} className="text-teal" /> {member.qualifications}
+                    </p>
+                    <p className="flex items-center gap-1.5">
+                      <Award size={14} className="text-teal" /> {member.experience}
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {member.bio}
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottom Special Interest Pill */}
+              <div className="px-6 pb-6 pt-2">
+                <div className="bg-teal/5 border border-teal/20 rounded-xl p-3 text-[11px] text-slate-700 font-medium flex items-start gap-2">
+                  <Sparkles size={14} className="text-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-navy block">Clinical focus:</span>
+                    {member.interests}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
 
 export default TeamSection;

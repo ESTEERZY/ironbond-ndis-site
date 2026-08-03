@@ -7,30 +7,43 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Legacy tokens (kept for backward compat)
-        charcoal: '#1A1A1B',
-        darkgray: '#171717',
-        gold: '#C5A059',
-        stone: '#E2E2E2',
-        champagne: '#FBF9F6',
-        offwhite: '#F8F9FA',
-        // NDIS Platform Palette
-        navy: '#0B1F3A',
-        'navy-mid': '#112244',
-        'navy-light': '#1A3055',
-        teal: '#00B4D8',
-        emerald: '#10B981',
-        cream: '#FBF8F4',
+        // Harbour Dental Studio Brand Palette
+        dental: {
+          50: '#F0F9FF',
+          100: '#E0F2FE',
+          200: '#BAE6FD',
+          500: '#00839B', // Primary Medical Teal
+          600: '#006E83',
+          700: '#005869',
+          800: '#064E5B',
+          900: '#0A3B45',
+        },
+        navy: {
+          DEFAULT: '#0B192C',
+          mid: '#1E293B',
+          light: '#334155',
+        },
+        teal: {
+          DEFAULT: '#00839B',
+          light: '#38BDF8',
+          soft: '#E0F2FE',
+        },
+        emerald: {
+          DEFAULT: '#10B981',
+          soft: '#D1FAE5',
+        },
+        cream: '#F8FAFC',
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        heading: ['Inter', '"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fade-in 0.8s ease-in-out',
         'slide-up': 'slide-up 0.6s ease-out',
         'float': 'float 4s ease-in-out infinite',
         'float-delay': 'float 4s ease-in-out infinite 2s',
+        'pulse-subtle': 'pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         'fade-in': {
@@ -43,7 +56,11 @@ export default {
         },
         'float': {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        'pulse-subtle': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.6' },
         },
       },
     },
@@ -51,3 +68,4 @@ export default {
   darkMode: 'class',
   plugins: [],
 }
+

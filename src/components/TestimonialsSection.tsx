@@ -1,80 +1,99 @@
-import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import React from 'react';
+import { Star, Quote, MapPin, CheckCircle } from 'lucide-react';
 
-const testimonials = [
-  {
-    quote: "Since joining Horizon, our daughter Mia has come out of her shell in ways we never imagined. Her support coordinator Brooke genuinely knows her goals, advocates for her at plan reviews, and is always available when we need guidance. We finally feel like we have the right team beside us.",
-    name: "Christine & David W.",
-    location: "Knox, VIC",
-    service: "Support Coordination & Core Supports",
-    initials: "CW",
-    color: "bg-violet-100 text-violet-600",
-  },
-  {
-    quote: "My support worker, Marcus, helped me get back into the community after years at home. I'm now attending a cooking class every Tuesday and started volunteering at the local animal shelter. I didn't think any of that was possible. Horizon actually listened to what I wanted — not just what they thought I needed.",
-    name: "Thomas R.",
-    location: "Richmond, VIC",
-    service: "Community Participation",
-    initials: "TR",
-    color: "bg-teal/15 text-teal",
-  },
-  {
-    quote: "After years of navigating the NDIS system on our own, Horizon made everything manageable. They explained our son's plan clearly, found a SIL home that actually suited his personality, and check in with us regularly. The whole team feels like family. We can't recommend them enough.",
-    name: "Linda & James R.",
-    location: "Doncaster, VIC",
-    service: "Supported Independent Living",
-    initials: "LR",
-    color: "bg-emerald/10 text-emerald",
-  },
-];
+export const TestimonialsSection: React.FC = () => {
+  const reviews = [
+    {
+      name: 'Mark T.',
+      suburb: 'Sandy Bay, Hobart',
+      rating: 5,
+      service: 'Check-up & Clean',
+      text: 'Dr Sophie and the team made my check-up completely stress-free. The clinic is bright, modern and very welcoming. Really appreciated the thorough clean and clear advice on keeping my gums healthy.',
+    },
+    {
+      name: 'Rachel S.',
+      suburb: 'Hobart CBD',
+      rating: 5,
+      service: 'Emergency Dental',
+      text: 'Had a sudden toothache on Thursday morning and they managed to fit me in that afternoon. The dentist explained what was causing the pain and treated it gently. Very grateful for the fast service.',
+    },
+    {
+      name: 'David L.',
+      suburb: 'Battery Point',
+      rating: 5,
+      service: "Children's Dentistry",
+      text: 'Brought my two young kids in for their routine cleans. The clinic staff were so patient with them, taking time to show them the equipment before starting. It made the whole visit effortless.',
+    },
+    {
+      name: 'Emma W.',
+      suburb: 'West Hobart',
+      rating: 5,
+      service: 'Clear Aligners Consultation',
+      text: 'Visited for a consultation regarding clear aligner options. Dr James was very thorough, explained the expected timeline and cost upfront without any pressure. Great modern practice.',
+    },
+  ];
 
-const TestimonialsSection = () => (
-  <section id="stories" className="py-20 lg:py-28 bg-slate-50">
-    <div className="container mx-auto px-6 lg:px-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.6 }}
-        className="text-center mb-14"
-      >
-        <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Participant Stories</p>
-        <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">
-          What participants<br />and families say.
-        </h2>
-        <p className="text-lg text-slate-600 max-w-xl mx-auto">
-          Every participant's story is unique. These are just a few of the families and individuals we're proud to support across Victoria.
-        </p>
-      </motion.div>
+  return (
+    <section id="reviews" className="py-20 bg-white relative">
+      <div className="container mx-auto px-6 lg:px-12">
+        
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <span className="text-teal font-bold text-xs uppercase tracking-widest bg-teal/10 border border-teal/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
+            Patient Feedback
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-4">
+            What our Hobart patients say.
+          </h2>
+          <p className="text-base text-slate-600 leading-relaxed">
+            We take pride in providing gentle, dependable dental care for our local community.
+          </p>
+        </div>
 
-      <motion.div
-        initial="hidden" whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ staggerChildren: 0.12 }}
-        className="grid lg:grid-cols-3 gap-6"
-      >
-        {testimonials.map((t) => (
-          <motion.div
-            key={t.name}
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-            className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 hover:shadow-lg hover:border-teal/20 transition-all duration-300 flex flex-col"
-          >
-            <Quote size={28} className="text-teal/30 mb-4 flex-shrink-0" />
-            <p className="text-slate-600 leading-relaxed text-[15px] flex-1 mb-6 italic">
-              "{t.quote}"
-            </p>
-            <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div className={`w-10 h-10 ${t.color} rounded-full flex items-center justify-center text-xs font-black flex-shrink-0`}>
-                {t.initials}
-              </div>
+        {/* Reviews Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs relative flex flex-col justify-between"
+            >
               <div>
-                <p className="text-sm font-bold text-navy">{t.name}</p>
-                <p className="text-[11px] text-slate-400">{t.location} · {t.service}</p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-1 text-amber-400">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
+                  </div>
+                  <span className="bg-teal/10 text-teal text-[11px] font-bold px-2.5 py-1 rounded-full border border-teal/20">
+                    {review.service}
+                  </span>
+                </div>
+
+                <Quote size={24} className="text-teal/30 mb-2" />
+
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed italic mb-6">
+                  "{review.text}"
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                <div>
+                  <h4 className="font-bold text-navy text-sm">{review.name}</h4>
+                  <p className="text-slate-500 font-medium flex items-center gap-1 mt-0.5">
+                    <MapPin size={12} className="text-teal" /> {review.suburb}
+                  </p>
+                </div>
+                <span className="flex items-center gap-1 text-[11px] font-bold text-emerald">
+                  <CheckCircle size={12} /> Verified Patient
+                </span>
               </div>
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  </section>
-);
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
 
 export default TestimonialsSection;

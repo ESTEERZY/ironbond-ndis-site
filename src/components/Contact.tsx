@@ -1,26 +1,20 @@
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, ShieldCheck } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Send, Calendar, CheckCircle2, AlertCircle } from 'lucide-react';
 
-type FormData = {
-  name: string;
-  phone: string;
-  email: string;
-  participantName: string;
-  service: string;
-  suburb: string;
-  message: string;
-};
 
-const Contact = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '', phone: '', email: '', participantName: '', service: '', suburb: '', message: ''
-  });
+interface ContactProps {
+  onOpenBooking: () => void;
+}
+
+export const Contact: React.FC<ContactProps> = ({ onOpenBooking }) => {
   const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: 'General Enquiry',
+    message: '',
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,178 +22,238 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-slate-50">
+    <section id="contact" className="py-20 bg-white relative">
       <div className="container mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Get in Touch</p>
-          <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">
-            Ready to get started?<br />We'd love to hear from you.
+        
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <span className="text-teal font-bold text-xs uppercase tracking-widest bg-teal/10 border border-teal/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
+            Contact & Location
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-4">
+            Visit Harbour Dental Studio.
           </h2>
-          <p className="text-lg text-slate-600 max-w-xl mx-auto">
-            Whether you're a participant, family member, support coordinator, or hospital discharge planner — reach out today. We respond to all enquiries within one business day.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Located conveniently in Hobart, our clinic is open 6 days a week. Get in touch with our team or schedule your visit.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Left: Contact details */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7 }}
-            className="flex flex-col gap-5"
-          >
-            {/* Phone */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:border-teal/25 transition-all shadow-sm">
-              <div className="w-10 h-10 bg-teal/10 rounded-xl flex items-center justify-center mb-4">
-                <Phone size={18} className="text-teal" />
-              </div>
-              <h4 className="font-bold text-navy mb-1">Phone</h4>
-              <a href="tel:1300467426" className="text-teal font-bold text-lg hover:underline">1300 467 426</a>
-              <p className="text-xs text-slate-400 mt-1">Mon – Fri, 8am – 6pm</p>
-              <div className="mt-3 pt-3 border-t border-slate-100">
-                <p className="text-xs text-slate-500 font-semibold">After-hours emergency:</p>
-                <a href="tel:0412000000" className="text-sm font-bold text-navy hover:text-teal transition-colors">0412 000 000</a>
-              </div>
-            </div>
-            {/* Email */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:border-teal/25 transition-all shadow-sm">
-              <div className="w-10 h-10 bg-violet-50 rounded-xl flex items-center justify-center mb-4">
-                <Mail size={18} className="text-violet-500" />
-              </div>
-              <h4 className="font-bold text-navy mb-1">Email</h4>
-              <a href="mailto:hello@horizonsupport.com.au" className="text-teal font-semibold text-sm hover:underline break-all">
-                hello@horizonsupport.com.au
-              </a>
-              <p className="text-xs text-slate-400 mt-1">We respond within 1 business day</p>
-            </div>
-            {/* Office */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:border-teal/25 transition-all shadow-sm">
-              <div className="w-10 h-10 bg-emerald/10 rounded-xl flex items-center justify-center mb-4">
-                <MapPin size={18} className="text-emerald" />
-              </div>
-              <h4 className="font-bold text-navy mb-1">Office</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">Level 3, 84 William Street<br />Melbourne VIC 3000</p>
-            </div>
-            {/* Hours */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-              <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
-                <Clock size={18} className="text-amber-500" />
-              </div>
-              <h4 className="font-bold text-navy mb-3">Office Hours</h4>
-              <div className="flex flex-col gap-1.5 text-sm">
-                {[['Monday – Friday', '8:00am – 6:00pm'], ['Saturday', '9:00am – 1:00pm'], ['Sunday', 'Closed'], ['After-hours emergency', 'Available 24/7']].map(([day, time]) => (
-                  <div key={day} className="flex justify-between">
-                    <span className="text-slate-500">{day}</span>
-                    <span className="font-semibold text-navy">{time}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* LEFT: Contact Information & Hours (5 Cols) */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-6">
+              <h3 className="text-xl font-bold text-navy border-b border-slate-200 pb-3">
+                Clinic Information
+              </h3>
 
-          {/* Right: Referral form (spans 2 columns) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-2"
-          >
-            <div className="bg-white rounded-2xl border border-slate-100 shadow-xl shadow-navy/5 p-8">
-              <h3 className="text-xl font-black text-navy mb-1">Referral & Enquiry Form</h3>
-              <p className="text-sm text-slate-500 mb-7">Complete this form and a member of our team will contact you within one business day.</p>
-
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <div className="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mb-4">
-                    <ShieldCheck size={32} className="text-emerald" />
-                  </div>
-                  <h4 className="text-xl font-black text-navy mb-2">Thank you — we'll be in touch.</h4>
-                  <p className="text-slate-500 text-sm max-w-sm">
-                    A member of our team will contact you within one business day to discuss how we can help. If your need is urgent, please call us directly on 1300 467 426.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Your Name *</label>
-                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required
-                        className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                        placeholder="Jane Smith"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Phone Number *</label>
-                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required
-                        className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                        placeholder="04XX XXX XXX"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="email" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Email Address</label>
-                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}
-                        className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                        placeholder="jane@example.com.au"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="participantName" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Participant Name</label>
-                      <input type="text" id="participantName" name="participantName" value={formData.participantName} onChange={handleChange}
-                        className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                        placeholder="If referring for someone else"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="service" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Service Interested In</label>
-                      <select id="service" name="service" value={formData.service} onChange={handleChange}
-                        className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                      >
-                        <option value="">Select a service...</option>
-                        <option>Support Coordination</option>
-                        <option>Core Supports / Daily Living</option>
-                        <option>Community Participation</option>
-                        <option>Supported Independent Living (SIL)</option>
-                        <option>Short-Term Accommodation / Respite</option>
-                        <option>Allied Health (OT, Physio, Speech, Psychology)</option>
-                        <option>Early Childhood Supports</option>
-                        <option>Plan Management</option>
-                        <option>Not sure — need advice</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="suburb" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Your Suburb / Area</label>
-                      <input type="text" id="suburb" name="suburb" value={formData.suburb} onChange={handleChange}
-                        className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl"
-                        placeholder="E.g. Richmond, Doncaster..."
-                      />
-                    </div>
+              <div className="space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin size={20} />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-xs font-bold text-navy uppercase tracking-wide mb-1.5">Tell Us About Your Needs</label>
-                    <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4}
-                      className="w-full px-4 py-3 bg-slate-50 text-navy text-sm border border-slate-200 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/20 transition-all rounded-xl resize-none"
-                      placeholder="Briefly describe the participant's needs, any current supports, and what you're hoping Horizon can help with..."
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Address</h4>
+                    <p className="text-sm font-bold text-navy mt-0.5">Harbour Dental Studio</p>
+                    <p className="text-xs sm:text-sm text-slate-600">123 Harbour Street, Hobart TAS 7000</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Phone</h4>
+                    <a href="tel:0361000000" className="text-sm font-bold text-teal hover:underline mt-0.5 block">
+                      (03) 6100 0000
+                    </a>
+                    <p className="text-[11px] text-slate-500">Triage line open during clinic hours</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email</h4>
+                    <a href="mailto:hello@harbourdentalstudio.com.au" className="text-sm font-bold text-navy hover:text-teal mt-0.5 block">
+                      hello@harbourdentalstudio.com.au
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 pt-2 border-t border-slate-200">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Clock size={20} />
+                  </div>
+                  <div className="w-full">
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Opening Hours</h4>
+                    <div className="text-xs text-slate-700 space-y-1 font-medium">
+                      <div className="flex justify-between">
+                        <span>Monday – Friday:</span>
+                        <span className="font-bold text-navy">8:00am – 6:00pm</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Saturday:</span>
+                        <span className="font-bold text-navy">9:00am – 1:00pm</span>
+                      </div>
+                      <div className="flex justify-between text-slate-400">
+                        <span>Sunday:</span>
+                        <span>Closed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="tel:0361000000"
+                  className="flex-1 bg-navy hover:bg-navy-mid text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors"
+                >
+                  <Phone size={14} className="text-teal" /> Call (03) 6100 0000
+                </a>
+                <button
+                  onClick={onOpenBooking}
+                  className="flex-1 bg-teal hover:bg-teal/90 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-sm"
+                >
+                  <Calendar size={14} /> Book Online
+                </button>
+              </div>
+
+              {/* Demo Badge */}
+              <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-[11px] text-amber-800 flex items-start gap-2">
+                <AlertCircle size={14} className="text-amber-600 flex-shrink-0 mt-0.5" />
+                <span>
+                  <strong>Demo Disclaimer:</strong> Harbour Dental Studio is a fictional dental practice website concept created by <strong>Ironbond Digital</strong> for demonstration purposes.
+                </span>
+              </div>
+            </div>
+
+            {/* Map Placeholder */}
+            <div className="bg-slate-100 border border-slate-200 rounded-3xl h-56 relative overflow-hidden flex flex-col justify-end p-4 group">
+              <img
+                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
+                alt="Map view of Hobart Waterfront"
+                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent"></div>
+              
+              <div className="relative z-10 text-white flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold flex items-center gap-1 text-teal-light">
+                    <MapPin size={14} /> 123 Harbour St, Hobart
+                  </p>
+                  <p className="text-[11px] text-slate-300">Central Hobart · On-site parking available</p>
+                </div>
+                <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white">
+                  Map View
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT: Contact Form (7 Cols) */}
+          <div className="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-sm">
+            <h3 className="text-2xl font-black text-navy mb-2">Send an Enquiry</h3>
+            <p className="text-xs sm:text-sm text-slate-600 mb-6">
+              Have a question for our reception team? Fill out the form below and we will get back to you promptly.
+            </p>
+
+            {submitted ? (
+              <div className="bg-emerald/10 border-2 border-emerald text-emerald-900 rounded-2xl p-8 text-center space-y-4">
+                <CheckCircle2 size={40} className="text-emerald mx-auto" />
+                <h4 className="text-xl font-bold text-navy">Enquiry Received (Demo)</h4>
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+                  Thank you, <strong>{formData.name}</strong>. Your message regarding <strong>{formData.service}</strong> has been submitted.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="bg-navy text-white text-xs font-bold px-6 py-2.5 rounded-xl hover:bg-navy-mid transition-colors"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-navy mb-1.5">Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. John Smith"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 bg-white"
                     />
                   </div>
-                  <button type="submit"
-                    className="w-full bg-teal text-white py-4 text-sm font-bold rounded-xl hover:bg-teal/90 transition-all shadow-lg shadow-teal/20"
+
+                  <div>
+                    <label className="block text-xs font-bold text-navy mb-1.5">Phone Number *</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="0400 000 000"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-navy mb-1.5">Email Address</label>
+                  <input
+                    type="email"
+                    placeholder="john@example.com.au"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-navy mb-1.5">Enquiry Subject</label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 bg-white text-navy font-medium"
                   >
-                    Submit Referral / Enquiry
-                  </button>
-                  <p className="text-center text-xs text-slate-400 flex items-center justify-center gap-1.5">
-                    <ShieldCheck size={12} className="text-emerald" />
-                    Your information is protected under the Privacy Act 1988 (Cth) — Horizon Support Services Pty Ltd
-                  </p>
-                </form>
-              )}
-            </div>
-          </motion.div>
+                    <option value="General Enquiry">General Enquiry</option>
+                    <option value="Check-up & Clean">Check-up & Clean</option>
+                    <option value="Emergency Dental">Emergency Dental</option>
+                    <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                    <option value="Teeth Whitening">Teeth Whitening</option>
+                    <option value="Clear Aligners">Clear Aligners</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-navy mb-1.5">Your Message</label>
+                  <textarea
+                    rows={4}
+                    placeholder="How can our dental team help you today?"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 bg-white"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-teal hover:bg-teal/90 text-white font-bold py-4 rounded-xl transition-all shadow-md shadow-teal/20 text-sm flex items-center justify-center gap-2"
+                >
+                  <Send size={16} /> Send Enquiry
+                </button>
+              </form>
+            )}
+
+          </div>
+
         </div>
       </div>
     </section>

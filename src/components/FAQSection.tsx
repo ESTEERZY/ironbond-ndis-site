@@ -1,127 +1,121 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronDown, Phone, Calendar } from 'lucide-react';
 
-const faqs = [
-  {
-    q: 'Can you help me understand and use my NDIS plan?',
-    a: 'Yes — this is exactly what our Support Coordinators do. They\'ll explain your plan in plain language, help you identify the right supports, connect you with providers, and ensure your funding is used in a way that works toward your goals. If you\'re self-managed, plan-managed, or NDIA-managed, we can work with any plan type.'
-  },
-  {
-    q: 'Do I need to be plan-managed to use Horizon\'s services?',
-    a: 'No. We support participants who are NDIA-managed, plan-managed, and self-managed. If you\'re not sure which funding management type suits you best, our team can walk you through the differences and help you make the right choice for your situation.'
-  },
-  {
-    q: 'Can I change from my current provider to Horizon?',
-    a: 'Yes — you can change NDIS providers at any time. You\'ll need to give notice as per your existing service agreement (usually 2 to 4 weeks), and then we\'ll take care of everything to make the transition smooth. Our team handles the paperwork and helps ensure there\'s no gap in your supports.'
-  },
-  {
-    q: 'Do you service my suburb?',
-    a: 'We operate across Metropolitan Melbourne and many parts of regional Victoria — including Geelong, Ballarat, Bendigo, and Shepparton. If you\'re not sure, call us on 1300 467 426 or use our contact form and we\'ll confirm coverage in your area within one business day.'
-  },
-  {
-    q: 'How quickly can my supports start?',
-    a: 'In many cases, we can begin supports within 5 to 10 business days of completing your service agreement. For urgent situations — such as hospital discharge or carer breakdown — we can often arrange supports faster. Call our team directly and we\'ll do everything we can to move quickly.'
-  },
-  {
-    q: 'What happens if my needs change after we start?',
-    a: 'We review every participant\'s supports regularly — typically every 3 to 6 months — and whenever your circumstances change. If you need more support, different services, or your NDIS plan is due for review, your coordinator will work with you to adjust your supports and if needed, request a plan review with the NDIA.'
-  },
-  {
-    q: 'Can you support my child with early childhood intervention?',
-    a: 'Yes. Our Early Childhood team works with children under 9 who have a confirmed disability or developmental delay — including those who don\'t yet have an NDIS plan. We partner with families to deliver therapy, build capacity, and connect children with the right services at the right time in their development.'
-  },
-  {
-    q: 'Do you offer after-hours or emergency support?',
-    a: 'Yes. We have an after-hours emergency line available 7 days a week for existing participants. For SIL participants, staff are on-site or on-call 24/7. Emergency support requests are prioritised, and our on-call coordinator will contact you as quickly as possible.'
-  },
-  {
-    q: 'What does a support coordinator actually do day-to-day?',
-    a: 'Your support coordinator is your guide to the NDIS. On a day-to-day basis, they connect you with providers, handle service agreements, monitor your budget, prepare for plan reviews, and advocate for your needs. They act as a bridge between you and the system — so you don\'t have to navigate it alone.'
-  },
-  {
-    q: 'How do I make a referral for someone else?',
-    a: 'You can make a referral using our contact form on this page, by calling 1300 467 426, or by emailing hello@horizonsupport.com.au. Please include the participant\'s name, location, current NDIS plan type, and the supports they\'re looking for. We\'ll follow up within one business day.'
-  },
-];
 
-const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+interface FAQSectionProps {
+  onOpenBooking: () => void;
+}
+
+export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenBooking }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      question: 'What services do you offer?',
+      answer: 'Harbour Dental Studio offers comprehensive dental care including general dental check-ups, professional cleans, fillings, emergency dental care, cosmetic dentistry, teeth whitening, clear aligner therapy, dental implants, and gentle children’s dentistry.',
+    },
+    {
+      question: 'How do I book an appointment?',
+      answer: 'You can easily book online using our "Book an Appointment" scheduling tool on this website, or call our friendly Hobart clinic team directly at (03) 6100 0000 during operating hours.',
+    },
+    {
+      question: 'Do you accept new patients?',
+      answer: 'Yes! We warmly welcome new individual and family patients to Harbour Dental Studio. During your first visit, we conduct a comprehensive oral health assessment and discuss your dental history and goals.',
+    },
+    {
+      question: 'What should I do if I have a dental emergency?',
+      answer: 'If you are experiencing severe dental pain, a broken tooth, or dental trauma, call our clinic immediately at (03) 6100 0000. We reserve emergency slots every business day so we can assess and assist you as quickly as possible.',
+    },
+    {
+      question: 'Can I reschedule my appointment?',
+      answer: 'Yes, you can easily reschedule or cancel your appointment by giving us a call at least 24 hours in advance so we can offer the slot to another patient.',
+    },
+    {
+      question: 'Do you offer payment options?',
+      answer: 'Yes. We accept all major credit cards, EFTPOS, and private health insurance claims via HICAPS for on-the-spot claiming. We also discuss clear treatment quotes prior to any major procedures.',
+    },
+    {
+      question: 'Do you offer clear aligners?',
+      answer: 'Yes, we provide clear aligner consultation and treatment for patients looking for a subtle, comfortable alternative to traditional braces to straighten their teeth.',
+    },
+    {
+      question: 'How do I contact the clinic?',
+      answer: 'You can reach Harbour Dental Studio by calling (03) 6100 0000, emailing hello@harbourdentalstudio.com.au, or visiting us at 123 Harbour Street, Hobart TAS 7000.',
+    },
+  ];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white">
+    <section id="faqs" className="py-20 bg-slate-50 relative">
       <div className="container mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <p className="text-teal text-sm font-bold tracking-widest uppercase mb-3">Common Questions</p>
-          <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">
-            Questions about<br />our services.
+        
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <span className="text-teal font-bold text-xs uppercase tracking-widest bg-teal/10 border border-teal/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
+            Frequently Asked Questions
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-4">
+            Everything you need to know.
           </h2>
-          <p className="text-lg text-slate-600 max-w-xl mx-auto">
-            Real answers to the questions participants and families ask most. If you don't see yours here, call us — we're happy to help.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Find quick answers to common questions about our Hobart clinic services, appointments, and care.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial="hidden" whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ staggerChildren: 0.06 }}
-            className="flex flex-col gap-3"
-          >
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-                className={`bg-slate-50 rounded-2xl border transition-all duration-300 overflow-hidden ${openIndex === i ? 'border-teal/30 shadow-md shadow-teal/5' : 'border-slate-100 hover:border-teal/20'}`}
+        {/* Accordion List */}
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden transition-all shadow-xs"
               >
                 <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 p-6 text-left"
-                  aria-expanded={openIndex === i}
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                 >
-                  <span className="text-base font-bold text-navy">{faq.q}</span>
-                  <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === i ? 'bg-teal text-white' : 'bg-slate-200 text-slate-500'}`}>
-                    {openIndex === i ? <Minus size={14} /> : <Plus size={14} />}
+                  <span className="text-base sm:text-lg font-bold text-navy">
+                    {faq.question}
                   </span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                    isOpen ? 'bg-teal text-white rotate-180' : 'bg-slate-100 text-slate-600'
+                  }`}>
+                    <ChevronDown size={18} />
+                  </div>
                 </button>
-                <AnimatePresence>
-                  {openIndex === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center text-slate-400 text-sm mt-10"
-          >
-            Still have questions? Call us on{' '}
-            <a href="tel:1300467426" className="text-teal font-bold hover:underline">1300 467 426</a>{' '}
-            or{' '}
-            <a href="#contact"
-              onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-              className="text-teal font-bold hover:underline"
-            >
-              send us a message →
-            </a>
-          </motion.p>
+                {isOpen && (
+                  <div className="px-5 sm:px-6 pb-6 pt-0 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                    <p className="pt-3">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
+
+        {/* Still have questions banner */}
+        <div className="mt-12 max-w-xl mx-auto text-center bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-left">
+            <h4 className="font-bold text-navy text-sm">Have a question not listed here?</h4>
+            <p className="text-xs text-slate-500">Our Hobart reception team is happy to help.</p>
+          </div>
+          <div className="flex gap-2">
+            <a
+              href="tel:0361000000"
+              className="bg-slate-100 hover:bg-slate-200 text-navy font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+            >
+              <Phone size={14} className="text-teal" /> Call Us
+            </a>
+            <button
+              onClick={onOpenBooking}
+              className="bg-teal hover:bg-teal/90 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+            >
+              <Calendar size={14} /> Book Online
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   );
