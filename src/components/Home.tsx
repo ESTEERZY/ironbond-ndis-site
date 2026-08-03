@@ -12,8 +12,7 @@ import AestheticShowcase from './AestheticShowcase'; // Aesthetic Feature
 import BeforeAfterGallery from './BeforeAfterGallery'; // Before & After Interactive Showcase
 import SocialFeedSection from './SocialFeedSection'; // Harbour Social Feed Section (Proud Smile Style)
 import LocationSection from './LocationSection'; // 05
-import FinalCTA from './FinalCTA'; // 06
-import Footer from './Footer'; // 07
+import Footer from './Footer'; // 06
 
 import MobileStickyBar from './MobileStickyBar';
 import BookingModal from './BookingModal';
@@ -96,12 +95,9 @@ export const Home: React.FC<HomeProps> = ({
 
         {/* 05 — LOCATION & HOURS */}
         <LocationSection />
-
-        {/* 06 — FINAL BOOKING CTA */}
-        <FinalCTA onOpenBooking={() => handleOpenBooking()} />
       </main>
 
-      {/* 07 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
+      {/* 06 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenAIReceptionist={handleOpenAIReceptionist}
