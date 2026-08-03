@@ -16,7 +16,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         <img
           src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=85"
           alt="Harbour Dental Studio modern clinic environment Hobart"
-          className="w-full h-full object-cover scale-105 filter brightness-[0.85] transform transition-transform duration-1000"
+          className="w-full h-full object-cover object-[center_30%] scale-105 filter brightness-[0.85] transform transition-transform duration-1000"
+
         />
         
         {/* Luxury Vignette Overlay for High Typography Contrast */}

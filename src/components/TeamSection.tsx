@@ -13,7 +13,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenBooking }) => {
       role: 'Principal Dentist',
       qualifications: 'BDS (Distinction), Univ. of Sydney',
       experience: '14+ Years Clinical Care',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=80',
       bio: 'Dr. Sophie Mitchell founded Harbour Dental Studio to deliver exceptional, gentle dental care in Hobart. She has extensive experience in general, preventive, and complex restorative dentistry.',
       interests: 'Restorative care, gentle dentistry & preventative health',
     },
@@ -22,7 +22,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenBooking }) => {
       role: 'Dentist',
       qualifications: 'BDSc (Hons), Univ. of Melbourne',
       experience: '9+ Years Clinical Care',
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1000&q=80',
       bio: 'Dr. James Carter brings a warm and meticulous approach to clinical dentistry. Having completed postgraduate training in clear aligner therapy and cosmetic restorations, James focuses on functional outcomes.',
       interests: 'Cosmetic dentistry, clear aligners & ceramic restorations',
     },
@@ -36,17 +36,17 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenBooking }) => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-charcoal/10 pb-8">
           <div>
             <span className="text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-forest block mb-3">
-              06 — CLINICAL TEAM
+              08 — CLINICAL TEAM
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-charcoal">
-              Experienced Hobart Team
+              Meet your dental team.
             </h2>
           </div>
           <Link
             to="/team"
             className="text-xs font-sans font-bold uppercase tracking-widest text-charcoal hover:text-forest mt-4 md:mt-0 flex items-center gap-2"
           >
-            <span>Meet Full Clinical Team</span>
+            <span>MEET THE TEAM →</span>
             <ArrowUpRight size={16} />
           </Link>
         </div>
@@ -63,7 +63,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenBooking }) => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4 bg-ivory/90 backdrop-blur-md border border-charcoal/10 text-charcoal text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                     {member.role}

@@ -59,7 +59,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <img
                     src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80"
                     alt="Harbour Dental Studio interior Hobart"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[center_30%]"
+
                   />
                 </div>
               </div>

@@ -147,7 +147,8 @@ export const TreatmentsDirectory: React.FC<TreatmentsDirectoryProps> = ({ onOpen
                 <img
                   src={activeTreatment.image}
                   alt={activeTreatment.title}
-                  className="w-full h-full object-cover transition-all duration-700"
+                  className="w-full h-full object-cover object-[center_30%] transition-all duration-700"
+
                 />
                 <span className="absolute top-3 left-3 bg-ivory text-charcoal text-[10px] font-sans font-bold uppercase tracking-widest px-3 py-1">
                   {activeTreatment.number} · HOBART STUDIO
