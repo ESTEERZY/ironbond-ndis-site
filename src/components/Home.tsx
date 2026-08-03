@@ -6,14 +6,14 @@ import Header from './Header'; // 01
 import Hero from './Hero'; // 02
 import IntroSection from './IntroSection'; // 03
 import NewPatientSpecialSection from './NewPatientSpecialSection'; // New Patient Special Offer (Proud Smile Style)
-import TreatmentsDirectory from './TreatmentsDirectory'; // 04
-import FeaturedExperience from './FeaturedExperience'; // 05
+import FeaturedExperience from './FeaturedExperience'; // 04
+import PaymentPlansSection from './PaymentPlansSection'; // Flexible Payment Plans & Health Funds (Proud Smile Style)
 import AestheticShowcase from './AestheticShowcase'; // Aesthetic Feature
 import BeforeAfterGallery from './BeforeAfterGallery'; // Before & After Interactive Showcase
 import SocialFeedSection from './SocialFeedSection'; // Harbour Social Feed Section (Proud Smile Style)
-import LocationSection from './LocationSection'; // 06
-import FinalCTA from './FinalCTA'; // 07
-import Footer from './Footer'; // 08
+import LocationSection from './LocationSection'; // 05
+import FinalCTA from './FinalCTA'; // 06
+import Footer from './Footer'; // 07
 
 import MobileStickyBar from './MobileStickyBar';
 import BookingModal from './BookingModal';
@@ -79,11 +79,11 @@ export const Home: React.FC<HomeProps> = ({
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
 
-        {/* 04 — TREATMENTS DIRECTORY */}
-        <TreatmentsDirectory onOpenBooking={handleOpenBooking} />
-
-        {/* 05 — FEATURED DENTAL EXPERIENCE */}
+        {/* 04 — FEATURED DENTAL EXPERIENCE */}
         <FeaturedExperience onOpenBooking={handleOpenBooking} />
+
+        {/* FLEXIBLE PAYMENT PLANS & HEALTH FUNDS SECTION (PROUD SMILE STYLE) */}
+        <PaymentPlansSection onOpenBooking={handleOpenBooking} />
 
         {/* DEDICATED AESTHETIC SHOWCASE */}
         <AestheticShowcase onOpenBooking={handleOpenBooking} />
@@ -94,14 +94,14 @@ export const Home: React.FC<HomeProps> = ({
         {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
         <SocialFeedSection />
 
-        {/* 06 — LOCATION & HOURS */}
+        {/* 05 — LOCATION & HOURS */}
         <LocationSection />
 
-        {/* 07 — FINAL BOOKING CTA */}
+        {/* 06 — FINAL BOOKING CTA */}
         <FinalCTA onOpenBooking={() => handleOpenBooking()} />
       </main>
 
-      {/* 08 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
+      {/* 07 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenAIReceptionist={handleOpenAIReceptionist}
