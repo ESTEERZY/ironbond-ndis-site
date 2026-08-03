@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Phone, Calendar, Clock, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { Phone, Calendar, Clock, AlertTriangle, ShieldCheck } from 'lucide-react';
 
 interface EmergencySectionProps {
   onOpenBooking: (serviceName?: string) => void;
@@ -7,71 +7,62 @@ interface EmergencySectionProps {
 
 export const EmergencySection: React.FC<EmergencySectionProps> = ({ onOpenBooking }) => {
   return (
-    <section id="emergency" className="py-16 bg-white relative">
+    <section id="emergency" className="py-20 bg-forest text-white relative">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="bg-gradient-to-br from-rose-500/10 via-amber-500/5 to-white border-2 border-rose-200/80 rounded-3xl p-8 lg:p-12 shadow-lg relative overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 max-w-5xl mx-auto">
           
-          {/* Subtle Background Badge */}
-          <div className="absolute -top-6 -right-6 w-36 h-36 bg-rose-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          {/* Left Info */}
+          <div className="w-full lg:w-7/12 space-y-4 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sand px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+              <AlertTriangle size={14} className="text-sand animate-pulse" />
+              <span>Urgent Dental Care · Hobart Practice</span>
+            </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight">
+              Need urgent dental care?
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-sans">
+              If you are experiencing severe toothache, a chipped or knocked-out tooth, or unexpected swelling, please contact our Hobart clinic immediately. We reserve daily emergency appointments to advise you on the next step.
+            </p>
+
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs font-sans text-slate-300 pt-2">
+              <span className="flex items-center gap-1.5 border border-white/15 px-3 py-1.5">
+                <Clock size={14} className="text-sand" /> Daily Reserve Slots
+              </span>
+              <span className="flex items-center gap-1.5 border border-white/15 px-3 py-1.5">
+                <ShieldCheck size={14} className="text-sand" /> Fast Phone Triage
+              </span>
+            </div>
+          </div>
+
+          {/* Right Action Box */}
+          <div className="w-full lg:w-5/12 bg-white text-charcoal border border-charcoal/10 p-6 sm:p-8 shadow-xl flex flex-col gap-4 text-center font-sans">
+            <span className="text-xs font-bold text-charcoal-muted uppercase tracking-widest">Immediate Assistance</span>
             
-            {/* Left Info */}
-            <div className="w-full lg:w-2/3 space-y-4">
-              <div className="inline-flex items-center gap-2 bg-rose-100 border border-rose-200 text-rose-700 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                <AlertTriangle size={14} className="text-rose-600 animate-pulse" />
-                <span>Urgent Dental Care · Hobart Clinic</span>
-              </div>
+            <a
+              href="tel:0361000000"
+              className="w-full bg-charcoal hover:bg-forest text-white font-sans text-xs font-bold uppercase tracking-widest py-4 transition-colors flex items-center justify-center gap-2 shadow-md"
+            >
+              <Phone size={16} className="text-sand" />
+              Call the Clinic
+            </a>
 
-              <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight">
-                Need urgent dental care?
-              </h2>
+            <p className="text-xs text-charcoal font-bold">
+              Emergency Line: <a href="tel:0361000000" className="text-forest hover:underline">(03) 6100 0000</a>
+            </p>
 
-              <p className="text-base text-slate-700 leading-relaxed max-w-2xl">
-                If you are experiencing severe toothache, a chipped or knocked-out tooth, or unexpected dental pain, please contact our clinic team immediately. We reserve daily emergency appointments to advise you on the next appropriate step and get you out of discomfort.
-              </p>
-
-              <div className="flex flex-wrap gap-4 text-xs font-semibold text-slate-600 pt-1">
-                <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-2xs">
-                  <Zap size={14} className="text-rose-500" /> Daily Reserve Slots
-                </span>
-                <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-2xs">
-                  <Clock size={14} className="text-amber-600" /> Fast Response Guidance
-                </span>
-                <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-2xs">
-                  <ShieldCheck size={14} className="text-teal" /> Gentle Triage Care
-                </span>
-              </div>
+            <div className="relative py-1 flex items-center justify-center">
+              <span className="bg-white px-2 text-[10px] uppercase font-bold text-charcoal-muted">OR REQUEST ONLINE</span>
+              <div className="absolute inset-0 border-t border-charcoal/10 top-1/2 -z-10"></div>
             </div>
 
-            {/* Right Action Box */}
-            <div className="w-full lg:w-1/3 bg-white border border-slate-200 rounded-2xl p-6 shadow-md flex flex-col gap-3 text-center">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Immediate Assistance</span>
-              <a
-                href="tel:0361000000"
-                className="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-md shadow-rose-600/25 flex items-center justify-center gap-2 text-base"
-              >
-                <Phone size={18} />
-                Call the Clinic
-              </a>
-
-              <p className="text-xs text-navy font-bold">
-                Phone: <span className="text-rose-600 font-mono font-bold">(03) 6100 0000</span>
-              </p>
-
-              <div className="relative py-1 flex items-center justify-center">
-                <span className="bg-white px-2 text-[10px] uppercase font-bold text-slate-400">or</span>
-                <div className="absolute inset-0 border-t border-slate-200 top-1/2 -z-10"></div>
-              </div>
-
-              <button
-                onClick={() => onOpenBooking('Emergency Dental Care')}
-                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-4 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
-              >
-                <Calendar size={14} className="text-teal" /> Request Emergency Slot Online
-              </button>
-            </div>
-
+            <button
+              onClick={() => onOpenBooking('Emergency Dental')}
+              className="w-full bg-forest hover:bg-forest-light text-white font-sans text-xs font-bold uppercase tracking-widest py-3.5 transition-colors flex items-center justify-center gap-2"
+            >
+              <Calendar size={15} /> Request Emergency Slot
+            </button>
           </div>
 
         </div>
