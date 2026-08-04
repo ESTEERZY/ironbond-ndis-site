@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 // Homepage Sections
 import Header from './Header'; // 01
 import Hero from './Hero'; // 02
+import PhilosophySection from './PhilosophySection'; // "Confidence starts with a smile" (Proud Smile Style - NOW FIRST AFTER HERO)
 import IntroSection from './IntroSection'; // 03
-import PhilosophySection from './PhilosophySection'; // Philosophy & Empowerment (Proud Smile Style)
 import NewPatientSpecialSection from './NewPatientSpecialSection'; // New Patient Special Offer (Proud Smile Style)
 import ServicesPillarsSection from './ServicesPillarsSection'; // 3-Column Pillars Banner (Proud Smile Style)
 import FeaturedExperience from './FeaturedExperience'; // 04
@@ -75,11 +75,11 @@ export const Home: React.FC<HomeProps> = ({
         {/* 02 — HERO */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 03 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
-        <IntroSection onOpenBooking={() => handleOpenBooking()} />
-
-        {/* PHILOSOPHY & EMPOWERMENT SECTION (PROUD SMILE STYLE) */}
+        {/* 03 — PHILOSOPHY & EMPOWERMENT SECTION ("Confidence starts with a smile" — FIRST AFTER HERO) */}
         <PhilosophySection onOpenBooking={handleOpenBooking} />
+
+        {/* 04 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
+        <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
@@ -87,7 +87,7 @@ export const Home: React.FC<HomeProps> = ({
         {/* 3-COLUMN SERVICES PILLARS BANNER (PROUD SMILE STYLE) */}
         <ServicesPillarsSection onOpenBooking={handleOpenBooking} />
 
-        {/* 04 — FEATURED DENTAL EXPERIENCE */}
+        {/* 05 — FEATURED DENTAL EXPERIENCE */}
         <FeaturedExperience onOpenBooking={handleOpenBooking} />
 
         {/* SAME-DAY AESTHETICS LEADERS SECTION (PROUD SMILE STYLE) */}
@@ -105,11 +105,11 @@ export const Home: React.FC<HomeProps> = ({
         {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
         <SocialFeedSection />
 
-        {/* 05 — LOCATION & HOURS */}
+        {/* 06 — LOCATION & HOURS */}
         <LocationSection />
       </main>
 
-      {/* 06 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
+      {/* 07 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
       <Footer
         onOpenBooking={handleOpenBooking}
         onOpenAIReceptionist={handleOpenAIReceptionist}
