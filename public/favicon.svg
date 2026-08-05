@@ -1,30 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Rounded Square Container with Deep Forest Background -->
-  <rect width="64" height="64" rx="16" fill="#0F3832"/>
+  <!-- Soft Rounded Background Container with Forest Gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14463E"/>
+      <stop offset="100%" stop-color="#0A2924"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)"/>
   
-  <!-- Subtle Inner Border -->
+  <!-- Outer Subtle Gold Ring -->
   <rect x="2" y="2" width="60" height="60" rx="14" stroke="#D9C5B2" stroke-opacity="0.3" stroke-width="1.5"/>
 
-  <!-- Elegant Tooth & Harbour Wave Motif -->
-  <g transform="translate(12, 11)">
-    <!-- Tooth Contour -->
+  <!-- Happy Smiling Tooth -->
+  <g transform="translate(12, 10)">
+    <!-- Tooth Body -->
     <path 
-      d="M20 5C13.5 5 9 9.5 9 16C9 23 11.5 31.5 15 35C17 37 19 34.5 20 31C21 34.5 23 37 25 35C28.5 31.5 31 23 31 16C31 9.5 26.5 5 20 5Z" 
-      fill="#FAF8F5" 
-      fill-opacity="0.15" 
+      d="M20 4C13 4 8 8.5 8 15.5C8 23 10.5 32 14.5 36C16.5 38 18.5 35 20 31.5C21.5 35 23.5 38 25.5 36C29.5 32 32 23 32 15.5C32 8.5 27 4 20 4Z" 
+      fill="#FFFFFF" 
       stroke="#FAF8F5" 
-      stroke-width="2.5" 
-      stroke-linecap="round" 
+      stroke-width="1.5" 
       stroke-linejoin="round"
     />
-    <!-- Harbour Gentle Smile Wave -->
+    
+    <!-- Happy Cheerful Eyes -->
+    <circle cx="15" cy="14" r="2" fill="#0A2924"/>
+    <circle cx="25" cy="14" r="2" fill="#0A2924"/>
+    
+    <!-- Catchlight in eyes -->
+    <circle cx="15.6" cy="13.4" r="0.7" fill="#FFFFFF"/>
+    <circle cx="25.6" cy="13.4" r="0.7" fill="#FFFFFF"/>
+
+    <!-- Cute Rosy Cheeks -->
+    <ellipse cx="12.5" cy="18" rx="2" ry="1.2" fill="#E94B77" fill-opacity="0.4"/>
+    <ellipse cx="27.5" cy="18" rx="2" ry="1.2" fill="#E94B77" fill-opacity="0.4"/>
+
+    <!-- Wide Happy Smile with Teeth -->
     <path 
-      d="M13 18C16 21 24 21 27 18" 
-      stroke="#D9C5B2" 
-      stroke-width="2.5" 
-      stroke-linecap="round"
+      d="M14 20C14 24.5 17 26.5 20 26.5C23 26.5 26 24.5 26 20Z" 
+      fill="#0A2924"
     />
-    <!-- Subtle Sparkle Accent -->
-    <circle cx="20" cy="11" r="2" fill="#D9C5B2"/>
+    <path 
+      d="M15 20H25C25 21.8 23 22.5 20 22.5C17 22.5 15 21.8 15 20Z" 
+      fill="#FFFFFF"
+    />
+
+    <!-- Sparkle Stars -->
+    <path 
+      d="M32 6L33 9L36 10L33 11L32 14L31 11L28 10L31 9Z" 
+      fill="#D9C5B2"
+    />
   </g>
 </svg>
