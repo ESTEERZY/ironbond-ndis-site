@@ -38,7 +38,7 @@ export const TeamPage: React.FC<TeamPageProps> = ({
       role: 'Senior Dental Hygienist',
       qualifications: 'BOH, Univ. of Queensland',
       experience: '11+ Years Dental Hygiene Care',
-      image: 'https://images.unsplash.com/photo-1594824813570-089270a3772c?auto=format&fit=crop&w=1000&q=80',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1000&q=80',
       bio: 'Emma works closely with our dentists to deliver thorough preventative cleans, periodontal maintenance, and gentle oral hygiene instruction for Hobart families.',
       focus: 'Preventative cleans, gum health maintenance & teeth whitening.',
     },

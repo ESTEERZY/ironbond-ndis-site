@@ -26,6 +26,15 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenBooking }) => {
       bio: 'Dr. James Carter brings a warm and meticulous approach to clinical dentistry. Having completed postgraduate training in clear aligner therapy and cosmetic restorations, James focuses on functional outcomes.',
       interests: 'Cosmetic dentistry, clear aligners & ceramic restorations',
     },
+    {
+      name: 'Emma Wilson',
+      role: 'Senior Dental Hygienist',
+      qualifications: 'BOH, Univ. of Queensland',
+      experience: '11+ Years Dental Hygiene Care',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1000&q=80',
+      bio: 'Emma works closely with our dentists to deliver thorough preventative cleans, periodontal maintenance, and gentle oral hygiene instruction for Hobart families.',
+      interests: 'Preventative cleans, gum health maintenance & teeth whitening',
+    },
   ];
 
   return (
@@ -52,7 +61,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenBooking }) => {
         </div>
 
         {/* Team Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <div
               key={index}
