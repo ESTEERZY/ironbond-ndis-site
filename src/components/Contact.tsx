@@ -144,25 +144,30 @@ export const Contact: React.FC<ContactProps> = ({ onOpenBooking }) => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-sand-light border border-charcoal/10 rounded-3xl h-56 relative overflow-hidden flex flex-col justify-end p-4 group">
-              <img
-                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
-                alt="Map view of Hobart Waterfront"
-                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-75"
-              />
-              <div className="absolute inset-0 bg-charcoal/30"></div>
-              
-              <div className="relative z-10 text-white flex items-center justify-between font-sans">
+            {/* Interactive Google Map Embed */}
+            <div className="bg-sand-light border border-charcoal/10 rounded-3xl h-64 sm:h-72 relative overflow-hidden shadow-sm">
+              <iframe
+                title="Harbour Dental Studio Location Map"
+                src="https://maps.google.com/maps?q=123+Harbour+Street,+Hobart+TAS+7000&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border-0 filter contrast-[1.05]"
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+              <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-charcoal/10 shadow-lg flex items-center justify-between pointer-events-none">
                 <div>
-                  <p className="text-xs font-bold flex items-center gap-1 text-sand">
-                    <MapPin size={14} /> 123 Harbour St, Hobart
+                  <p className="text-xs font-bold flex items-center gap-1.5 text-charcoal">
+                    <MapPin size={14} className="text-forest" /> 123 Harbour St, Hobart TAS 7000
                   </p>
-                  <p className="text-[11px] text-slate-200">Central Hobart · On-site parking available</p>
+                  <p className="text-[11px] text-charcoal-muted mt-0.5 font-sans">Central Hobart Waterfront · Dedicated Patient Parking</p>
                 </div>
-                <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white">
-                  Map View
-                </span>
+                <a
+                  href="https://maps.google.com/?q=123+Harbour+Street+Hobart+TAS+7000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pointer-events-auto bg-forest hover:bg-forest-light text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-full transition-colors flex items-center gap-1 shadow-md"
+                >
+                  Directions
+                </a>
               </div>
             </div>
           </div>

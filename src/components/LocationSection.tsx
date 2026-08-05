@@ -56,9 +56,10 @@ export const LocationSection: React.FC = () => {
               ) : (
                 <iframe
                   title="Harbour Dental Studio Hobart Map"
-                  src="https://maps.google.com/maps?q=Hobart%20Tasmania&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=123+Harbour+Street,+Hobart+TAS+7000&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full border-0 filter contrast-[1.05]"
                   loading="lazy"
+                  allowFullScreen
                 ></iframe>
               )}
 
