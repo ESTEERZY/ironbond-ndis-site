@@ -87,6 +87,9 @@ export const Home: React.FC<HomeProps> = ({
         {/* 3-COLUMN SERVICES PILLARS BANNER (COMPREHENSIVE CARE) */}
         <ServicesPillarsSection onOpenBooking={handleOpenBooking} />
 
+        {/* CLINICAL BEFORE & AFTER TRANSFORMATIONS */}
+        <BeforeAfterGallery />
+
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
 
@@ -98,9 +101,6 @@ export const Home: React.FC<HomeProps> = ({
 
         {/* DEDICATED AESTHETIC SHOWCASE */}
         <AestheticShowcase onOpenBooking={handleOpenBooking} />
-
-        {/* CLINICAL BEFORE & AFTER TRANSFORMATIONS */}
-        <BeforeAfterGallery />
 
         {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
         <SocialFeedSection />
