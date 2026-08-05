@@ -78,9 +78,6 @@ export const Home: React.FC<HomeProps> = ({
         {/* 04 — INTRODUCTION ("A dental practice, but not as you know it" / Harbour Dental Studio Intro) */}
         <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
-        {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
-        <SocialFeedSection />
-
         {/* 3-COLUMN SERVICES PILLARS BANNER (COMPREHENSIVE CARE) */}
         <ServicesPillarsSection onOpenBooking={handleOpenBooking} />
 
@@ -95,6 +92,9 @@ export const Home: React.FC<HomeProps> = ({
 
         {/* 06 — LOCATION & HOURS */}
         <LocationSection />
+
+        {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
+        <SocialFeedSection />
       </main>
 
       {/* 07 — FOOTER (PROUD SMILE STYLE LIGHT FOOTER) */}
