@@ -8,10 +8,7 @@ import PhilosophySection from './PhilosophySection'; // "Confidence starts with 
 import IntroSection from './IntroSection'; // 03
 import NewPatientSpecialSection from './NewPatientSpecialSection'; // New Patient Special Offer (Proud Smile Style)
 import ServicesPillarsSection from './ServicesPillarsSection'; // 3-Column Pillars Banner (Proud Smile Style)
-import FeaturedExperience from './FeaturedExperience'; // 04
-import SameDayAestheticsSection from './SameDayAestheticsSection'; // Same-Day Aesthetics Leaders (Proud Smile Style)
 import PaymentPlansSection from './PaymentPlansSection'; // Flexible Payment Plans & Health Funds (Proud Smile Style)
-import AestheticShowcase from './AestheticShowcase'; // Aesthetic Feature
 import BeforeAfterGallery from './BeforeAfterGallery'; // Before & After Interactive Showcase
 import SocialFeedSection from './SocialFeedSection'; // Harbour Social Feed Section (Proud Smile Style)
 import LocationSection from './LocationSection'; // 05
@@ -75,11 +72,8 @@ export const Home: React.FC<HomeProps> = ({
         {/* 02 — HERO */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 03 — PHILOSOPHY & EMPOWERMENT SECTION ("Confidence starts with a smile" — FIRST AFTER HERO) */}
+        {/* 03 — PHILOSOPHY & EMPOWERMENT SECTION ("Confidence starts with a smile") */}
         <PhilosophySection onOpenBooking={handleOpenBooking} />
-
-        {/* SAME-DAY AESTHETICS LEADERS SECTION (PROUD SMILE STYLE) */}
-        <SameDayAestheticsSection onOpenBooking={handleOpenBooking} />
 
         {/* 04 — INTRODUCTION ("A dental practice, but not as you know it") */}
         <IntroSection onOpenBooking={() => handleOpenBooking()} />
@@ -95,12 +89,6 @@ export const Home: React.FC<HomeProps> = ({
 
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
-
-        {/* 05 — FEATURED DENTAL EXPERIENCE */}
-        <FeaturedExperience onOpenBooking={handleOpenBooking} />
-
-        {/* DEDICATED AESTHETIC SHOWCASE */}
-        <AestheticShowcase onOpenBooking={handleOpenBooking} />
 
         {/* HARBOUR SOCIAL SHOWCASE (PROUD SMILE STYLE) */}
         <SocialFeedSection />
