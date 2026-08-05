@@ -90,14 +90,14 @@ export const Home: React.FC<HomeProps> = ({
         {/* CLINICAL BEFORE & AFTER TRANSFORMATIONS */}
         <BeforeAfterGallery />
 
+        {/* FLEXIBLE PAYMENT PLANS & HEALTH FUNDS SECTION ("Smile Now, Pay Later") */}
+        <PaymentPlansSection onOpenBooking={handleOpenBooking} />
+
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
 
         {/* 05 — FEATURED DENTAL EXPERIENCE */}
         <FeaturedExperience onOpenBooking={handleOpenBooking} />
-
-        {/* FLEXIBLE PAYMENT PLANS & HEALTH FUNDS SECTION (PROUD SMILE STYLE) */}
-        <PaymentPlansSection onOpenBooking={handleOpenBooking} />
 
         {/* DEDICATED AESTHETIC SHOWCASE */}
         <AestheticShowcase onOpenBooking={handleOpenBooking} />
