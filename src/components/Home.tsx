@@ -78,6 +78,9 @@ export const Home: React.FC<HomeProps> = ({
         {/* 03 — PHILOSOPHY & EMPOWERMENT SECTION ("Confidence starts with a smile" — FIRST AFTER HERO) */}
         <PhilosophySection onOpenBooking={handleOpenBooking} />
 
+        {/* SAME-DAY AESTHETICS LEADERS SECTION (PROUD SMILE STYLE) */}
+        <SameDayAestheticsSection onOpenBooking={handleOpenBooking} />
+
         {/* 04 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
         <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
@@ -89,9 +92,6 @@ export const Home: React.FC<HomeProps> = ({
 
         {/* 05 — FEATURED DENTAL EXPERIENCE */}
         <FeaturedExperience onOpenBooking={handleOpenBooking} />
-
-        {/* SAME-DAY AESTHETICS LEADERS SECTION (PROUD SMILE STYLE) */}
-        <SameDayAestheticsSection onOpenBooking={handleOpenBooking} />
 
         {/* FLEXIBLE PAYMENT PLANS & HEALTH FUNDS SECTION (PROUD SMILE STYLE) */}
         <PaymentPlansSection onOpenBooking={handleOpenBooking} />
