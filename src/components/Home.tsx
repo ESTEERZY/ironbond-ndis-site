@@ -81,11 +81,11 @@ export const Home: React.FC<HomeProps> = ({
         {/* SAME-DAY AESTHETICS LEADERS SECTION (PROUD SMILE STYLE) */}
         <SameDayAestheticsSection onOpenBooking={handleOpenBooking} />
 
+        {/* 04 — INTRODUCTION ("A dental practice, but not as you know it") */}
+        <IntroSection onOpenBooking={() => handleOpenBooking()} />
+
         {/* 3-COLUMN SERVICES PILLARS BANNER (COMPREHENSIVE CARE) */}
         <ServicesPillarsSection onOpenBooking={handleOpenBooking} />
-
-        {/* 04 — INTRODUCTION (PROUD SMILE STYLE SPLIT SECTION) */}
-        <IntroSection onOpenBooking={() => handleOpenBooking()} />
 
         {/* NEW PATIENT SPECIAL WELCOME PACKAGE SECTION */}
         <NewPatientSpecialSection onOpenBooking={handleOpenBooking} />
